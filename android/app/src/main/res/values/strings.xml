@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">AlterCraft OperatorDesk</string>
-    <string name="title_activity_main">AlterCraft OperatorDesk</string>
-    <string name="package_name">in.altercraft.operatordesk</string>
-    <string name="custom_url_scheme">in.altercraft.operatordesk</string>
+    <string name="app_name">AlterCraft Contractor Desk</string>
+    <string name="title_activity_main">AlterCraft Contractor Desk</string>
+    <string name="package_name">in.altercraft.contractordesk</string>
+    <string name="custom_url_scheme">in.altercraft.contractordesk</string>
 </resources>

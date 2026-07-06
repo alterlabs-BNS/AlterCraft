@@ -1,16 +1,73 @@
 import type * as React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
+import { useNavigate, useParams } from "react-router";
 import operatorDeskStyles from "../styles/operator-desk-figma.css?raw";
 import {
   LayoutDashboard, UserPlus, Briefcase, Wallet, FileText,
   Shield, AlertTriangle, CheckCircle2, ChevronRight,
   DollarSign, Send, Check, Circle, AlertCircle, Camera,
-  Users,
+  Users, ArrowLeft, House, RotateCcw,
 } from "lucide-react";
 
-type Screen = "dashboard" | "lead" | "job" | "payment" | "report" | "dispute" | "team";
+type LeadScreen = "lead" | "lead-contact" | "lead-project" | "lead-requirements" | "lead-review";
+type Screen = "dashboard" | LeadScreen | "job" | "payment" | "report" | "dispute" | "team";
 type OperatorRole = "l3-founder" | "l2-manager" | "l1-worker";
+
+const SCREEN_PATHS: Record<Screen, string> = {
+  dashboard: "dashboard",
+  lead: "leads",
+  "lead-contact": "lead-contact",
+  "lead-project": "lead-project",
+  "lead-requirements": "lead-requirements",
+  "lead-review": "lead-review",
+  job: "jobs",
+  payment: "cash",
+  report: "site-reports",
+  dispute: "disputes",
+  team: "team",
+};
+
+const SCREEN_LABELS: Record<Screen, string> = {
+  dashboard: "Dashboard",
+  lead: "New Lead",
+  "lead-contact": "Lead Contact",
+  "lead-project": "Project Details",
+  "lead-requirements": "Requirements",
+  "lead-review": "Review Lead",
+  job: "Job Detail",
+  payment: "Payment Gate",
+  report: "Site Report",
+  dispute: "Dispute File",
+  team: "Team Control",
+};
+
+const screenFromParam = (param?: string): Screen => {
+  const normalized = (param || "dashboard").toLowerCase();
+  const aliases: Record<string, Screen> = {
+    dashboard: "dashboard",
+    lead: "lead",
+    leads: "lead",
+    "lead-contact": "lead-contact",
+    "lead-project": "lead-project",
+    "lead-requirements": "lead-requirements",
+    "lead-review": "lead-review",
+    job: "job",
+    jobs: "job",
+    payment: "payment",
+    payments: "payment",
+    cash: "payment",
+    report: "report",
+    reports: "report",
+    "site-report": "report",
+    "site-reports": "report",
+    dispute: "dispute",
+    disputes: "dispute",
+    team: "team",
+    settings: "team",
+  };
+  return aliases[normalized] || "dashboard";
+};
 
 type OperatorUser = {
   id: string;
@@ -36,6 +93,87 @@ type OperatorSession = {
 
 const OPERATOR_SESSION_KEY = "altercraft-operator-desk-session";
 const OPERATOR_API_BASE_KEY = "altercraft-operator-desk-api-base";
+const OPERATOR_LEAD_DRAFT_KEY = "altercraft-operator-desk-lead-draft";
+const OPERATOR_LEAD_META_KEY = "altercraft-operator-desk-lead-meta";
+const OPERATOR_LEADS_KEY = "altercraft-operator-desk-leads";
+
+type LeadFormState = {
+  clientName: string;
+  phone: string;
+  location: string;
+  source: string;
+  workType: string;
+  budget: string;
+  timeline: string;
+  materialPreference: string;
+  notes: string;
+};
+
+type SavedLead = LeadFormState & {
+  id: string;
+  services: string[];
+  status: string;
+  labourRequired: string;
+  drawingAvailable: string;
+  createdAt: string;
+};
+
+type LeadMetaState = {
+  services: string[];
+  leadStatus: string;
+  labour: string;
+  drawing: string;
+};
+
+const DEFAULT_LEAD_META: LeadMetaState = {
+  services: ["Full Execution Desk"],
+  leadStatus: "Hot Lead",
+  labour: "Yes",
+  drawing: "No",
+};
+
+const EMPTY_LEAD_FORM: LeadFormState = {
+  clientName: "",
+  phone: "",
+  location: "",
+  source: "",
+  workType: "",
+  budget: "",
+  timeline: "",
+  materialPreference: "",
+  notes: "",
+};
+
+const readLeadDraft = (): LeadFormState => {
+  if (typeof window === "undefined") return EMPTY_LEAD_FORM;
+  try {
+    const raw = window.localStorage.getItem(OPERATOR_LEAD_DRAFT_KEY);
+    return raw ? { ...EMPTY_LEAD_FORM, ...(JSON.parse(raw) as Partial<LeadFormState>) } : EMPTY_LEAD_FORM;
+  } catch {
+    return EMPTY_LEAD_FORM;
+  }
+};
+
+const readLeadMeta = (): LeadMetaState => {
+  if (typeof window === "undefined") return DEFAULT_LEAD_META;
+  try {
+    const raw = window.localStorage.getItem(OPERATOR_LEAD_META_KEY);
+    return raw ? { ...DEFAULT_LEAD_META, ...(JSON.parse(raw) as Partial<LeadMetaState>) } : DEFAULT_LEAD_META;
+  } catch {
+    return DEFAULT_LEAD_META;
+  }
+};
+
+const saveLeadRecord = (lead: SavedLead) => {
+  if (typeof window === "undefined") return;
+  try {
+    const raw = window.localStorage.getItem(OPERATOR_LEADS_KEY);
+    const existing = raw ? (JSON.parse(raw) as SavedLead[]) : [];
+    window.localStorage.setItem(OPERATOR_LEADS_KEY, JSON.stringify([lead, ...existing]));
+  } catch {
+    window.localStorage.setItem(OPERATOR_LEADS_KEY, JSON.stringify([lead]));
+  }
+};
 const ROLE_DETAILS: Record<OperatorRole, { label: string; shortLabel: string; level: 1 | 2 | 3; copy: string }> = {
   "l3-founder": {
     label: "L3 Founder",
@@ -217,21 +355,47 @@ function Field({
   label,
   placeholder,
   type = "text",
+  value,
+  onChange,
+  required = false,
+  error,
+  inputMode,
+  autoComplete,
 }: {
   label: string;
   placeholder: string;
   type?: string;
+  value?: string;
+  onChange?: (value: string) => void;
+  required?: boolean;
+  error?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
+  autoComplete?: string;
 }) {
+  const fieldId = useId();
   return (
     <div>
-      <div className="text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/35 mb-1.5">
-        {label}
-      </div>
+      <label htmlFor={fieldId} className="block text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/42 mb-1.5">
+        {label}{required ? <span className="text-amber-400"> *</span> : null}
+      </label>
       <input
+        id={fieldId}
         type={type}
         placeholder={placeholder}
-        className="w-full bg-[#0f0f12] border border-[#1f1f23] rounded px-3 py-2.5 text-[13px] font-['JetBrains_Mono'] text-white/75 placeholder-white/18 focus:outline-none focus:border-amber-500/50 transition-colors"
+        value={value}
+        onChange={onChange ? (event) => onChange(event.target.value) : undefined}
+        required={required}
+        inputMode={inputMode}
+        autoComplete={autoComplete}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${fieldId}-error` : undefined}
+        className={`w-full min-h-11 bg-[#0f0f12] border rounded px-3 py-2.5 text-[13px] font-['JetBrains_Mono'] text-white/82 placeholder-white/22 focus:outline-none transition-colors ${error ? "border-red-500/60 focus:border-red-400" : "border-[#29292e] focus:border-amber-500/65"}`}
       />
+      {error ? (
+        <div id={`${fieldId}-error`} className="mt-1 text-[9px] font-['JetBrains_Mono'] text-red-400" role="alert">
+          {error}
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -241,21 +405,29 @@ function TextArea({
   placeholder,
   rows = 3,
   danger = false,
+  value,
+  onChange,
 }: {
   label: string;
   placeholder: string;
   rows?: number;
   danger?: boolean;
+  value?: string;
+  onChange?: (value: string) => void;
 }) {
+  const fieldId = useId();
   return (
     <div>
-      <div className="text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/35 mb-1.5">
+      <label htmlFor={fieldId} className="block text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/42 mb-1.5">
         {label}
-      </div>
+      </label>
       <textarea
+        id={fieldId}
         placeholder={placeholder}
         rows={rows}
-        className={`w-full bg-[#0f0f12] border rounded px-3 py-2.5 text-[12px] font-['JetBrains_Mono'] text-white/75 placeholder-white/18 focus:outline-none resize-none transition-colors leading-relaxed ${danger ? "border-red-500/25 focus:border-red-500/50" : "border-[#1f1f23] focus:border-amber-500/50"}`}
+        value={value}
+        onChange={onChange ? (event) => onChange(event.target.value) : undefined}
+        className={`w-full bg-[#0f0f12] border rounded px-3 py-2.5 text-[12px] font-['JetBrains_Mono'] text-white/82 placeholder-white/22 focus:outline-none resize-none transition-colors leading-relaxed ${danger ? "border-red-500/25 focus:border-red-500/50" : "border-[#29292e] focus:border-amber-500/65"}`}
       />
     </div>
   );
@@ -322,15 +494,21 @@ function PrimaryButton({
   children,
   onClick,
   danger = false,
+  type = "button",
+  disabled = false,
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   danger?: boolean;
+  type?: "button" | "submit";
+  disabled?: boolean;
 }) {
   return (
     <button
+      type={type}
       onClick={onClick}
-      className={`w-full font-['Barlow_Condensed'] font-bold text-[15px] tracking-[0.12em] uppercase py-3.5 rounded-[5px] transition-colors flex items-center justify-center gap-2 ${
+      disabled={disabled}
+      className={`w-full min-h-12 font-['Barlow_Condensed'] font-bold text-[15px] tracking-[0.12em] uppercase py-3.5 rounded-[5px] transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed ${
         danger
           ? "bg-red-600 hover:bg-red-500 text-white"
           : "bg-amber-500 hover:bg-amber-400 text-black"
@@ -598,164 +776,290 @@ function Dashboard({
 
 // ─── Screen 2: New Contractor Lead ───────────────────────────────────────────
 
-function NewLead() {
-  const [services, setServices] = useState<string[]>(["Full Execution Desk"]);
-  const [leadStatus, setLeadStatus] = useState("Hot Lead");
-  const [labour, setLabour] = useState("Yes");
-  const [drawing, setDrawing] = useState("No");
+function NewLead({ step, setScreen }: { step: LeadScreen; setScreen: (screen: Screen) => void }) {
+  const [initialMeta] = useState<LeadMetaState>(() => readLeadMeta());
+  const [services, setServices] = useState<string[]>(initialMeta.services);
+  const [leadStatus, setLeadStatus] = useState(initialMeta.leadStatus);
+  const [labour, setLabour] = useState(initialMeta.labour);
+  const [drawing, setDrawing] = useState(initialMeta.drawing);
+  const [form, setForm] = useState<LeadFormState>(() => readLeadDraft());
+  const [errors, setErrors] = useState<Partial<Record<keyof LeadFormState | "services", string>>>({});
+  const [saveMessage, setSaveMessage] = useState("");
 
-  const allServices = [
-    "Material Desk",
-    "Labour Desk",
-    "Production Desk",
-    "Site Control Desk",
-    "Full Execution Desk",
-  ];
+  const allServices = ["Material Desk", "Labour Desk", "Production Desk", "Site Control Desk", "Full Execution Desk"];
   const statuses = ["Hot Lead", "Warm", "Cold", "Follow-Up", "Converted"];
+  const requiredFields: Array<keyof LeadFormState> = ["clientName", "phone", "location", "workType"];
+  const completedRequired = requiredFields.filter((field) => form[field].trim()).length;
+  const leadSteps: Array<{ id: LeadScreen; label: string; title: string }> = [
+    { id: "lead", label: "Service", title: "Choose Service" },
+    { id: "lead-contact", label: "Contact", title: "Client & Site" },
+    { id: "lead-project", label: "Project", title: "Project Scope" },
+    { id: "lead-requirements", label: "Needs", title: "Requirements" },
+    { id: "lead-review", label: "Review", title: "Review & Save" },
+  ];
+  const stepIndex = Math.max(0, leadSteps.findIndex((item) => item.id === step));
 
-  const toggleService = (s: string) =>
-    setServices((p) => (p.includes(s) ? p.filter((x) => x !== s) : [...p, s]));
+  useEffect(() => {
+    const hasDraft = Object.values(form).some((value) => value.trim());
+    if (hasDraft) window.localStorage.setItem(OPERATOR_LEAD_DRAFT_KEY, JSON.stringify(form));
+    else window.localStorage.removeItem(OPERATOR_LEAD_DRAFT_KEY);
+  }, [form]);
+
+  useEffect(() => {
+    window.localStorage.setItem(OPERATOR_LEAD_META_KEY, JSON.stringify({ services, leadStatus, labour, drawing }));
+  }, [drawing, labour, leadStatus, services]);
+
+  const updateField = (field: keyof LeadFormState, value: string) => {
+    setForm((current) => ({ ...current, [field]: value }));
+    setErrors((current) => ({ ...current, [field]: undefined }));
+    setSaveMessage("");
+  };
+
+  const toggleService = (service: string) => {
+    setServices((current) => current.includes(service) ? current.filter((item) => item !== service) : [...current, service]);
+    setErrors((current) => ({ ...current, services: undefined }));
+  };
+
+  const continueToNextStep = () => {
+    const nextErrors: Partial<Record<keyof LeadFormState | "services", string>> = {};
+    if (step === "lead" && !services.length) nextErrors.services = "Select at least one service desk.";
+    if (step === "lead-contact") {
+      if (!form.clientName.trim()) nextErrors.clientName = "Add the client or contractor name.";
+      if (form.phone.replace(/\D/g, "").length < 10) nextErrors.phone = "Enter a valid 10-digit phone number.";
+      if (!form.location.trim()) nextErrors.location = "Add the site location.";
+    }
+    if (step === "lead-project" && !form.workType.trim()) nextErrors.workType = "Describe the work type.";
+
+    if (Object.keys(nextErrors).length) {
+      setErrors(nextErrors);
+      setSaveMessage("Complete the highlighted details to continue.");
+      return;
+    }
+
+    setErrors({});
+    setSaveMessage("");
+    const nextStep = leadSteps[stepIndex + 1];
+    if (nextStep) setScreen(nextStep.id);
+  };
+
+  const clearDraft = () => {
+    setForm(EMPTY_LEAD_FORM);
+    setServices(["Full Execution Desk"]);
+    setLeadStatus("Hot Lead");
+    setLabour("Yes");
+    setDrawing("No");
+    setErrors({});
+    setSaveMessage("");
+    window.localStorage.removeItem(OPERATOR_LEAD_DRAFT_KEY);
+    window.localStorage.removeItem(OPERATOR_LEAD_META_KEY);
+    setScreen("lead");
+  };
+
+  const submitLead = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const nextErrors: Partial<Record<keyof LeadFormState | "services", string>> = {};
+    if (!form.clientName.trim()) nextErrors.clientName = "Add the client or contractor name.";
+    if (form.phone.replace(/\D/g, "").length < 10) nextErrors.phone = "Enter a valid 10-digit phone number.";
+    if (!form.location.trim()) nextErrors.location = "Add the site location.";
+    if (!form.workType.trim()) nextErrors.workType = "Describe the work type.";
+    if (!services.length) nextErrors.services = "Select at least one service desk.";
+
+    if (Object.keys(nextErrors).length) {
+      setErrors(nextErrors);
+      setSaveMessage("Check the highlighted fields before saving this lead.");
+      return;
+    }
+
+    const lead: SavedLead = {
+      ...form,
+      id: `OD-LEAD-${Date.now().toString().slice(-6)}`,
+      services,
+      status: leadStatus,
+      labourRequired: labour,
+      drawingAvailable: drawing,
+      createdAt: new Date().toISOString(),
+    };
+    saveLeadRecord(lead);
+    window.localStorage.removeItem(OPERATOR_LEAD_DRAFT_KEY);
+    window.localStorage.removeItem(OPERATOR_LEAD_META_KEY);
+    setForm(EMPTY_LEAD_FORM);
+    setServices(DEFAULT_LEAD_META.services);
+    setLeadStatus(DEFAULT_LEAD_META.leadStatus);
+    setLabour(DEFAULT_LEAD_META.labour);
+    setDrawing(DEFAULT_LEAD_META.drawing);
+    setErrors({});
+    setSaveMessage(`${lead.id} saved on this device.`);
+  };
 
   return (
-    <div className="flex flex-col pb-8">
-      <ScreenHeader brand="AlterCraft · New Lead" title="New Contractor Lead" />
+    <form className="flex flex-col pb-8" onSubmit={submitLead} noValidate>
+      <ScreenHeader brand={`AlterCraft · New Lead · Step ${stepIndex + 1} of ${leadSteps.length}`} title={leadSteps[stepIndex].title} />
 
       <div className="px-4 pt-4 flex flex-col gap-5">
-        {/* Service Selector */}
-        <div>
-          <SectionLabel>Select Service Desk</SectionLabel>
-          <div className="flex flex-col gap-1.5">
-            {allServices.map((s) => {
-              const active = services.includes(s);
-              return (
-                <button
-                  key={s}
-                  onClick={() => toggleService(s)}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-[5px] border text-left transition-colors ${
-                    active
-                      ? "bg-amber-500/10 border-amber-500/40"
-                      : "bg-[#131315] border-[#1f1f23] hover:border-white/15"
-                  }`}
-                >
-                  <div
-                    className={`w-3.5 h-3.5 rounded-sm border shrink-0 flex items-center justify-center transition-colors ${
-                      active ? "bg-amber-400 border-amber-400" : "border-white/25"
-                    }`}
-                  >
-                    {active && (
-                      <Check className="w-2.5 h-2.5 text-black" strokeWidth={3} />
-                    )}
-                  </div>
-                  <span
-                    className={`text-[12px] font-['JetBrains_Mono'] ${active ? "text-amber-400" : "text-white/50"}`}
-                  >
-                    {s}
-                  </span>
-                </button>
-              );
-            })}
+        <Card className="p-3 bg-[#101012]">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="text-[10px] font-['JetBrains_Mono'] text-white/65">Required details</div>
+              <div className="text-[9px] font-['JetBrains_Mono'] text-white/32 mt-1">
+                {completedRequired}/4 complete · Draft saved
+              </div>
+            </div>
+            <button type="button" onClick={clearDraft} className="min-h-10 px-3 border border-[#29292e] rounded flex items-center gap-1.5 text-[9px] font-['JetBrains_Mono'] uppercase tracking-wider text-white/45" aria-label="Clear saved lead draft">
+              <RotateCcw className="w-3.5 h-3.5" /> Clear
+            </button>
           </div>
-        </div>
-
-        {/* Lead Status */}
-        <div>
-          <SectionLabel>Lead Status</SectionLabel>
-          <div className="flex gap-1.5 flex-wrap">
-            {statuses.map((s) => (
-              <button
-                key={s}
-                onClick={() => setLeadStatus(s)}
-                className={`px-2.5 py-1 rounded text-[10px] font-['JetBrains_Mono'] font-medium border tracking-wider uppercase transition-colors ${
-                  leadStatus === s
-                    ? "bg-amber-500/15 border-amber-500/40 text-amber-400"
-                    : "bg-[#131315] border-[#1f1f23] text-white/30 hover:border-white/20"
-                }`}
-              >
-                {s}
-              </button>
+          <div className="h-1.5 bg-white/5 rounded-full mt-3 overflow-hidden">
+            <div className="h-full bg-amber-400 transition-all" style={{ width: `${((stepIndex + 1) / leadSteps.length) * 100}%` }} />
+          </div>
+          <div className="grid grid-cols-5 gap-1 mt-2">
+            {leadSteps.map((item, index) => (
+              <div key={item.id} className={`text-center text-[7px] font-['JetBrains_Mono'] uppercase tracking-wide ${index <= stepIndex ? "text-amber-400" : "text-white/20"}`}>
+                {item.label}
+              </div>
             ))}
           </div>
-        </div>
+        </Card>
 
-        {/* Contact Info */}
-        <div>
-          <SectionLabel>Contact & Site Info</SectionLabel>
-          <div className="flex flex-col gap-3">
-            <Field label="Contractor / Client Name" placeholder="e.g. Rajan Mehta" />
-            <Field label="Phone Number" placeholder="+91 98XXXXXXXX" type="tel" />
-            <Field label="Site Location" placeholder="Sector 12, Navi Mumbai" />
-            <Field label="Lead Source" placeholder="WhatsApp / Referral / Walk-in" />
+        {saveMessage ? (
+          <div className={`border rounded-[5px] px-3 py-3 ${Object.keys(errors).length ? "bg-red-500/8 border-red-500/25 text-red-300" : "bg-emerald-500/8 border-emerald-500/25 text-emerald-300"}`} role="status">
+            <div className="flex items-center gap-2 text-[10px] font-['JetBrains_Mono']">
+              {Object.keys(errors).length ? <AlertCircle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
+              <span>{saveMessage}</span>
+            </div>
+            {!Object.keys(errors).length ? (
+              <button type="button" onClick={() => setScreen("dashboard")} className="mt-2 text-[10px] font-['JetBrains_Mono'] uppercase tracking-wider text-emerald-200 underline underline-offset-4">
+                Return to dashboard
+              </button>
+            ) : null}
           </div>
-        </div>
+        ) : null}
 
-        {/* Project Details */}
-        <div>
-          <SectionLabel>Project Details</SectionLabel>
-          <div className="flex flex-col gap-3">
-            <Field label="Work Type" placeholder="Flooring / False Ceiling / Full Interior" />
-            <Field label="Approximate Budget" placeholder="₹ 0,00,000" />
-            <Field label="Timeline" placeholder="Start: Jul 2026 · Duration: 45 days" />
-            <Field label="Material Preference" placeholder="Premium / Mid-range / Client source" />
-          </div>
-        </div>
-
-        {/* Labour & Docs */}
-        <div>
-          <SectionLabel>Labour & Documentation</SectionLabel>
-          <div className="flex flex-col gap-3">
+        {step === "lead" ? (
+          <>
             <div>
-              <div className="text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/35 mb-1.5">
-                Labour Required
+              <SectionLabel>Select Service Desk</SectionLabel>
+              {errors.services ? <div className="mb-2 text-[9px] font-['JetBrains_Mono'] text-red-400">{errors.services}</div> : null}
+              <div className="flex flex-col gap-1.5">
+                {allServices.map((service) => {
+                  const active = services.includes(service);
+                  return (
+                    <button type="button" key={service} onClick={() => toggleService(service)} className={`flex items-center gap-3 min-h-11 px-3 py-2.5 rounded-[5px] border text-left transition-colors ${active ? "bg-amber-500/10 border-amber-500/40" : "bg-[#131315] border-[#29292e] hover:border-white/20"}`}>
+                      <div className={`w-4 h-4 rounded-sm border shrink-0 flex items-center justify-center ${active ? "bg-amber-400 border-amber-400" : "border-white/25"}`}>
+                        {active ? <Check className="w-2.5 h-2.5 text-black" strokeWidth={3} /> : null}
+                      </div>
+                      <span className={`text-[12px] font-['JetBrains_Mono'] ${active ? "text-amber-400" : "text-white/55"}`}>{service}</span>
+                    </button>
+                  );
+                })}
               </div>
-              <div className="flex gap-2">
-                {["Yes", "No", "TBD"].map((opt) => (
-                  <button
-                    key={opt}
-                    onClick={() => setLabour(opt)}
-                    className={`flex-1 py-2 rounded-[5px] border text-[11px] font-['JetBrains_Mono'] transition-colors ${
-                      labour === opt
-                        ? "bg-amber-500/12 border-amber-500/40 text-amber-400"
-                        : "bg-[#131315] border-[#1f1f23] text-white/35 hover:border-white/20"
-                    }`}
-                  >
-                    {opt}
+            </div>
+            <div>
+              <SectionLabel>Lead Status</SectionLabel>
+              <div className="flex gap-1.5 flex-wrap">
+                {statuses.map((status) => (
+                  <button type="button" key={status} onClick={() => setLeadStatus(status)} className={`min-h-10 px-3 rounded text-[10px] font-['JetBrains_Mono'] font-medium border tracking-wider uppercase ${leadStatus === status ? "bg-amber-500/15 border-amber-500/40 text-amber-400" : "bg-[#131315] border-[#29292e] text-white/40"}`}>
+                    {status}
                   </button>
                 ))}
               </div>
             </div>
+          </>
+        ) : null}
+
+        {step === "lead-contact" ? (
+          <div>
+            <SectionLabel>Contact & Site Info</SectionLabel>
+            <div className="flex flex-col gap-3">
+              <Field label="Contractor / Client Name" placeholder="e.g. Rajan Mehta" value={form.clientName} onChange={(value) => updateField("clientName", value)} required error={errors.clientName} autoComplete="name" />
+              <Field label="Phone Number" placeholder="10-digit mobile number" type="tel" value={form.phone} onChange={(value) => updateField("phone", value)} required error={errors.phone} inputMode="tel" autoComplete="tel" />
+              <Field label="Site Location" placeholder="Locality, city or site address" value={form.location} onChange={(value) => updateField("location", value)} required error={errors.location} autoComplete="street-address" />
+              <Field label="Lead Source" placeholder="WhatsApp / Referral / Walk-in" value={form.source} onChange={(value) => updateField("source", value)} />
+            </div>
+          </div>
+        ) : null}
+
+        {step === "lead-project" ? (
+          <div>
+            <SectionLabel>Project Details</SectionLabel>
+            <div className="flex flex-col gap-3">
+              <Field label="Work Type" placeholder="Flooring / False Ceiling / Full Interior" value={form.workType} onChange={(value) => updateField("workType", value)} required error={errors.workType} />
+              <Field label="Approximate Budget" placeholder="INR 0,00,000" value={form.budget} onChange={(value) => updateField("budget", value)} inputMode="numeric" />
+              <Field label="Timeline" placeholder="Start month and expected duration" value={form.timeline} onChange={(value) => updateField("timeline", value)} />
+              <Field label="Material Preference" placeholder="Premium / Mid-range / Client source" value={form.materialPreference} onChange={(value) => updateField("materialPreference", value)} />
+            </div>
+          </div>
+        ) : null}
+
+        {step === "lead-requirements" ? (
+          <>
             <div>
-              <div className="text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/35 mb-1.5">
-                Drawing / Measurement Available
-              </div>
-              <div className="flex gap-2">
-                {["Yes", "No", "Partial"].map((opt) => (
-                  <button
-                    key={opt}
-                    onClick={() => setDrawing(opt)}
-                    className={`flex-1 py-2 rounded-[5px] border text-[11px] font-['JetBrains_Mono'] transition-colors ${
-                      drawing === opt
-                        ? "bg-amber-500/12 border-amber-500/40 text-amber-400"
-                        : "bg-[#131315] border-[#1f1f23] text-white/35 hover:border-white/20"
-                    }`}
-                  >
-                    {opt}
-                  </button>
+              <SectionLabel>Labour & Documentation</SectionLabel>
+              <div className="flex flex-col gap-4">
+                {[
+                  { label: "Labour Required", options: ["Yes", "No", "TBD"], value: labour, setValue: setLabour },
+                  { label: "Drawing / Measurement Available", options: ["Yes", "No", "Partial"], value: drawing, setValue: setDrawing },
+                ].map((group) => (
+                  <div key={group.label}>
+                    <div className="text-[9px] font-['JetBrains_Mono'] tracking-[0.15em] uppercase text-white/42 mb-1.5">{group.label}</div>
+                    <div className="flex gap-2">
+                      {group.options.map((option) => (
+                        <button type="button" key={option} onClick={() => group.setValue(option)} className={`flex-1 min-h-11 rounded-[5px] border text-[11px] font-['JetBrains_Mono'] ${group.value === option ? "bg-amber-500/12 border-amber-500/40 text-amber-400" : "bg-[#131315] border-[#29292e] text-white/40"}`}>
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
+            <TextArea label="Notes" placeholder="Client expectations, sourcing notes, site access details..." rows={5} value={form.notes} onChange={(value) => updateField("notes", value)} />
+          </>
+        ) : null}
 
-        {/* Notes */}
-        <TextArea
-          label="Notes"
-          placeholder="Client expectations, sourcing notes, site access details..."
-          rows={3}
-        />
-
-        <PrimaryButton>Create Lead</PrimaryButton>
+        {step === "lead-review" ? (
+          saveMessage && !Object.keys(errors).length ? (
+            <PrimaryButton onClick={clearDraft}>Start Another Lead</PrimaryButton>
+          ) : (
+            <>
+              <div>
+                <SectionLabel>Service</SectionLabel>
+                <Card className="p-3 flex items-start justify-between gap-3">
+                  <div>
+                    <div className="text-[12px] font-['JetBrains_Mono'] text-white/75">{services.join(", ")}</div>
+                    <div className="text-[9px] font-['JetBrains_Mono'] text-amber-400 mt-1 uppercase">{leadStatus}</div>
+                  </div>
+                  <button type="button" onClick={() => setScreen("lead")} className="text-[9px] font-['JetBrains_Mono'] text-white/40 uppercase">Edit</button>
+                </Card>
+              </div>
+              {[
+                { label: "Client & Site", edit: "lead-contact" as LeadScreen, rows: [["Client", form.clientName], ["Phone", form.phone], ["Location", form.location], ["Source", form.source]] },
+                { label: "Project", edit: "lead-project" as LeadScreen, rows: [["Work", form.workType], ["Budget", form.budget], ["Timeline", form.timeline], ["Material", form.materialPreference]] },
+                { label: "Requirements", edit: "lead-requirements" as LeadScreen, rows: [["Labour", labour], ["Drawing", drawing], ["Notes", form.notes]] },
+              ].map((section) => (
+                <div key={section.label}>
+                  <div className="flex items-center justify-between mb-2 px-0.5">
+                    <SectionLabel>{section.label}</SectionLabel>
+                    <button type="button" onClick={() => setScreen(section.edit)} className="text-[9px] font-['JetBrains_Mono'] text-white/40 uppercase">Edit</button>
+                  </div>
+                  <Card className="divide-y divide-[#202025]">
+                    {section.rows.map(([label, value]) => (
+                      <div key={label} className="flex items-start justify-between gap-4 px-3 py-2.5">
+                        <span className="text-[9px] font-['JetBrains_Mono'] uppercase tracking-wider text-white/30">{label}</span>
+                        <span className="text-[11px] font-['JetBrains_Mono'] text-white/70 text-right break-words max-w-[68%]">{value || "Not provided"}</span>
+                      </div>
+                    ))}
+                  </Card>
+                </div>
+              ))}
+              <WarningBanner text="Review the phone number and site location before saving. The record will be available on this device." />
+              <PrimaryButton type="submit">Save Lead</PrimaryButton>
+            </>
+          )
+        ) : (
+          <PrimaryButton onClick={continueToNextStep}>Continue to {leadSteps[stepIndex + 1]?.label || "Review"}</PrimaryButton>
+        )}
       </div>
-    </div>
+    </form>
   );
 }
 
@@ -1570,6 +1874,45 @@ function TeamManagement({ session }: { session: OperatorSession }) {
   );
 }
 
+function AppNavigationBar({
+  screen,
+  onBack,
+  onHome,
+}: {
+  screen: Screen;
+  onBack: () => void;
+  onHome: () => void;
+}) {
+  const isHome = screen === "dashboard";
+  return (
+    <div className="h-14 shrink-0 bg-[#09090b] border-b border-[#202025] flex items-center px-2 gap-2">
+      <button
+        type="button"
+        onClick={onBack}
+        disabled={isHome}
+        className="w-11 h-11 rounded-[5px] border border-[#29292e] flex items-center justify-center text-white/65 disabled:text-white/15 disabled:border-white/5 active:bg-white/5"
+        aria-label="Go back"
+      >
+        <ArrowLeft className="w-5 h-5" />
+      </button>
+      <div className="min-w-0 flex-1 px-1">
+        <div className="text-[8px] font-['JetBrains_Mono'] uppercase tracking-[0.2em] text-amber-400/60">Operator Desk</div>
+        <div className="text-[14px] font-['Barlow_Condensed'] font-bold tracking-widest uppercase text-white truncate">{SCREEN_LABELS[screen]}</div>
+      </div>
+      <button
+        type="button"
+        onClick={onHome}
+        className={`min-w-11 h-11 px-3 rounded-[5px] border flex items-center justify-center gap-1.5 ${isHome ? "border-amber-500/35 bg-amber-500/10 text-amber-400" : "border-[#29292e] text-white/65 active:bg-white/5"}`}
+        aria-label="Go to dashboard"
+        aria-current={isHome ? "page" : undefined}
+      >
+        <House className="w-4 h-4" />
+        <span className="text-[9px] font-['JetBrains_Mono'] uppercase tracking-wider">Home</span>
+      </button>
+    </div>
+  );
+}
+
 function BottomNav({
   screen,
   setScreen,
@@ -1589,7 +1932,11 @@ function BottomNav({
       : { id: "report" as Screen, label: "Reports", icon: FileText },
   ];
 
-  const active = tabs.some((t) => t.id === screen) ? screen : "report";
+  const active: Screen = screen.startsWith("lead-")
+    ? "lead"
+    : tabs.some((tab) => tab.id === screen)
+      ? screen
+      : "report";
 
   return (
     <div className="border-t border-[#1a1a1e] bg-[#090909] flex shrink-0">
@@ -1597,9 +1944,11 @@ function BottomNav({
         const isActive = active === tab.id;
         return (
           <button
+            type="button"
             key={tab.id}
             onClick={() => setScreen(tab.id)}
-            className={`flex-1 flex flex-col items-center gap-1 py-3 transition-colors active:scale-95 ${
+            aria-current={isActive ? "page" : undefined}
+            className={`flex-1 min-h-14 flex flex-col items-center justify-center gap-1 py-2 transition-colors active:scale-95 ${
               isActive ? "text-amber-400" : "text-white/22 hover:text-white/40"
             }`}
           >
@@ -1797,28 +2146,74 @@ function LoginGate({ onSignedIn }: { onSignedIn: (session: OperatorSession) => v
   );
 }
 
-function ContractorDeskMobileApp() {
-  const [screen, setScreen] = useState<Screen>("dashboard");
+function ContractorDeskMobileApp({
+  routeScreen,
+  onRouteChange,
+}: {
+  routeScreen: Screen;
+  onRouteChange: (screen: Screen, replace?: boolean) => void;
+}) {
+  const [screen, setScreen] = useState<Screen>(routeScreen);
+  const [trail, setTrail] = useState<Screen[]>(routeScreen === "dashboard" ? ["dashboard"] : ["dashboard", routeScreen]);
   const [session, setSession] = useState<OperatorSession | null>(() => readOperatorSession());
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setScreen(routeScreen);
+    setTrail((current) => {
+      const existingIndex = current.lastIndexOf(routeScreen);
+      if (existingIndex >= 0) return current.slice(0, existingIndex + 1);
+      return routeScreen === "dashboard" ? ["dashboard"] : [...current, routeScreen];
+    });
+    if (scrollRef.current) scrollRef.current.scrollTop = 0;
+  }, [routeScreen]);
+
+  const navigateTo = (nextScreen: Screen, replace = false) => {
+    if (nextScreen === screen) {
+      if (scrollRef.current) scrollRef.current.scrollTop = 0;
+      return;
+    }
+    setScreen(nextScreen);
+    setTrail((current) => nextScreen === "dashboard" ? ["dashboard"] : [...current.filter((item, index) => item !== nextScreen || index === 0), nextScreen]);
+    onRouteChange(nextScreen, replace);
+    if (scrollRef.current) scrollRef.current.scrollTop = 0;
+  };
+
+  const goBack = () => {
+    if (trail.length <= 1) {
+      navigateTo("dashboard", true);
+      return;
+    }
+    const previous = trail[trail.length - 2];
+    setTrail((current) => current.slice(0, -1));
+    setScreen(previous);
+    onRouteChange(previous, true);
+  };
 
   const signOut = () => {
     writeOperatorSession(null);
     setSession(null);
     setScreen("dashboard");
+    setTrail(["dashboard"]);
+    onRouteChange("dashboard", true);
   };
 
   const renderScreen = () => {
     switch (screen) {
       case "dashboard":
-        return session ? <Dashboard setScreen={setScreen} session={session} onSignOut={signOut} /> : null;
+        return session ? <Dashboard setScreen={navigateTo} session={session} onSignOut={signOut} /> : null;
       case "lead":
-        return <NewLead />;
+      case "lead-contact":
+      case "lead-project":
+      case "lead-requirements":
+      case "lead-review":
+        return <NewLead step={screen} setScreen={navigateTo} />;
       case "job":
-        return <JobDetail setScreen={setScreen} />;
+        return <JobDetail setScreen={navigateTo} />;
       case "payment":
         return <PaymentGate />;
       case "report":
-        return <SiteReport setScreen={setScreen} />;
+        return <SiteReport setScreen={navigateTo} />;
       case "dispute":
         return <DisputeProtection />;
       case "team":
@@ -1837,11 +2232,16 @@ function ContractorDeskMobileApp() {
         paddingLeft: "env(safe-area-inset-left)",
       }}
     >
-      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain" style={{ scrollbarWidth: "none" }}>
-        {session ? renderScreen() : <LoginGate onSignedIn={setSession} />}
+      {session ? <AppNavigationBar screen={screen} onBack={goBack} onHome={() => navigateTo("dashboard")} /> : null}
+
+      <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto overscroll-contain" style={{ scrollbarWidth: "none" }}>
+        {session ? renderScreen() : <LoginGate onSignedIn={(nextSession) => {
+          setSession(nextSession);
+          navigateTo("dashboard", true);
+        }} />}
       </div>
 
-      {session ? <BottomNav screen={screen} setScreen={setScreen} session={session} /> : null}
+      {session ? <BottomNav screen={screen} setScreen={navigateTo} session={session} /> : null}
     </div>
   );
 }
@@ -1849,6 +2249,12 @@ function ContractorDeskMobileApp() {
 export default function OperatorDesk() {
   const hostRef = useRef<HTMLDivElement | null>(null);
   const rootRef = useRef<Root | null>(null);
+  const navigate = useNavigate();
+  const params = useParams<{ screen?: string }>();
+  const routeScreen = screenFromParam(params.screen);
+  const navigateScreen = useCallback((nextScreen: Screen, replace = false) => {
+    navigate(`/operator-desk/${SCREEN_PATHS[nextScreen]}`, { replace });
+  }, [navigate]);
 
   useEffect(() => {
     document.body.classList.add("operator-desk-active");
@@ -1870,7 +2276,6 @@ export default function OperatorDesk() {
 
     const root = createRoot(mount);
     rootRef.current = root;
-    root.render(<ContractorDeskMobileApp />);
 
     return () => {
       document.body.classList.remove("operator-desk-active");
@@ -1879,6 +2284,10 @@ export default function OperatorDesk() {
       shadowRoot.innerHTML = "";
     };
   }, []);
+
+  useEffect(() => {
+    rootRef.current?.render(<ContractorDeskMobileApp routeScreen={routeScreen} onRouteChange={navigateScreen} />);
+  }, [navigateScreen, routeScreen]);
 
   return <div ref={hostRef} />;
 }

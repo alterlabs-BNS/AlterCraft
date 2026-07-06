@@ -1,0 +1,431 @@
+.contractor-admin-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5f7f3, #eef3f7);
+  color: #17202a;
+  padding: 1rem;
+}
+
+.contractor-admin-frame {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  border: 1px solid #d9e0e7;
+  background: #fbfcf8;
+  box-shadow: 0 20px 70px rgba(23, 32, 42, 0.12);
+}
+
+.contractor-admin-topbar,
+.contractor-admin-status,
+.contractor-admin-user-head,
+.contractor-admin-panel-head,
+.contractor-admin-control-row,
+.contractor-admin-reset-row,
+.contractor-admin-users button {
+  display: flex;
+  align-items: center;
+}
+
+.contractor-admin-topbar {
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #dfe5eb;
+  background: #ffffff;
+}
+
+.contractor-admin-topbar h1,
+.contractor-admin-user-head h2,
+.contractor-admin-panel-head h2,
+.contractor-admin-lists h3,
+.contractor-admin-empty h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.contractor-admin-topbar span,
+.contractor-admin-user-head span,
+.contractor-admin-metrics span,
+.contractor-admin-panel label > span,
+.contractor-admin-auth label > span,
+.contractor-admin-control-row span,
+.contractor-admin-reset-row label > span {
+  color: #5d6975;
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contractor-admin-topbar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #0e755b;
+}
+
+.contractor-admin-topbar button,
+.contractor-admin-panel button,
+.contractor-admin-create button,
+.contractor-admin-user-head button,
+.contractor-admin-seed button,
+.contractor-admin-note-form button,
+.contractor-admin-handoff button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.85rem;
+  background: #17202a;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.contractor-admin-topbar button {
+  background: #edf3ff;
+  color: #2f5fa7;
+}
+
+.contractor-admin-status {
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #dfe5eb;
+  background: #f6f9fb;
+  color: #41505f;
+  font-weight: 750;
+}
+
+.contractor-admin-status svg:first-child {
+  color: #d28a19;
+}
+
+.is-spinning {
+  animation: contractor-admin-spin 900ms linear infinite;
+}
+
+@keyframes contractor-admin-spin {
+  to { transform: rotate(360deg); }
+}
+
+.contractor-admin-auth,
+.contractor-admin-workspace {
+  padding: 1rem;
+}
+
+.contractor-admin-auth {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contractor-admin-auth > label {
+  grid-column: 1 / -1;
+}
+
+.contractor-admin-panel,
+.contractor-admin-create,
+.contractor-admin-seed,
+.contractor-admin-handoff,
+.contractor-admin-note-form,
+.contractor-admin-lists section {
+  border: 1px solid #dfe5eb;
+  background: #ffffff;
+}
+
+.contractor-admin-panel,
+.contractor-admin-create,
+.contractor-admin-seed {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.contractor-admin-panel-head {
+  gap: 0.55rem;
+  color: #2f5fa7;
+}
+
+.contractor-admin-workspace {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.contractor-admin-sidebar,
+.contractor-admin-detail {
+  min-width: 0;
+}
+
+.contractor-admin-sidebar {
+  display: grid;
+  gap: 1rem;
+}
+
+.contractor-admin-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.contractor-admin-metrics article {
+  min-height: 92px;
+  border: 1px solid #dfe5eb;
+  background: #ffffff;
+  padding: 0.75rem;
+  display: grid;
+  align-content: space-between;
+}
+
+.contractor-admin-metrics svg {
+  color: #0e755b;
+}
+
+.contractor-admin-metrics strong {
+  font-size: 1.35rem;
+}
+
+.contractor-admin-users {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contractor-admin-users button {
+  width: 100%;
+  min-height: 64px;
+  gap: 0.6rem;
+  border: 1px solid #dfe5eb;
+  background: #ffffff;
+  color: #17202a;
+  text-align: left;
+  cursor: pointer;
+}
+
+.contractor-admin-users button.is-active {
+  border-color: #17202a;
+  background: #17202a;
+  color: #ffffff;
+}
+
+.contractor-admin-users span {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.contractor-admin-users small {
+  color: #6b7783;
+}
+
+.contractor-admin-users button.is-active small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.contractor-admin-detail {
+  display: grid;
+  gap: 1rem;
+}
+
+.contractor-admin-user-head {
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid #dfe5eb;
+  background: #ffffff;
+  padding: 1rem;
+}
+
+.contractor-admin-user-head p {
+  margin: 0.25rem 0 0;
+  color: #5d6975;
+}
+
+.contractor-admin-user-head button,
+.contractor-admin-note-form button {
+  background: #edf3ff;
+  color: #2f5fa7;
+}
+
+.contractor-admin-control-row {
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.contractor-admin-control-row label {
+  flex: 1;
+}
+
+.contractor-admin-auth label,
+.contractor-admin-panel label,
+.contractor-admin-control-row label,
+.contractor-admin-reset-row label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contractor-admin-auth input,
+.contractor-admin-panel input,
+.contractor-admin-create input,
+.contractor-admin-create select,
+.contractor-admin-control-row select,
+.contractor-admin-reset-row input,
+.contractor-admin-seed input,
+.contractor-admin-seed select,
+.contractor-admin-note-form textarea,
+.contractor-admin-handoff textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid #dfe5eb;
+  border-radius: 8px;
+  padding: 0.68rem 0.75rem;
+  background: #ffffff;
+  color: #17202a;
+  font: inherit;
+}
+
+.contractor-admin-handoff {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.contractor-admin-handoff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.contractor-admin-handoff-grid span {
+  min-width: 0;
+  border: 1px solid #e6ebf0;
+  background: #f8fafb;
+  padding: 0.7rem;
+  color: #41505f;
+  overflow-wrap: anywhere;
+}
+
+.contractor-admin-handoff-grid strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #17202a;
+  font-size: 0.75rem;
+}
+
+.contractor-admin-reset-row {
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.contractor-admin-reset-row label {
+  flex: 1;
+}
+
+.contractor-admin-handoff textarea {
+  min-height: 164px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.contractor-admin-handoff small {
+  color: #5d6975;
+  line-height: 1.45;
+}
+
+.contractor-admin-seed {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 120px auto;
+  align-items: end;
+}
+
+.contractor-admin-seed .contractor-admin-panel-head {
+  grid-column: 1 / -1;
+}
+
+.contractor-admin-note-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  padding: 0.85rem;
+}
+
+.contractor-admin-note-form textarea {
+  resize: vertical;
+}
+
+.contractor-admin-lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contractor-admin-lists section {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+}
+
+.contractor-admin-lists article {
+  display: grid;
+  gap: 0.22rem;
+  border: 1px solid #e6ebf0;
+  padding: 0.75rem;
+  background: #f8fafb;
+}
+
+.contractor-admin-lists span,
+.contractor-admin-lists small,
+.contractor-admin-lists p {
+  color: #5d6975;
+  line-height: 1.45;
+}
+
+.contractor-admin-empty {
+  min-height: 420px;
+  border: 1px solid #dfe5eb;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.6rem;
+  color: #5d6975;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 920px) {
+  .contractor-admin-auth,
+  .contractor-admin-workspace,
+  .contractor-admin-handoff-grid,
+  .contractor-admin-lists {
+    grid-template-columns: 1fr;
+  }
+
+  .contractor-admin-seed {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .contractor-admin-shell {
+    padding: 0;
+  }
+
+  .contractor-admin-frame {
+    border: 0;
+    box-shadow: none;
+  }
+
+  .contractor-admin-topbar,
+  .contractor-admin-user-head,
+  .contractor-admin-control-row,
+  .contractor-admin-reset-row,
+  .contractor-admin-note-form {
+    display: grid;
+  }
+}

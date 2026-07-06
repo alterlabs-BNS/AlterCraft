@@ -19,6 +19,7 @@ const spaRoutes = [
   '/products',
   '/ContractorDesk',
   '/contractor-desk',
+  '/contractor-admin',
   '/OperatorDesk',
   '/operator-desk',
   '/operator-desk/dashboard',

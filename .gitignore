@@ -19,3 +19,10 @@ coverage/
 .temp/
 dist/
 build/
+output/
+tmp/
+*.out.log
+*.err.log
+server/data/*.db
+server/data/*.sqlite
+server/data/*.sqlite-*

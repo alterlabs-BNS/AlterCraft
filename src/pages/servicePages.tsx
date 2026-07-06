@@ -1,5 +1,6 @@
 import React from 'react';
 import { ServicePage } from '../components/elegant/ServicePage';
+import '../styles/service-page.css';
 import { products } from '../data/products';
 import { catalogProducts } from '../data/catalog';
 import { canvaVisuals } from '../data/visualAssets';

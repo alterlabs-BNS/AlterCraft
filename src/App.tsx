@@ -46,12 +46,14 @@ export default function App() {
     }).Capacitor;
 
     if (window.location.pathname === '/' && capacitor?.isNativePlatform?.()) {
-      router.navigate('/operator-desk/dashboard', { replace: true });
+      router.navigate('/contractor-desk', { replace: true });
     }
 
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
+
+    cleanupScrollReset.current = schedulePageTopReset();
 
     const unsubscribe = router.subscribe((state) => {
       const nextRouteKey = `${state.location.pathname}${state.location.search}`;

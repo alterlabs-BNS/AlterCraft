@@ -55,6 +55,11 @@ const routeSeo = {
       'Mobile-first contractor execution control system for payment gates, labour deployment, material desk, site reports, cash ledger and dispute protection.',
     canonical: `${baseUrl}/ContractorDesk/`,
   },
+  '/contractor-admin': {
+    title: 'Contractor Admin Desk | AlterCraft',
+    description: 'Private local admin desk for Contractor Desk user setup, starter data and support notes.',
+    robots: 'noindex, nofollow',
+  },
   '/OperatorDesk': {
     title: 'OperatorDesk | AlterCraft Internal Execution App',
     description:
@@ -257,10 +262,10 @@ const routeSeo = {
       'Custom designer beds, storage beds, hydraulic beds, headboards, side tables and coordinated bedroom furniture by AlterCraft.',
   },
   '/beds': {
-    title: 'Custom Beds & Storage Beds | AlterCraft',
+    title: 'Designer Beds from INR 15,000 + Tax | AlterCraft Ghaziabad',
     description:
-      'Made-to-measure beds, hydraulic storage beds, platform beds, upholstered headboards and bedroom furniture from AlterCraft.',
-    canonical: `${baseUrl}/designer-beds/`,
+      'Explore 40 AlterCraft designer beds with Pan-India delivery. Straight non-hydraulic box beds from INR 15,000 + tax, curved from INR 17,500 + tax and signature from INR 21,000 + tax.',
+    canonical: `${baseUrl}/beds/`,
   },
   '/flush-doors': {
     title: 'Premium Flush Doors & Room Doors | AlterCraft',

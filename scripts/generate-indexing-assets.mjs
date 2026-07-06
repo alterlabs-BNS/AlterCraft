@@ -75,6 +75,7 @@ const publicRoutes = [
   '/bed-manufacturer-ghaziabad',
   '/shoe-rack-design',
   '/designer-beds',
+  '/beds',
   '/flush-doors',
   '/wardrobes',
   '/office-commercial',
@@ -113,6 +114,7 @@ const routePriority = new Map([
   ['/custom-furniture-ghaziabad', '0.95'],
   ['/modular-kitchen', '0.9'],
   ['/designer-beds', '0.85'],
+  ['/beds', '0.93'],
   ['/flush-doors', '0.85'],
   ['/wardrobes', '0.85'],
   ['/office-commercial', '0.85'],
@@ -136,6 +138,22 @@ const htmlEscape = (value) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+
+const decodeHtmlEntities = (value) => {
+  let text = String(value || '');
+  for (let i = 0; i < 40; i += 1) {
+    const nextText = text
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'")
+      .replace(/&#39;/g, "'");
+    if (nextText === text) break;
+    text = nextText;
+  }
+  return text.trim();
+};
 
 const titleWithBrand = (title) => (/\bAlterCraft\b/i.test(title) ? title : `${title} | AlterCraft`);
 
@@ -165,15 +183,19 @@ const readBlogMeta = (slug) => {
   const filePath = join(blogDir, slug, 'index.html');
   const html = readFileSync(filePath, 'utf8');
   const override = blogSeoOverrides[slug] || {};
-  const title = extract(html, /<title>([\s\S]*?)<\/title>/i).replace(/\s+\|\s+AlterCraft.*$/i, '');
-  const description = extract(html, /<meta\s+name=["']description["'][^>]*content=["']([^"']+)["'][^>]*>/i);
+  const title = decodeHtmlEntities(
+    extract(html, /<title>([\s\S]*?)<\/title>/i).replace(/\s+\|\s+AlterCraft.*$/i, ''),
+  );
+  const description = decodeHtmlEntities(
+    extract(html, /<meta\s+name=["']description["'][^>]*content=["']([^"']+)["'][^>]*>/i),
+  );
   const canonical = extract(html, /<link\s+rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i) || `${baseUrl}/blog/${slug}/`;
   const image =
     extract(html, /<meta\s+property=["']og:image["'][^>]*content=["']([^"']+)["'][^>]*>/i) ||
     extract(html, /<img\s+class=["'][^"']*cover[^"']*["'][^>]*src=["']([^"']+)["'][^>]*>/i) ||
     '/altercraft-logo.png';
   const category =
-    extract(html, /<p\s+class=["']k["'][^>]*>([\s\S]*?)<\/p>/i).replace(/<[^>]+>/g, '').trim() ||
+    decodeHtmlEntities(extract(html, /<p\s+class=["']k["'][^>]*>([\s\S]*?)<\/p>/i).replace(/<[^>]+>/g, '')) ||
     'AlterCraft Guide';
   const published =
     extract(html, /"datePublished"\s*:\s*"([^"]+)"/i) ||

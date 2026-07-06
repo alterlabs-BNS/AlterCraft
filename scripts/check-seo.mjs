@@ -11,6 +11,7 @@ const routesToCheck = [
   '/modular-kitchen',
   '/modular-kitchen-ghaziabad',
   '/modular-kitchen-noida',
+  '/beds',
   '/ContractorDesk',
   '/custom-furniture-maker-near-me',
   '/furniture-maker-ghaziabad',

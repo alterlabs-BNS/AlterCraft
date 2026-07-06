@@ -15,7 +15,7 @@ export function Navigation() {
 
   const navItems = [
     { label: 'Kitchen', href: '/modular-kitchen' },
-    { label: 'Beds', href: '/designer-beds' },
+    { label: 'Beds', href: '/beds' },
     { label: 'Doors', href: '/flush-doors' },
     { label: 'Wardrobes', href: '/wardrobes' },
     { label: 'Office', href: '/office-commercial' },

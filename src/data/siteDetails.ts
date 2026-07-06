@@ -1,7 +1,7 @@
 export const siteDetails = {
   brand: 'AlterCraft Furniture',
   tradeName: 'AlterCraft',
-  legalName: 'Ranjeet',
+  legalName: 'AlterCraft Interiors and Furnitures',
   unitName: 'Woods and Furniture',
   phone: '8817503658',
   phoneDisplay: '+91 88175 03658',

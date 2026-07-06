@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, NavLink } from 'react-router';
+import '../styles/home.css';
+import '../styles/spatial-studio.css';
 import {
   ArrowRight,
   Award,
@@ -33,17 +35,14 @@ import { canvaVisuals } from '../data/visualAssets';
 import { useAuth } from '../contexts/AuthContext';
 import { SEOHead } from '../components/seo/SEOHead';
 
+// Trimmed to the core customer journey (Phase 0). Contractor Desk is a separate
+// B2B product and gets its own entry outside this public nav (see header).
 const NAV_LINKS: Array<{ to: string; label: string; anchor?: boolean }> = [
-  { to: '/', label: 'Home' },
-  { to: '/ai-planner', label: 'Design Preview' },
-  { to: '/ContractorDesk', label: 'Contractor Desk' },
   { to: '/modular-kitchen-near-me', label: 'Kitchen' },
-  { to: '/designer-beds', label: 'Beds' },
-  { to: '/flush-doors', label: 'Doors' },
   { to: '/wardrobes', label: 'Wardrobes' },
+  { to: '/beds', label: 'Beds' },
+  { to: '/flush-doors', label: 'Doors' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '#blog', label: 'Blog', anchor: true },
-  { to: '/warranty-quality', label: 'Warranty' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -128,6 +127,9 @@ function HomeHeader() {
         </nav>
 
         <div className="home-header-actions">
+          <Link to="/ContractorDesk" className="home-header-contractor">
+            Contractor Desk
+          </Link>
           <a href={siteDetails.phoneHref} className="home-header-contact">
             <Phone size={16} />
             {siteDetails.phoneDisplay}
@@ -167,6 +169,13 @@ function HomeHeader() {
               </Link>
             )
           )}
+          <Link
+            to="/ContractorDesk"
+            className="home-mobile-contractor"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contractor Desk
+          </Link>
           <a
             href={createWhatsappLink('Hi AlterCraft, I would like a furniture quote.')}
             target="_blank"
@@ -219,7 +228,7 @@ export default function Home() {
       note: 'Hydraulic storage, platform and made-to-size bedroom furniture.',
       image:
         'https://images.unsplash.com/photo-1696762932825-2737db830bbe?w=900&h=650&fit=crop&auto=format',
-      to: '/designer-beds',
+      to: '/beds',
       cta: 'View Bed Designs',
     },
     {
@@ -283,7 +292,7 @@ export default function Home() {
     },
     {
       title: 'Designer Beds',
-      to: '/designer-beds',
+      to: '/beds',
       image:
         'https://images.unsplash.com/photo-1644057501622-dfa7dd26dbfb?w=900&h=650&fit=crop&auto=format',
     },

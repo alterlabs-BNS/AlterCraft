@@ -1,0 +1,144 @@
+.seo-cta-strip { border-block: 1px solid rgba(184, 137, 26, 0.18);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(184, 137, 26, 0.12), transparent 26rem),
+    linear-gradient(135deg, rgba(255, 252, 246, 0.9), rgba(239, 228, 210, 0.74)); }
+.seo-cta-strip-inner { display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem 0; }
+.seo-cta-strip strong { display: block;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.42rem);
+  line-height: 1.18; }
+.seo-cta-strip p,
+.seo-microcopy { margin: 0.32rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  line-height: 1.55; }
+.seo-cta-actions { display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem; }
+.seo-card-grid { display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem; }
+.seo-card-grid.compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.seo-mini-card,
+.seo-faq-item,
+.seo-proof-card { border: 1px solid rgba(184, 137, 26, 0.18);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.86), transparent 10rem),
+    rgba(255, 252, 246, 0.72);
+  box-shadow: 0 18px 48px rgba(96, 61, 30, 0.08); }
+.seo-mini-card { padding: 1.25rem; }
+.seo-mini-card svg { color: var(--accent); }
+.seo-mini-card h3,
+.seo-faq-item h3,
+.seo-proof-card h3 { margin: 0.85rem 0 0;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  line-height: 1.18; }
+.seo-mini-card p,
+.seo-faq-item p,
+.seo-proof-card p { margin: 0.62rem 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.62; }
+.seo-area-grid { display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center; }
+.seo-area-pill { display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 42px;
+  border: 1px solid rgba(184, 137, 26, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 252, 246, 0.72);
+  color: var(--primary);
+  padding: 0.58rem 0.86rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(96, 61, 30, 0.06); }
+.seo-area-pill svg,
+.seo-check-grid svg { color: var(--accent); }
+.seo-microcopy { max-width: 620px;
+  margin: 1.35rem auto 0;
+  text-align: center; }
+.seo-check-grid { display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.2rem; }
+.seo-section-action { margin-top: 1.4rem; }
+.seo-proof-grid { display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem; }
+.seo-proof-card { display: grid;
+  grid-template-columns: minmax(130px, 0.42fr) minmax(0, 1fr);
+  overflow: hidden; }
+.seo-proof-card img { width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover; }
+.seo-proof-card > div { padding: 1.1rem; }
+.seo-proof-card h3 { margin-top: 0; }
+.seo-proof-card strong { color: var(--primary); }
+.seo-faq-list { display: grid;
+  gap: 0.9rem;
+  max-width: 920px;
+  margin: 0 auto; }
+.seo-faq-item { padding: 1.25rem 1.35rem; }
+.seo-faq-item h3 { margin-top: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800; }
+@media (max-width: 980px) {
+  .seo-cta-strip-inner { align-items: flex-start;
+    flex-direction: column; }
+  .seo-card-grid,
+  .seo-card-grid.compact,
+  .seo-proof-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .seo-cta-actions,
+  .seo-cta-actions .elegant-button,
+  .seo-cta-actions .elegant-button-secondary,
+  .seo-section-action .elegant-button { width: 100%; }
+  .seo-check-grid { grid-template-columns: 1fr; }
+  .seo-proof-card { grid-template-columns: 1fr; }
+  .seo-proof-card img { min-height: 210px; }
+}
+@media (max-width: 760px) {
+  .home-offer-card,
+  .home-feature-card,
+  .home-testimonial-grid article,
+  .home-ai-flow-card,
+  .home-ai-step-card,
+  .home-ai-story-grid article,
+  .home-blog-card,
+  .elegant-card,
+  .elegant-footer-card,
+  .seo-mini-card,
+  .seo-faq-item,
+  .seo-proof-card { border-radius: 18px; }
+  .home-offer-body,
+  .home-feature-card,
+  .home-testimonial-grid article,
+  .home-ai-step-card,
+  .home-ai-flow-card,
+  .elegant-card-body,
+  .seo-mini-card,
+  .seo-faq-item,
+  .seo-proof-card > div { padding: 1rem; }
+  .home-blog-meta,
+  .seo-area-grid { flex-wrap: wrap;
+    justify-content: flex-start; }
+  .seo-area-pill { max-width: 100%;
+    white-space: normal; }
+  .seo-proof-card { grid-template-columns: 1fr !important; }
+  .seo-proof-card img { min-height: 190px;
+    max-height: 260px; }
+}

@@ -180,3 +180,28 @@ export type OperatorDeskState = {
   disputes: Dispute[];
   updatedAt: string;
 };
+
+export type LeadScreen = "lead" | "lead-contact" | "lead-project" | "lead-requirements" | "lead-review";
+export type Screen = "dashboard" | LeadScreen | "job" | "payment" | "report" | "dispute" | "team";
+export type OperatorRole = "l3-founder" | "l2-manager" | "l1-worker";
+
+export type OperatorUser = {
+  id: string;
+  name: string;
+  phone: string;
+  email?: string;
+  role: OperatorRole;
+  accessLevel: 1 | 2 | 3;
+  status: "active" | "suspended";
+  createdAt: string;
+};
+
+export type OperatorSession = {
+  id?: string;
+  name: string;
+  phone: string;
+  email?: string;
+  token?: string;
+  mode: "server" | "local";
+  role: OperatorRole;
+};

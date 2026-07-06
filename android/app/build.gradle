@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "in.altercraft.operatordesk"
+    namespace "in.altercraft.contractordesk"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "in.altercraft.operatordesk"
+        applicationId "in.altercraft.contractordesk"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

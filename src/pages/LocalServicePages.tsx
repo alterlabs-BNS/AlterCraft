@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import '../styles/local-seo.css';
 import { ArrowRight, CheckCircle, MapPin, MessageCircle, ShieldCheck } from 'lucide-react';
 import { ElegantLayout } from '../components/elegant/ElegantLayout';
 import { PageHero } from '../components/elegant/PageHero';

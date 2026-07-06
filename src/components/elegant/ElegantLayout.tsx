@@ -17,16 +17,14 @@ import { siteDetails } from '../../data/siteDetails';
 import { createWhatsappLink } from '../../utils/contact';
 import { useAuth } from '../../contexts/AuthContext';
 
+// Trimmed to the core customer journey (Phase 0), matching the homepage nav.
+// Design Preview, Office, Warranty and About remain reachable from the footer.
 const navItems = [
-  { to: '/ai-planner', label: 'Design Preview' },
   { to: '/modular-kitchen', label: 'Kitchen' },
-  { to: '/designer-beds', label: 'Beds' },
-  { to: '/flush-doors', label: 'Doors' },
   { to: '/wardrobes', label: 'Wardrobes' },
-  { to: '/office-commercial', label: 'Office' },
+  { to: '/beds', label: 'Beds' },
+  { to: '/flush-doors', label: 'Doors' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/warranty-quality', label: 'Warranty' },
-  { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -46,6 +44,7 @@ const productRoutePrefixes = [
   '/modular-kitchen',
   '/modular-kitchen-near-me',
   '/designer-beds',
+  '/beds',
   '/flush-doors',
   '/doors',
   '/wardrobes',
@@ -218,7 +217,7 @@ export function ElegantFooter() {
             <h4>What We Make</h4>
             <ul>
               <li><Link to="/modular-kitchen">Modular Kitchen</Link></li>
-              <li><Link to="/designer-beds">Designer Beds</Link></li>
+              <li><Link to="/beds">Designer Beds</Link></li>
               <li><Link to="/flush-doors">Flush Doors</Link></li>
               <li><Link to="/wardrobes">Wardrobes & Storage</Link></li>
               <li><Link to="/office-commercial">Office Interiors</Link></li>

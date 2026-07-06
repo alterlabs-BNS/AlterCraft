@@ -55,17 +55,26 @@
             "@capacitor/core": "^6.2.1",
             "@types/node": "^20.10.0",
             "@vitejs/plugin-react-swc": "^4.3.1",
+            "sharp": "^0.35.3",
             "typescript": "^6.0.3",
             "vite": "^8.0.16"
       },
       "scripts": {
             "dev": "vite",
             "audit": "npm audit --audit-level=high",
+            "images:webp": "node scripts/convert-blog-covers.mjs",
             "seo:generate": "node scripts/generate-indexing-assets.mjs",
             "seo:check": "node scripts/check-seo.mjs",
             "operator-desk:server": "node server/operatorDeskServer.mjs",
+            "backend:init": "node server/initCentralDb.mjs",
+            "backend:server": "node server/centralDbServer.mjs",
+            "backend:check": "node server/checkCentralDb.mjs",
+            "repo:backup": "powershell -ExecutionPolicy Bypass -File scripts/altereco-safety-backup.ps1",
+            "repo:guard:install": "powershell -ExecutionPolicy Bypass -File scripts/install-altereco-git-guard.ps1",
+            "repo:release-gates": "node scripts/altereco-release-gates.mjs",
             "build": "npm run seo:generate && vite build && node scripts/postbuild.mjs",
-            "cap:sync": "npm run build && cap sync android && node scripts/fix-capacitor-java.mjs",
-            "android:debug": "npm run cap:sync && cd android && gradlew assembleDebug"
+            "cap:sync": "npm run build && node scripts/remove-build-apks.mjs && cap sync android && node scripts/fix-capacitor-java.mjs",
+            "android:debug": "npm run cap:sync && cd android && gradlew assembleDebug",
+            "contractor-desk:apk": "npm run android:debug && node scripts/copy-contractor-apk.mjs"
       }
 }

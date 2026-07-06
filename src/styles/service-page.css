@@ -1,0 +1,147 @@
+.elegant-price-strip { padding: 1.4rem 0;
+  background: var(--secondary);
+  border-bottom: 1px solid var(--border); }
+.elegant-price-strip-inner { display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem; }
+.elegant-price-strip strong { color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 600; }
+.elegant-price-strip span { color: var(--accent); }
+.elegant-price-strip p { margin: 0.25rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.9rem; }
+.elegant-split { display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem); }
+.elegant-split img { width: 100%;
+  min-height: 360px;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft); }
+.elegant-check-list { display: grid;
+  gap: 0.9rem;
+  margin-top: 1.5rem; }
+.elegant-check { display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  line-height: 1.55; }
+.elegant-check svg { flex: 0 0 auto;
+  margin-top: 0.18rem;
+  color: var(--accent); }
+.elegant-price-card { border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 248, 236, 0.65);
+  padding: 1rem; }
+.elegant-price-card span { display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase; }
+.elegant-price-card strong { display: block;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  line-height: 1.1; }
+.elegant-price-row { border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(239, 231, 217, 0.55);
+  padding: 1rem; }
+.elegant-price-row span { display: block;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  margin-bottom: 0.35rem; }
+.elegant-price-row strong { color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: 2rem; }
+.elegant-price-strip { position: relative;
+  overflow: hidden; }
+.elegant-price-strip::before { content: "";
+  position: absolute;
+  inset: -90% -10% auto;
+  height: 220%;
+  border-bottom: 1px solid rgba(185, 135, 61, 0.26);
+  border-radius: 50%;
+  transform: rotate(-7deg); }
+.elegant-split { gap: clamp(2rem, 6vw, 6rem);
+  align-items: center; }
+.elegant-split > img { border: 1px solid rgba(185, 135, 61, 0.24);
+  border-radius: 38px 18px 38px 18px;
+  box-shadow: 0 28px 80px rgba(79, 47, 23, 0.14); }
+@media (max-width: 860px) {
+  .elegant-topbar-inner,
+  .elegant-price-strip-inner,
+  .elegant-footer-bottom { align-items: flex-start;
+    flex-direction: column; }
+  .elegant-grid,
+  .elegant-grid.two,
+  .elegant-grid.four,
+  .elegant-pricing-grid,
+  .elegant-split,
+  .elegant-product-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .elegant-price-strip-inner { align-items: stretch; }
+}
+@media (max-width: 760px) {
+  .elegant-price-strip { overflow: visible; }
+  .elegant-price-strip strong { font-size: clamp(1.25rem, 7vw, 1.65rem);
+    line-height: 1.16; }
+}
+
+/* Dark studio service-page overrides for the current AlterCraft theme. */
+.elegant-price-strip {
+  border-top: 1px solid rgba(216, 163, 95, 0.18);
+  border-bottom: 1px solid rgba(216, 163, 95, 0.26);
+  background:
+    radial-gradient(circle at 82% 24%, rgba(216, 163, 95, 0.14), transparent 24rem),
+    linear-gradient(90deg, rgba(46, 50, 58, 0.98), rgba(24, 26, 30, 0.98)) !important;
+}
+
+.elegant-price-strip strong {
+  color: #fff7e7 !important;
+}
+
+.elegant-price-strip span {
+  color: #f0c987 !important;
+}
+
+.elegant-price-strip p {
+  color: rgba(255, 247, 231, 0.72) !important;
+}
+
+.elegant-price-card,
+.elegant-price-row {
+  border-color: rgba(216, 163, 95, 0.24) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 247, 231, 0.08), rgba(255, 247, 231, 0.025)),
+    rgba(22, 24, 28, 0.66) !important;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 247, 231, 0.08);
+}
+
+.elegant-price-card span,
+.elegant-price-row span {
+  color: rgba(255, 247, 231, 0.64) !important;
+}
+
+.elegant-price-card strong,
+.elegant-price-row strong {
+  color: #f0c987 !important;
+}
+
+.elegant-price-card p {
+  color: rgba(255, 247, 231, 0.7) !important;
+}
+
+.elegant-split > img {
+  border-color: rgba(216, 163, 95, 0.24) !important;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.32) !important;
+  filter: saturate(0.88) contrast(1.04) brightness(0.9);
+}

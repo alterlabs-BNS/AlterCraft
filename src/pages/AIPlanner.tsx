@@ -1,5 +1,6 @@
 import React, { FormEvent, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router';
+import '../styles/planner.css';
 import {
   ArrowRight,
   ClipboardCheck,

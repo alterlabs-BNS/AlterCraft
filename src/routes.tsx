@@ -82,6 +82,7 @@ const ModularKitchen = lazy(() =>
 const DesignerBeds = lazy(() =>
   import("./pages/servicePages").then((module) => ({ default: module.DesignerBeds }))
 );
+const BedsStorefront = lazy(() => import("./pages/BedsStorefront"));
 const FlushDoors = lazy(() =>
   import("./pages/servicePages").then((module) => ({ default: module.FlushDoors }))
 );
@@ -179,7 +180,49 @@ const ACOSBackendGuide = lazy(() =>
   import("./pages/ACOS").then((module) => ({ default: module.ACOSBackendGuide }))
 );
 const ContractorDesk = lazy(() => import("./pages/ContractorDesk"));
+const ContractorAdminDesk = lazy(() => import("./pages/ContractorAdminDesk"));
 const OperatorDesk = lazy(() => import("./pages/OperatorDesk"));
+const contractorDeskApkPath = "/downloads/contractor-desk-debug.apk";
+
+function StaticBlogRedirect() {
+  React.useEffect(() => {
+    window.location.replace("/blog/index.html");
+  }, []);
+
+  return (
+    <main className="site-error-fallback">
+      <div className="site-error-fallback__panel">
+        <p>AlterCraft Blog</p>
+        <h1>Opening the planning guides.</h1>
+        <span>If the blog does not open automatically, use the blog index link.</span>
+        <div>
+          <a href="/blog/index.html">Open Blog</a>
+          <a href="/">Go Home</a>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function ContractorDeskApkRedirect() {
+  React.useEffect(() => {
+    window.location.replace(contractorDeskApkPath);
+  }, []);
+
+  return (
+    <main className="site-error-fallback">
+      <div className="site-error-fallback__panel">
+        <p>Contractor Desk APK</p>
+        <h1>Your download is starting.</h1>
+        <span>If it does not start automatically, use the official APK download link.</span>
+        <div>
+          <a href={contractorDeskApkPath}>Download APK</a>
+          <a href="/ContractorDesk">Contractor Desk</a>
+        </div>
+      </div>
+    </main>
+  );
+}
 
 function SiteErrorFallback() {
   return (
@@ -257,6 +300,34 @@ export const router = createBrowserRouter(withSiteErrorFallback([
   {
     path: "/contractor-desk",
     Component: ContractorDesk,
+  },
+  {
+    path: "/contractor-admin",
+    Component: ContractorAdminDesk,
+  },
+  {
+    path: "/blog",
+    Component: StaticBlogRedirect,
+  },
+  {
+    path: "/blog/",
+    Component: StaticBlogRedirect,
+  },
+  {
+    path: "/downloads/contractor-desk-debug.apk",
+    Component: ContractorDeskApkRedirect,
+  },
+  {
+    path: "/downloads/contractor-desk-debug",
+    Component: ContractorDeskApkRedirect,
+  },
+  {
+    path: "/downloads/operator-desk-debug.apk",
+    Component: ContractorDeskApkRedirect,
+  },
+  {
+    path: "/downloads/operator-desk-debug",
+    Component: ContractorDeskApkRedirect,
   },
   {
     path: "/OperatorDesk",
@@ -384,7 +455,7 @@ export const router = createBrowserRouter(withSiteErrorFallback([
   },
   {
     path: "/beds",
-    Component: DesignerBeds,
+    Component: BedsStorefront,
   },
   {
     path: "/flush-doors",

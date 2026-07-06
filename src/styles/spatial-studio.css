@@ -1,0 +1,944 @@
+.spatial-studio {
+  --studio-tilt-x: 0deg;
+  --studio-tilt-y: 0deg;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.2rem, 7vw, 6.5rem) 0;
+  border-top: 1px solid rgba(188, 145, 74, 0.22);
+  border-bottom: 1px solid rgba(188, 145, 74, 0.2);
+  background:
+    linear-gradient(118deg, rgba(255, 251, 244, 0.98), rgba(239, 226, 207, 0.78) 48%, rgba(255, 249, 238, 0.96));
+}
+
+.spatial-studio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(115deg, transparent 0 34%, rgba(188, 145, 74, 0.14) 35%, transparent 36% 100%),
+    radial-gradient(circle at 20% 20%, rgba(92, 51, 23, 0.22) 0 0.45px, transparent 0.8px);
+  background-size: auto, 10px 10px;
+}
+
+.spatial-studio-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(430px, 1.12fr);
+  gap: clamp(1.6rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.spatial-studio-grid > * {
+  min-width: 0;
+}
+
+.spatial-studio-copy {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.spatial-studio-copy h2 {
+  max-width: 620px;
+  margin: 0;
+  color: #2a1810;
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 600;
+  line-height: 0.95;
+}
+
+.spatial-studio-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(60, 38, 22, 0.76);
+  font-size: clamp(1rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.spatial-control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
+.spatial-control-row button,
+.spatial-hotspot-layer button {
+  border: 1px solid rgba(164, 119, 59, 0.28);
+  color: #5c3317;
+  background:
+    linear-gradient(145deg, rgba(255, 252, 246, 0.86), rgba(239, 225, 203, 0.64));
+  box-shadow:
+    0 10px 24px rgba(75, 45, 22, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.spatial-control-row button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 42px;
+  padding: 0.72rem 0.92rem;
+  border-radius: 999px;
+  font-weight: 780;
+}
+
+.spatial-control-row button:hover,
+.spatial-control-row button.active,
+.spatial-control-row button[aria-selected="true"] {
+  border-color: color-mix(in srgb, var(--studio-accent) 62%, #ffffff 38%);
+  color: #fffaf0;
+  background: linear-gradient(135deg, var(--studio-accent), #7b4722);
+  transform: translateY(-2px);
+}
+
+.spatial-zone-card {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 640px;
+  padding: 1.1rem;
+  border: 1px solid rgba(188, 145, 74, 0.24);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, rgba(255, 252, 246, 0.78), rgba(239, 225, 203, 0.46));
+  box-shadow:
+    0 18px 42px rgba(75, 45, 22, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.spatial-zone-card div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.spatial-zone-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: var(--studio-accent);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.spatial-zone-card strong {
+  color: #2a1810;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 650;
+}
+
+.spatial-zone-card p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.spatial-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.72rem;
+  max-width: 640px;
+}
+
+.spatial-stat-grid div {
+  min-width: 0;
+  padding: 0.86rem;
+  border: 1px solid rgba(188, 145, 74, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 252, 246, 0.58);
+}
+
+.spatial-stat-grid strong,
+.spatial-stat-grid span {
+  display: block;
+}
+
+.spatial-stat-grid strong {
+  color: #5c3317;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.spatial-stat-grid span {
+  margin-top: 0.3rem;
+  color: rgba(80, 48, 25, 0.68);
+  font-size: 0.76rem;
+  font-weight: 720;
+}
+
+.spatial-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.spatial-stage {
+  position: relative;
+  min-height: 640px;
+  overflow: hidden;
+  border: 1px solid rgba(188, 145, 74, 0.28);
+  border-radius: 36px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.88), rgba(239, 225, 203, 0.58)),
+    repeating-linear-gradient(90deg, rgba(92, 51, 23, 0.035) 0 1px, transparent 1px 86px);
+  box-shadow:
+    0 28px 80px rgba(75, 45, 22, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 -1px 0 rgba(188, 145, 74, 0.18);
+  perspective: 1100px;
+  transform: translateZ(0);
+}
+
+.spatial-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    radial-gradient(circle at 50% 20%, rgba(92, 51, 23, 0.22) 0 0.45px, transparent 0.9px);
+  background-size: 8px 8px;
+}
+
+.spatial-stage::after {
+  content: "";
+  position: absolute;
+  inset: 12% -18% auto;
+  height: 46%;
+  pointer-events: none;
+  background: linear-gradient(102deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+  transform: rotate(-8deg);
+}
+
+.spatial-stage-label {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  right: 1.1rem;
+  z-index: 8;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  max-width: calc(100% - 2.2rem);
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(188, 145, 74, 0.24);
+  border-radius: 999px;
+  color: #5c3317;
+  background: rgba(255, 252, 246, 0.74);
+  box-shadow: 0 12px 28px rgba(75, 45, 22, 0.08);
+  font-size: 0.8rem;
+  font-weight: 820;
+  overflow-wrap: anywhere;
+  backdrop-filter: blur(12px);
+}
+
+.spatial-stage-label svg {
+  color: var(--studio-accent);
+  flex: 0 0 auto;
+}
+
+.spatial-room-model {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  z-index: 2;
+  width: min(88%, 560px);
+  height: min(70%, 460px);
+  transform:
+    translate3d(-50%, -50%, 0)
+    rotateX(calc(-6deg + var(--studio-tilt-y)))
+    rotateY(calc(10deg + var(--studio-tilt-x)));
+  transform-style: preserve-3d;
+  transition: transform 120ms ease-out;
+  will-change: transform;
+}
+
+.spatial-plane,
+.spatial-object,
+.spatial-light-beam,
+.spatial-measure-line {
+  position: absolute;
+  display: block;
+}
+
+.spatial-plane {
+  border: 1px solid rgba(188, 145, 74, 0.2);
+  background: rgba(255, 252, 246, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 18px 38px rgba(75, 45, 22, 0.08);
+}
+
+.spatial-plane-back {
+  left: 13%;
+  top: 6%;
+  width: 74%;
+  height: 56%;
+  border-radius: 28px 28px 10px 10px;
+  background: linear-gradient(180deg, rgba(255, 252, 246, 0.92), rgba(231, 210, 180, 0.58));
+  transform: translateZ(-70px);
+}
+
+.spatial-plane-left {
+  left: 5%;
+  top: 14%;
+  width: 23%;
+  height: 56%;
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+  background: linear-gradient(120deg, rgba(232, 213, 184, 0.76), rgba(255, 252, 246, 0.5));
+  transform: rotateY(16deg) translateZ(-34px);
+}
+
+.spatial-plane-right {
+  right: 5%;
+  top: 14%;
+  width: 23%;
+  height: 56%;
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+  background: linear-gradient(240deg, rgba(232, 213, 184, 0.72), rgba(255, 252, 246, 0.5));
+  transform: rotateY(-16deg) translateZ(-34px);
+}
+
+.spatial-plane-floor {
+  left: 6%;
+  top: 55%;
+  width: 88%;
+  height: 34%;
+  clip-path: polygon(11% 0, 89% 0, 100% 100%, 0 100%);
+  border-radius: 0 0 28px 28px;
+  background:
+    repeating-linear-gradient(90deg, rgba(92, 51, 23, 0.1) 0 1px, transparent 1px 54px),
+    linear-gradient(180deg, rgba(214, 178, 129, 0.66), rgba(166, 105, 54, 0.2));
+  transform: rotateX(62deg) translateY(-28px) translateZ(36px);
+  transform-origin: top center;
+}
+
+.spatial-light-beam {
+  z-index: 4;
+  width: 46%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 245, 220, 0.95), transparent);
+  filter: drop-shadow(0 0 10px rgba(206, 163, 76, 0.38));
+  opacity: 0.72;
+  animation: spatialLightSweep 6s ease-in-out infinite;
+}
+
+.beam-one {
+  left: 25%;
+  top: 28%;
+  transform: rotate(-17deg);
+}
+
+.beam-two {
+  left: 36%;
+  top: 63%;
+  transform: rotate(13deg);
+  animation-delay: -2.4s;
+}
+
+.spatial-object {
+  z-index: 3;
+  border: 1px solid rgba(116, 72, 36, 0.24);
+  background: linear-gradient(145deg, rgba(255, 250, 240, 0.96), rgba(207, 173, 126, 0.72));
+  box-shadow:
+    0 18px 30px rgba(62, 37, 20, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  transition:
+    inset 360ms ease,
+    width 360ms ease,
+    height 360ms ease,
+    border-radius 360ms ease,
+    background 360ms ease,
+    transform 360ms ease,
+    opacity 260ms ease;
+}
+
+.scene-kitchen .spatial-object-one,
+.scene-living .spatial-object-one {
+  left: 25%;
+  top: 19%;
+  width: 45%;
+  height: 20%;
+  border-radius: 18px 18px 8px 8px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 16%),
+    linear-gradient(145deg, #e6d3b6, #97642f);
+  transform: translateZ(48px);
+}
+
+.scene-kitchen .spatial-object-two,
+.scene-living .spatial-object-two {
+  left: 27%;
+  top: 42%;
+  width: 50%;
+  height: 13%;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #f4ead8, #7f4a23);
+  transform: translateZ(72px);
+}
+
+.scene-kitchen .spatial-object-three,
+.scene-living .spatial-object-three {
+  left: 39%;
+  top: 60%;
+  width: 30%;
+  height: 16%;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fffaf0, #b17b3d);
+  transform: translateZ(94px) rotateX(3deg);
+}
+
+.scene-kitchen .spatial-object-four,
+.scene-living .spatial-object-four {
+  right: 17%;
+  top: 24%;
+  width: 12%;
+  height: 34%;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f8f0e2, #86522a);
+  transform: translateZ(60px);
+}
+
+.scene-wardrobe .spatial-object-one,
+.scene-office .spatial-object-three {
+  left: 26%;
+  top: 16%;
+  width: 47%;
+  height: 52%;
+  border-radius: 18px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 1px, transparent 1px 25%),
+    linear-gradient(145deg, #f3e8d7, #9d6e48);
+  transform: translateZ(54px);
+}
+
+.scene-wardrobe .spatial-object-two,
+.scene-office .spatial-object-one {
+  left: 29%;
+  top: 20%;
+  width: 41%;
+  height: 11%;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff8ec, #bd8e53);
+  transform: translateZ(78px);
+}
+
+.scene-wardrobe .spatial-object-three,
+.scene-office .spatial-object-two {
+  left: 50%;
+  top: 34%;
+  width: 16%;
+  height: 31%;
+  border-radius: 999px 999px 18px 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(190, 194, 198, 0.62));
+  transform: translateZ(92px);
+}
+
+.scene-wardrobe .spatial-object-four,
+.scene-office .spatial-object-four {
+  left: 34%;
+  top: 69%;
+  width: 34%;
+  height: 9%;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #e4c69b, #8e552c);
+  transform: translateZ(80px);
+}
+
+.spatial-measure-line {
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.6rem;
+  border: 1px solid rgba(188, 145, 74, 0.32);
+  border-radius: 999px;
+  color: #6d421f;
+  background: rgba(255, 252, 246, 0.76);
+  box-shadow: 0 12px 24px rgba(75, 45, 22, 0.08);
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+  transform: translateZ(112px);
+}
+
+.measure-width {
+  left: 27%;
+  bottom: 13%;
+}
+
+.measure-height {
+  right: 14%;
+  top: 18%;
+  transform: translateZ(112px) rotate(90deg);
+}
+
+.spatial-hotspot-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.spatial-hotspot-layer button {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 34px;
+  max-width: 150px;
+  padding: 0.48rem 0.72rem;
+  border-radius: 999px;
+  pointer-events: auto;
+  font-size: 0.72rem;
+  font-weight: 830;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
+.spatial-hotspot-layer button span {
+  position: relative;
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--studio-accent);
+  box-shadow: 0 0 0 4px var(--studio-accent-soft);
+}
+
+.spatial-hotspot-layer button span::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px solid color-mix(in srgb, var(--studio-accent) 58%, #ffffff 42%);
+  border-radius: inherit;
+  animation: spatialPulse 1.8s ease-out infinite;
+}
+
+.spatial-hotspot-layer button:hover,
+.spatial-hotspot-layer button.active,
+.spatial-hotspot-layer button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--studio-accent) 68%, #ffffff 32%);
+  color: #fffaf0;
+  background: linear-gradient(135deg, var(--studio-accent), #7b4722);
+  transform: translate(-50%, -50%) translateY(-2px);
+}
+
+.spatial-hotspot-layer button.active span,
+.spatial-hotspot-layer button[aria-pressed="true"] span {
+  background: #fff8ec;
+  box-shadow: 0 0 0 4px rgba(255, 248, 236, 0.2);
+}
+
+.spatial-bottom-card {
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 8;
+  display: grid;
+  gap: 0.48rem;
+  padding: 0.95rem;
+  border: 1px solid rgba(188, 145, 74, 0.24);
+  border-radius: 22px;
+  color: #4f2e18;
+  background: rgba(255, 252, 246, 0.76);
+  box-shadow:
+    0 18px 40px rgba(75, 45, 22, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(14px);
+}
+
+.spatial-bottom-card div {
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+}
+
+.spatial-bottom-card svg {
+  color: var(--studio-accent);
+  flex: 0 0 auto;
+}
+
+.spatial-bottom-card strong {
+  color: #2a1810;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+}
+
+.spatial-bottom-card p {
+  margin: 0;
+  color: rgba(80, 48, 25, 0.72);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1120px) {
+  .spatial-studio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spatial-stage {
+    min-height: 590px;
+  }
+}
+
+@media (max-width: 760px) {
+  .spatial-studio {
+    padding: 3rem 0;
+  }
+
+  .spatial-studio-copy h2 {
+    max-width: 100%;
+    font-size: clamp(2.3rem, 12vw, 3.8rem);
+    line-height: 0.98;
+  }
+
+  .spatial-studio-copy p {
+    max-width: 100%;
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .spatial-stat-grid,
+  .spatial-studio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spatial-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    width: 100%;
+  }
+
+  .spatial-actions > * {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .spatial-stage {
+    min-height: 510px;
+    border-radius: 26px;
+  }
+
+  .spatial-room-model {
+    top: 45%;
+    width: 104%;
+    height: 360px;
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotateX(-4deg)
+      rotateY(0deg);
+  }
+
+  .spatial-stage-label {
+    font-size: 0.72rem;
+  }
+
+  .spatial-hotspot-layer button {
+    padding: 0.44rem 0.56rem;
+    font-size: 0.66rem;
+  }
+
+  .measure-height {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .spatial-control-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spatial-control-row button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .spatial-stage {
+    min-height: 430px;
+    perspective: none;
+  }
+
+  .spatial-bottom-card {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    border-radius: 18px;
+  }
+
+  .spatial-room-model {
+    left: 50%;
+    top: 43%;
+    width: min(88%, 320px);
+    height: 260px;
+    transform: translate3d(-50%, -50%, 0) !important;
+    transform-style: flat;
+    transition: none;
+    will-change: auto;
+  }
+
+  .spatial-room-model :where(
+    .spatial-plane,
+    .spatial-object,
+    .spatial-light-beam,
+    .spatial-measure-line
+  ) {
+    transform: none !important;
+    animation: none;
+  }
+
+  .spatial-plane-back {
+    left: 8%;
+    top: 8%;
+    width: 84%;
+    height: 48%;
+  }
+
+  .spatial-plane-left,
+  .spatial-plane-right {
+    top: 18%;
+    width: 20%;
+    height: 46%;
+  }
+
+  .spatial-plane-left {
+    left: 7%;
+  }
+
+  .spatial-plane-right {
+    right: 7%;
+  }
+
+  .spatial-plane-floor {
+    left: 8%;
+    top: 55%;
+    width: 84%;
+    height: 30%;
+  }
+
+  .spatial-light-beam {
+    opacity: 0.48;
+  }
+
+  .spatial-hotspot-layer button {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .spatial-measure-line {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 420px) {
+  .spatial-stage {
+    min-height: 380px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spatial-room-model,
+  .spatial-object,
+  .spatial-light-beam,
+  .spatial-hotspot-layer button,
+  .spatial-hotspot-layer button span::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Current AlterCraft dark presentation theme for the interactive studio. */
+.spatial-studio {
+  --studio-accent: #d8a35f;
+  --studio-accent-soft: #f0c987;
+  --studio-ink: #fff7e7;
+  --studio-muted: rgba(255, 247, 231, 0.72);
+  --studio-panel: rgba(31, 34, 38, 0.78);
+  --studio-border: rgba(216, 163, 95, 0.28);
+  background:
+    radial-gradient(circle at 14% 14%, rgba(216, 163, 95, 0.18), transparent 28rem),
+    radial-gradient(circle at 85% 65%, rgba(150, 156, 164, 0.13), transparent 26rem),
+    linear-gradient(180deg, #1e2125 0%, #262a31 100%) !important;
+  color: var(--studio-ink) !important;
+}
+
+.spatial-studio::before {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(255, 247, 231, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 247, 231, 0.035) 1px, transparent 1px) !important;
+}
+
+.spatial-studio-copy h2,
+.spatial-zone-card strong,
+.spatial-stat-grid strong,
+.spatial-bottom-card strong {
+  color: var(--studio-ink) !important;
+}
+
+.spatial-studio-copy p,
+.spatial-zone-card p,
+.spatial-stat-grid span,
+.spatial-bottom-card p {
+  color: var(--studio-muted) !important;
+}
+
+.spatial-control-row button,
+.spatial-zone-card,
+.spatial-stat-grid div,
+.spatial-stage-label,
+.spatial-bottom-card,
+.spatial-hotspot-layer button {
+  border-color: var(--studio-border) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 247, 231, 0.1), rgba(255, 247, 231, 0.025)),
+    var(--studio-panel) !important;
+  color: rgba(255, 247, 231, 0.84) !important;
+  box-shadow:
+    0 20px 54px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 247, 231, 0.1) !important;
+  backdrop-filter: blur(16px);
+}
+
+.spatial-control-row button:hover,
+.spatial-control-row button.active,
+.spatial-control-row button[aria-selected="true"],
+.spatial-hotspot-layer button:hover,
+.spatial-hotspot-layer button.active,
+.spatial-hotspot-layer button[aria-pressed="true"] {
+  border-color: rgba(240, 201, 135, 0.5) !important;
+  background:
+    linear-gradient(135deg, rgba(240, 201, 135, 0.2), rgba(216, 163, 95, 0.08)),
+    rgba(40, 43, 50, 0.88) !important;
+  color: #f0c987 !important;
+}
+
+.spatial-zone-card span,
+.spatial-bottom-card svg,
+.spatial-stage-label svg {
+  color: var(--studio-accent-soft) !important;
+}
+
+.spatial-stage {
+  border-color: rgba(216, 163, 95, 0.28) !important;
+  background:
+    radial-gradient(circle at 52% 22%, rgba(216, 163, 95, 0.17), transparent 20rem),
+    radial-gradient(circle at 80% 84%, rgba(150, 156, 164, 0.12), transparent 20rem),
+    linear-gradient(145deg, rgba(255, 247, 231, 0.07), rgba(255, 247, 231, 0.02)),
+    rgba(24, 26, 30, 0.86) !important;
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 247, 231, 0.1) !important;
+}
+
+.spatial-stage::before {
+  opacity: 0.38;
+  background:
+    linear-gradient(rgba(240, 201, 135, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 201, 135, 0.09) 1px, transparent 1px) !important;
+  background-size: 28px 28px !important;
+}
+
+.spatial-stage::after {
+  opacity: 0.6;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(240, 201, 135, 0.18), transparent 34%),
+    radial-gradient(circle at 52% 62%, rgba(22, 24, 28, 0.52), transparent 62%) !important;
+}
+
+.spatial-plane {
+  border-color: rgba(240, 201, 135, 0.2) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 247, 231, 0.12), rgba(216, 163, 95, 0.08)),
+    rgba(45, 49, 57, 0.74) !important;
+}
+
+.spatial-plane-floor {
+  background:
+    linear-gradient(135deg, rgba(216, 163, 95, 0.18), rgba(30, 33, 37, 0.72)),
+    repeating-linear-gradient(90deg, rgba(240, 201, 135, 0.16) 0 1px, transparent 1px 22px) !important;
+}
+
+.spatial-object {
+  border-color: rgba(240, 201, 135, 0.24) !important;
+  background:
+    linear-gradient(135deg, rgba(240, 201, 135, 0.42), rgba(105, 70, 38, 0.48)),
+    rgba(41, 44, 51, 0.88) !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 247, 231, 0.18) !important;
+}
+
+.spatial-light-beam {
+  opacity: 0.55;
+  background: linear-gradient(180deg, rgba(240, 201, 135, 0.42), rgba(240, 201, 135, 0)) !important;
+}
+
+.spatial-measure-line {
+  border-color: rgba(240, 201, 135, 0.48) !important;
+  color: #f0c987 !important;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.42);
+}
+
+.spatial-hotspot-layer button span {
+  background: #f0c987 !important;
+  box-shadow: 0 0 0 8px rgba(240, 201, 135, 0.12), 0 0 34px rgba(216, 163, 95, 0.34) !important;
+}
+
+@media (max-width: 760px) {
+  .spatial-studio {
+    padding: 3.4rem 0 3rem !important;
+  }
+
+  .spatial-studio-copy h2 {
+    max-width: 9ch !important;
+    overflow-wrap: normal;
+    text-wrap: balance;
+    font-size: clamp(2.2rem, 9.5vw, 3.05rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .spatial-studio-copy p {
+    max-width: min(100%, 34ch) !important;
+  }
+
+  .spatial-stage {
+    min-height: 480px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .spatial-control-row {
+    gap: 0.65rem;
+  }
+
+  .spatial-stage {
+    min-height: 410px !important;
+  }
+
+  .spatial-studio-copy h2 {
+    max-width: 8.4ch !important;
+    font-size: clamp(2rem, 9.8vw, 2.6rem) !important;
+  }
+
+  .spatial-hotspot-layer button {
+    max-width: 124px;
+  }
+}
