@@ -120,8 +120,31 @@ export function CreativeMotion() {
           }
         });
       },
-      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' }
+      // threshold 0 so any pixel entering triggers the reveal (tall sections
+      // could never reach a higher ratio and would stay hidden).
+      { threshold: 0, rootMargin: '0px 0px 10% 0px' }
     );
+
+    // Backstop: never let a container stay invisible. On scroll/resize (and once
+    // now) reveal anything within reach of the viewport, in case the observer
+    // misses an element. Keeps the animation for the normal case.
+    let revealSweepFrame = 0;
+    const revealInView = () => {
+      revealSweepFrame = 0;
+      const limit = window.innerHeight * 1.15;
+      document.querySelectorAll<HTMLElement>('.ac-reveal:not(.ac-revealed)').forEach((item) => {
+        if (item.getBoundingClientRect().top < limit) {
+          item.classList.add('ac-revealed');
+          observer.unobserve(item);
+        }
+      });
+    };
+    const requestRevealSweep = () => {
+      if (revealSweepFrame) return;
+      revealSweepFrame = window.requestAnimationFrame(revealInView);
+    };
+    window.addEventListener('scroll', requestRevealSweep, { passive: true });
+    window.addEventListener('resize', requestRevealSweep, { passive: true });
 
     const revealedItems = new WeakSet<HTMLElement>();
     const magneticCleanups = new Map<HTMLElement, () => void>();
@@ -176,6 +199,7 @@ export function CreativeMotion() {
     };
 
     scanMotionTargets();
+    revealInView();
 
     const mutationObserver = new MutationObserver((mutations) => {
       const hasMotionCandidate = mutations.some((mutation) =>
@@ -208,6 +232,9 @@ export function CreativeMotion() {
       window.cancelAnimationFrame(cursorFrame);
       window.cancelAnimationFrame(scrollFrame);
       window.cancelAnimationFrame(scanFrame);
+      window.cancelAnimationFrame(revealSweepFrame);
+      window.removeEventListener('scroll', requestRevealSweep);
+      window.removeEventListener('resize', requestRevealSweep);
       if (enableCursor) {
         window.removeEventListener('pointermove', handlePointerMove);
         window.removeEventListener('pointerdown', handlePointerDown);
