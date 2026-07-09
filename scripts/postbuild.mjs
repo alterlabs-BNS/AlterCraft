@@ -111,3 +111,11 @@ for (const route of routeCount) {
 }
 
 console.log(`Created build/404.html and ${copiedRoutes} SPA route fallback pages for GitHub Pages.`);
+
+// Flip-homepage: serve the scroll-flip landing at '/' while all other routes keep the React shell.
+// (Runs AFTER 404.html and route fallbacks are generated from the original index.html.)
+const flipHomePath = join(outDir, 'home-flip.html');
+if (existsSync(flipHomePath)) {
+  writeFileSync(indexPath, cleanHtml(readFileSync(flipHomePath, 'utf8')));
+  console.log('Replaced build/index.html with home-flip.html (scroll-flip homepage).');
+}
