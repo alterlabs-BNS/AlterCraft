@@ -2581,15 +2581,13 @@ body:has(.home-blog-card:hover) .ac-cursor-dot { opacity: 0.55; }
   .elegant-hero-content { padding-block: 3.5rem 3rem; }
 }
 @media (max-width: 900px), (pointer: coarse) {
+  /* Cursor/frame effects stay desktop-only, but the section entrance
+     animations (.ac-reveal) now run on mobile too — motion parity. */
   .ac-light-field,
   .ac-scroll-rail,
   .ac-atelier-frame,
   .ac-cursor-dot,
   .ac-cursor-ring { display: none; }
-  .ac-reveal,
-  .ac-revealed { opacity: 1;
-    transform: none;
-    transition: none; }
 }
 @media (max-width: 420px) {
   .home-header,
@@ -3432,4 +3430,40 @@ body,
   border-top: 1px solid rgba(216, 163, 95, 0.24);
   color: var(--ac-copper-soft, #f0c987) !important;
   font-weight: 700;
+}
+
+/* =====================================================================
+   Section-flip scrolling
+   Desktop: gentle proximity snap (assists, never fights the wheel).
+   Mobile / touch: mandatory snap — a small swipe commits the whole
+   screen to the next section; the .ac-reveal entrance animation (now
+   active on mobile too) provides the transition. Sections taller than
+   the viewport still scroll freely inside, then snap at their edges.
+   ===================================================================== */
+:root { scroll-snap-type: y proximity; }
+
+.home-site main > *,
+.elegant-site > section,
+.elegant-footer {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  :root {
+    scroll-snap-type: y mandatory;
+    /* Full-bleed flips: land sections flush at the top (the floating
+       header overlays them, same as during normal scroll). */
+    scroll-padding-top: 0;
+  }
+  .home-site main > * { scroll-snap-stop: always; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-snap-type: none !important; }
+  .ac-reveal,
+  .ac-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
