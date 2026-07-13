@@ -19,31 +19,31 @@ const HERO_CATEGORIES: HeroCategory[] = [
   {
     key: 'kitchen',
     label: 'Modular Kitchens',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1920&h=1080&fit=crop&q=82',
+    image: '/images/generated/v1/kitchen-premium-u-shape.webp',
     to: '/modular-kitchen-near-me',
   },
   {
     key: 'wardrobe',
     label: 'Wardrobes',
-    image: 'https://images.unsplash.com/photo-1672137233327-37b0c1049e77?w=1920&h=1080&fit=crop&q=82',
+    image: '/images/generated/v1/wardrobe-sliding-smoked.webp',
     to: '/wardrobes',
   },
   {
     key: 'beds',
     label: 'Beds',
-    image: 'https://images.unsplash.com/photo-1644057501622-dfa7dd26dbfb?w=1920&h=1080&fit=crop&q=82',
+    image: '/images/generated/v1/bed-hydraulic-storage.webp',
     to: '/beds',
   },
   {
     key: 'doors',
     label: 'Doors',
-    image: 'https://images.unsplash.com/photo-1634822930432-0594057fdff2?w=1920&h=1080&fit=crop&q=82',
+    image: '/images/generated/v1/flush-door.webp',
     to: '/flush-doors',
   },
   {
     key: 'office',
     label: 'Office Interiors',
-    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1920&h=1080&fit=crop&q=82',
+    image: '/images/generated/v1/office-commercial-interior.webp',
     to: '/office-commercial',
   },
 ];

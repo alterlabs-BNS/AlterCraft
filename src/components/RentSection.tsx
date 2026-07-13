@@ -67,7 +67,7 @@ export function RentSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <div className="relative h-[500px] rounded-sm overflow-hidden shadow-2xl order-2 md:order-1">
             <ImageWithFallback 
-              src="https://images.unsplash.com/photo-1735547876935-7be80eae1c88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcGFydG1lbnQlMjByZW50YWwlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NjcwOTQzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              src="/images/generated/v1/living-curved-collection.webp"
               alt="Furnished apartment interior"
               className="w-full h-full object-cover"
             />

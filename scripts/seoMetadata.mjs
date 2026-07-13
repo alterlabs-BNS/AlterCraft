@@ -1,5 +1,5 @@
 const baseUrl = 'https://www.altercraft.in';
-const defaultImage = `${baseUrl}/altercraft-logo.png`;
+const defaultImage = `${baseUrl}/images/generated/v1/brand-hero.webp`;
 const modularKitchenPrice = 'INR 1,200 / sq. ft.';
 
 const defaultSeo = {

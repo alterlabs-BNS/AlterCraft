@@ -38,22 +38,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: '96 in x 64 in x 33 in',
     finish: 'Matte beige fabric',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=1400&q=80',
-        label: 'Front angle',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1400&q=80',
-        label: 'Corner angle',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=80',
-        label: 'Side angle',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80',
-        label: 'Detail shot',
-      },
+      { src: '/images/generated/v1/living-curved-collection.webp', label: 'AI-assisted concept visualization' },
     ],
   },
   {
@@ -65,22 +50,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: '72 in x 16 in x 22 in',
     finish: 'Walnut and charcoal dual tone',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80',
-        label: 'Front elevation',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=1400&q=80',
-        label: 'Left perspective',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80',
-        label: 'Right perspective',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80',
-        label: 'Storage detail',
-      },
+      { src: '/images/generated/v1/living-media-wall.webp', label: 'AI-assisted concept visualization' },
     ],
   },
   {
@@ -92,22 +62,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: '84 in x 72 in x 24 in',
     finish: 'Oak laminate with fluted accents',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1616628182509-9f5d4a4f2b12?auto=format&fit=crop&w=1400&q=80',
-        label: 'Full front',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80',
-        label: 'Diagonal view',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=1400&q=80',
-        label: 'Interior layout',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=1400&q=80',
-        label: 'Door profile',
-      },
+      { src: '/images/generated/v1/wardrobe-sliding-smoked.webp', label: 'AI-assisted concept visualization' },
     ],
   },
   {
@@ -119,22 +74,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: 'Table 60 in x 36 in',
     finish: 'Natural teak matte polish',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1449247613801-ab06418e2861?auto=format&fit=crop&w=1400&q=80',
-        label: 'Table front',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=1400&q=80',
-        label: 'Corner setup',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=80',
-        label: 'Chair detail',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1400&q=80',
-        label: 'Top surface close-up',
-      },
+      { src: '/images/generated/v1/living-curved-collection.webp', label: 'AI-assisted concept visualization' },
     ],
   },
   {
@@ -146,22 +86,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: '78 in x 30 in x 30 in',
     finish: 'Matte black with walnut grain',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=80',
-        label: 'Front setup',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1505832018823-50331d70d237?auto=format&fit=crop&w=1400&q=80',
-        label: 'User side',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80',
-        label: 'Cable channel',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80',
-        label: 'Leg detail',
-      },
+      { src: '/images/generated/v1/office-commercial-interior.webp', label: 'AI-assisted concept visualization' },
     ],
   },
   {
@@ -173,22 +98,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: 'Custom modules',
     finish: 'Warm oak fluted profile',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80',
-        label: 'Full wall view',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=80',
-        label: 'Side perspective',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1400&q=80',
-        label: 'Texture close-up',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1400&q=80',
-        label: 'Edge profile',
-      },
+      { src: '/images/generated/v1/living-media-wall.webp', label: 'AI-assisted concept visualization' },
     ],
   },
   {
@@ -200,22 +110,7 @@ export const galleryProducts: GalleryProduct[] = [
     dimensions: '48 in x 24 in x 78 in',
     finish: 'Ivory with gold accent trims',
     photos: [
-      {
-        src: 'https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=1400&q=80',
-        label: 'Front elevation',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=80',
-        label: 'Lighting view',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=80',
-        label: 'Side profile',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=1400&q=80',
-        label: 'Jaali detail',
-      },
+      { src: '/images/generated/v1/pooja-mandir-cnc.webp', label: 'AI-assisted concept visualization' },
     ],
   },
 ];

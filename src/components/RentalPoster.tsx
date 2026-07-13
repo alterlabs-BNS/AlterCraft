@@ -64,7 +64,7 @@ export function RentalPoster() {
       {/* Decorative Background Image */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[60%] opacity-[0.03] pointer-events-none">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1671722294182-ed01cbe66bd1"
+          src="/images/generated/v1/living-curved-collection.webp"
           alt="Furniture on rent for home office and events"
           className="w-full h-full object-cover"
         />

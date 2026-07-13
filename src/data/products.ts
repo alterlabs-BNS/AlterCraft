@@ -40,12 +40,7 @@ export const products: Product[] = [
     deliveryDays: 7,
     materials: 'Engineered Wood with Walnut Veneer',
     dimensions: '210cm x 200cm x 120cm (L x W x H)',
-    images: [
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800',
-      'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800',
-      'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=800',
-      'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800',
-    ],
+    images: ['/images/generated/v1/bed-upholstered-drawer.webp'],
     features: [
       'CNC-carved headboard with custom patterns for luxury bedrooms',
       'Reinforced slat system for durability',
@@ -73,11 +68,7 @@ export const products: Product[] = [
     deliveryDays: 10,
     materials: 'Engineered Wood with Melamine Finish',
     dimensions: '190cm x 150cm x 110cm (L x W x H)',
-    images: [
-      'https://images.unsplash.com/photo-1578898886655-c70a4aa75f5d?w=800',
-      'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800',
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800',
-    ],
+    images: ['/images/generated/v1/bed-hydraulic-storage.webp'],
     features: [
       'Hydraulic lift storage for bedding, luggage and seasonal clothes',
       'Soft-close mechanism for safety',
@@ -104,12 +95,7 @@ export const products: Product[] = [
     deliveryDays: 14,
     materials: 'Engineered Wood + Bagasse Board Interior',
     dimensions: '240cm x 60cm x 210cm (H x D x W)',
-    images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
-      'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800',
-      'https://images.unsplash.com/photo-1595428773711-e6b9e4a8ebeb?w=800',
-    ],
+    images: ['/images/generated/v1/wardrobe-sliding-smoked.webp'],
     features: [
       'Soft-close sliding door mechanism',
       'Full-length mirror on center panel',
@@ -137,10 +123,7 @@ export const products: Product[] = [
     deliveryDays: 7,
     materials: 'Engineered Wood with Laminate Finish',
     dimensions: '180cm x 50cm x 150cm (H x D x W)',
-    images: [
-      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-    ],
+    images: ['/images/generated/v1/wardrobe-internal-storage.webp'],
     features: [
       'Magnetic door locks',
       '4 internal shelves + hanging rod',
@@ -167,11 +150,7 @@ export const products: Product[] = [
     deliveryDays: 5,
     materials: 'Engineered Wood with Matt Finish',
     dimensions: '120cm x 60cm x 75cm (L x W x H)',
-    images: [
-      'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800',
-      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
-      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800',
-    ],
+    images: ['/images/generated/v1/office-commercial-interior.webp'],
     features: [
       'Built-in cable management system',
       '2 large drawers with smooth glides',
@@ -199,10 +178,7 @@ export const products: Product[] = [
     deliveryDays: 3,
     materials: 'Engineered Wood with PU Polish',
     dimensions: '100cm x 50cm x 10cm (folded)',
-    images: [
-      'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
-      'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=800',
-    ],
+    images: ['/images/generated/v1/design-planning.webp'],
     features: [
       'Folds flat when not in use',
       'Heavy-duty wall brackets included',
@@ -229,11 +205,7 @@ export const products: Product[] = [
     deliveryDays: 21,
     materials: 'Premium Teak Wood with Natural Polish',
     dimensions: '90cm x 45cm x 150cm (W x D x H)',
-    images: [
-      'https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800',
-      'https://images.unsplash.com/photo-1609743522653-52354461eb27?w=800',
-      'https://images.unsplash.com/photo-1624084265550-f4d68ea0ca04?w=800',
-    ],
+    images: ['/images/generated/v1/pooja-mandir-cnc.webp'],
     features: [
       'CNC-carved traditional motifs',
       'Multiple idol shelves with LED backlighting',
@@ -261,10 +233,7 @@ export const products: Product[] = [
     deliveryDays: 10,
     materials: 'Engineered Wood with Veneer Finish',
     dimensions: '75cm x 35cm x 100cm (W x D x H)',
-    images: [
-      'https://images.unsplash.com/photo-1609743522653-52354461eb27?w=800',
-      'https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?w=800',
-    ],
+    images: ['/images/generated/v1/pooja-mandir-cnc.webp'],
     features: [
       'Space-saving wall-mounted design',
       'Integrated warm LED strip lighting',
@@ -291,11 +260,7 @@ export const products: Product[] = [
     deliveryDays: 7,
     materials: 'MDF with Lacquer Finish',
     dimensions: '60cm x 60cm x 2cm each (6 panels)',
-    images: [
-      'https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?w=800',
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800',
-      'https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=800',
-    ],
+    images: ['/images/generated/v1/cnc-workshop.webp'],
     features: [
       'Precision CNC geometric patterns',
       'High-gloss lacquer finish',
@@ -323,10 +288,7 @@ export const products: Product[] = [
     deliveryDays: 5,
     materials: 'Plywood with UV Print + CNC Cut',
     dimensions: '120cm x 90cm x 1.5cm',
-    images: [
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800',
-      'https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?w=800',
-    ],
+    images: ['/images/generated/v1/joinery-soft-close.webp'],
     features: [
       'Intricate floral CNC cutting',
       'UV-printed background colors',
@@ -353,10 +315,7 @@ export const products: Product[] = [
     deliveryDays: 3,
     materials: 'Acrylic with LED Strip',
     dimensions: '45cm x 30cm x 1.5cm (customizable)',
-    images: [
-      'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=800',
-      'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800',
-    ],
+    images: ['/images/generated/v1/cnc-workshop.webp'],
     features: [
       'Custom text and font selection',
       'Warm white LED backlighting',
@@ -384,11 +343,7 @@ export const products: Product[] = [
     deliveryDays: 2,
     materials: 'Mixed: Wood, Metal, Upholstery',
     dimensions: 'Package includes 20 chairs + 4 tables',
-    images: [
-      'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?w=800',
-      'https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=800',
-      'https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?w=800',
-    ],
+    images: ['/images/generated/v1/living-curved-collection.webp'],
     features: [
       'Complete event setup included',
       'Professional delivery and pickup',

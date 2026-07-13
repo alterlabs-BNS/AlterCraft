@@ -59,7 +59,7 @@ export function ModularKitchen() {
           `Measured modular kitchens from ${modularKitchenStartingPrice} for Delhi NCR, Noida, Ghaziabad and Greater Noida West with practical storage, moisture-aware materials, branded hardware and elegant finishes.`,
         breadcrumb: 'Products / Modular Kitchen',
         image:
-          'https://images.unsplash.com/photo-1559554704-0f74b35a8718?auto=format&fit=crop&w=1800&q=82',
+          '/images/generated/v1/kitchen-premium-u-shape.webp',
         imageAlt: 'Elegant modular kitchen with warm cabinetry',
         priceTag: `Modular kitchen from ${modularKitchenStartingPrice}`,
       }}
@@ -149,13 +149,13 @@ export function ModularKitchen() {
           title: 'Island Planning',
           description: 'A premium prep and serving zone for open kitchens.',
           image:
-            'https://images.unsplash.com/photo-1683629357935-f3f4777ddf41?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/kitchen-premium-u-shape.webp',
         },
         {
           title: 'Compact Kitchen',
           description: 'Straight and parallel layouts for tighter apartment spaces.',
           image:
-            'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/kitchen-compact-l-shape.webp',
         },
       ]}
       quoteService="Modular Kitchen"
@@ -172,7 +172,7 @@ export function DesignerBeds() {
           'Custom beds, storage beds and coordinated bedroom furniture with premium finishes and practical everyday detailing.',
         breadcrumb: 'Products / Designer Beds',
         image:
-          'https://images.unsplash.com/photo-1644057501622-dfa7dd26dbfb?auto=format&fit=crop&w=1800&q=82',
+          '/images/generated/v1/bed-upholstered-drawer.webp',
         imageAlt: 'Premium designer bedroom',
         priceTag: `Designer beds from ${productPrice('bed-02')}`,
       }}
@@ -187,7 +187,7 @@ export function DesignerBeds() {
         body:
           'The bed is planned with room movement, side tables, headboard height, switch points and storage access in mind. Finishes can be coordinated with wardrobes, wall panels and study corners.',
         image:
-          'https://images.unsplash.com/photo-1696762932825-2737db830bbe?auto=format&fit=crop&w=1200&q=82',
+          '/images/generated/v1/bed-hydraulic-storage.webp',
         imageAlt: 'Designer bed with premium headboard',
         points: [
           'Hydraulic storage, box storage and drawer storage options.',
@@ -248,25 +248,25 @@ export function DesignerBeds() {
           title: 'Storage Bed',
           description: 'Clean storage access without making the bedroom feel heavy.',
           image:
-            'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/bed-hydraulic-storage.webp',
         },
         {
           title: 'Upholstered Headboard',
           description: 'Soft finish, premium comfort and a calm visual anchor.',
           image:
-            'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/bed-upholstered-drawer.webp',
         },
         {
           title: 'Platform Bed',
           description: 'Modern low-profile structure with warm material detailing.',
           image:
-            'https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/bed-upholstered-drawer.webp',
         },
         {
           title: 'Coordinated Bedroom',
           description: 'Bed, wardrobe and wall finish planned together.',
           image:
-            'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/walk-in-indian-storage.webp',
         },
       ]}
       quoteService="Designer Beds"
@@ -283,7 +283,7 @@ export function FlushDoors() {
           'Elegant room doors with durable cores, refined finishes and door-specific warranty coverage, planned alongside your interiors.',
         breadcrumb: 'Products / Flush Doors',
         image:
-          'https://images.unsplash.com/photo-1634822930432-0594057fdff2?auto=format&fit=crop&w=1800&q=82',
+          '/images/generated/v1/flush-door.webp',
         imageAlt: 'Premium wooden room door',
         priceTag: `Flush doors from ${flushDoorStart}`,
       }}
@@ -298,7 +298,7 @@ export function FlushDoors() {
         body:
           'Flush doors can be finished in veneer, laminate, PVC, paint-ready or premium textured surfaces. The goal is a durable door that matches the room instead of looking like an afterthought.',
         image:
-          'https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=1200&q=82',
+          '/images/generated/v1/flush-door.webp',
         imageAlt: 'Flush door detail in warm wood finish',
         points: [
           'Termite-resistant and moisture-aware core options.',
@@ -359,25 +359,25 @@ export function FlushDoors() {
           title: 'Warm Wood Door',
           description: 'A premium finish for bedrooms and family spaces.',
           image:
-            'https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/flush-door.webp',
         },
         {
           title: 'Panel Door Look',
           description: 'A refined visual upgrade for modern interiors.',
           image:
-            'https://images.unsplash.com/photo-1634822930432-0594057fdff2?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/flush-door.webp',
         },
         {
           title: 'Classic Finish',
           description: 'Simple, durable and easy to coordinate.',
           image:
-            'https://images.unsplash.com/photo-1542354642-233af003db87?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/flush-door.webp',
         },
         {
           title: 'Interior Coordination',
           description: 'Doors planned with wardrobes, floors and wall panels.',
           image:
-            'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/flush-door.webp',
         },
       ]}
       quoteService="Flush Doors"
@@ -394,7 +394,7 @@ export function Wardrobes() {
           'Sliding wardrobes, swing wardrobes, lofts and internal storage systems designed around your room and daily routine.',
         breadcrumb: 'Products / Wardrobes',
         image:
-          'https://images.unsplash.com/photo-1672137233327-37b0c1049e77?auto=format&fit=crop&w=1800&q=82',
+          '/images/generated/v1/walk-in-indian-storage.webp',
         imageAlt: 'Walk-in wardrobe with elegant storage',
         priceTag: `Wardrobes from ${productPrice('wardrobe-02')}`,
       }}
@@ -479,13 +479,13 @@ export function Wardrobes() {
           title: 'Warm Laminate Finish',
           description: 'Elegant neutral finish for daily-use bedrooms.',
           image:
-            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/wardrobe-sliding-smoked.webp',
         },
         {
           title: 'Compact Storage',
           description: 'Measured units for apartments, rentals and PG rooms.',
           image:
-            'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/wardrobe-internal-storage.webp',
         },
       ]}
       quoteService="Wardrobes & Storage"
@@ -502,7 +502,7 @@ export function OfficeCommercial() {
           'Workstations, storage, reception units and commercial furniture with restrained, durable detailing for everyday business use.',
         breadcrumb: 'Products / Office Interiors',
         image:
-          'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1800&q=82',
+          '/images/generated/v1/office-commercial-interior.webp',
         imageAlt: 'Premium office interior with workstations',
         priceTag: `Study desks from ${productPrice('study-02')}`,
       }}
@@ -582,19 +582,19 @@ export function OfficeCommercial() {
           title: 'Office Storage',
           description: 'Shelving and cabinets for organized workspaces.',
           image:
-            'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/office-commercial-interior.webp',
         },
         {
           title: 'Executive Cabin',
           description: 'Warm wood finishes with a professional, restrained look.',
           image:
-            'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/design-planning.webp',
         },
         {
           title: 'Commercial Furniture',
           description: 'Durable furniture systems for everyday business use.',
           image:
-            'https://images.unsplash.com/photo-1505832018823-50331d70d237?auto=format&fit=crop&w=900&q=80',
+            '/images/generated/v1/office-commercial-interior.webp',
         },
       ]}
       quoteService="Office & Commercial Interiors"

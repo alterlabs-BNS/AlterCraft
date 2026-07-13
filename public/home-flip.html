@@ -11,13 +11,13 @@
 <meta property="og:description" content="Custom furniture, modular kitchens from INR 1,200 / sq. ft., wardrobes, beds, office interiors and design previews from AlterCraft in Ghaziabad, Noida, Greater Noida and Delhi NCR.">
 <meta property="og:url" content="https://www.altercraft.in/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://www.altercraft.in/altercraft-logo.png">
+<meta property="og:image" content="https://www.altercraft.in/images/generated/v1/brand-hero.webp">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#f8f4ee">
 <script>if(location.protocol==='http:'&&/(^|\.)altercraft\.in$/i.test(location.hostname)){location.replace('https://'+location.host+location.pathname+location.search+location.hash);}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"AlterCraft","legalName":"AlterCraft Interiors and Furnitures","url":"https://www.altercraft.in/","telephone":"+918817503658","email":"support@altercraft.in","image":"https://www.altercraft.in/altercraft-logo.png","address":{"@type":"PostalAddress","streetAddress":"Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Road","addressLocality":"Chipiyana Buzurg, Ghaziabad","addressRegion":"Uttar Pradesh","postalCode":"201009","addressCountry":"IN"},"priceRange":"INR 1,200 - 3,50,000"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"AlterCraft","legalName":"AlterCraft Interiors and Furnitures","url":"https://www.altercraft.in/","telephone":"+918817503658","email":"support@altercraft.in","image":"https://www.altercraft.in/images/generated/v1/brand-hero.webp","address":{"@type":"PostalAddress","streetAddress":"Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Road","addressLocality":"Chipiyana Buzurg, Ghaziabad","addressRegion":"Uttar Pradesh","postalCode":"201009","addressCountry":"IN"},"priceRange":"INR 1,200 - 3,50,000"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -108,7 +108,7 @@ h2{font-size:clamp(34px,4.4vw,60px);margin-bottom:18px}
 .screen.active .g-main img{transform:scale(1.06)}
 .g-main img.swap{opacity:0}
 .g-label{position:absolute;left:18px;bottom:18px;background:rgba(20,18,16,.72);backdrop-filter:blur(8px);color:#fff;font-size:12px;font-weight:600;letter-spacing:.5px;padding:8px 16px;border-radius:100px}
-.g-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:88px}
+.g-thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:12px;height:88px}
 .g-thumbs button{border:2px solid transparent;border-radius:14px;overflow:hidden;padding:0;background:none;transition:.25s;position:relative}
 .g-thumbs button img{width:100%;height:100%;object-fit:cover}
 .g-thumbs button:hover{transform:translateY(-4px)}
@@ -128,7 +128,7 @@ h2{font-size:clamp(34px,4.4vw,60px);margin-bottom:18px}
 #s1 .hero-bg img{width:100%;height:100%;object-fit:cover}
 #s1 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(16,13,10,.82) 20%,rgba(16,13,10,.45) 55%,rgba(16,13,10,.25))}
 #s1 .copy{position:relative;z-index:2;color:#f6f1e9;height:100%;padding-left:44px;max-width:720px}
-#s1 h2{font-size:clamp(40px,5.6vw,76px)}
+#s1 h1,#s1 h2{font-size:clamp(40px,5.6vw,76px)}
 #s1 .lede{color:#d8d0c4}
 .hero-stats{display:flex;gap:38px;margin-top:38px}
 .hero-stats div b{display:block;font-family:'Playfair Display',serif;font-size:30px;font-weight:700}
@@ -261,6 +261,10 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:900px){
+  nav{padding:12px 14px}
+  .cart-btn{display:none}
+  .quote-btn{padding:8px 12px;font-size:11px}
+  .wordmark span{display:none}
   .split,.split.flip{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:80px 20px 70px;gap:16px}
   .copy{padding-right:0;justify-content:flex-end}
   h2{font-size:30px;margin-bottom:12px}
@@ -268,12 +272,16 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
   .g-thumbs{height:62px}
   .mini-strip{display:none}
   .dots{right:12px}
-  #s1 .copy{padding-left:20px;justify-content:center}
+  #s1 .copy{width:100%;padding-left:20px;padding-right:20px;justify-content:center;overflow-wrap:anywhere}
   .hero-stats{gap:22px}
   .blog-grid{grid-template-columns:1fr;overflow:auto}
   .phone{width:210px;height:430px}
   .infra-grid{grid-template-columns:1fr 1fr}
   .infra-tile{height:110px}
+}
+@media(max-width:480px){
+  .quote-btn{display:none}
+  #s1 .lede,#s1 .concept-note{width:100%;max-width:calc(100vw - 40px);white-space:normal}
 }
 </style>
 </head>
@@ -322,11 +330,12 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
 
 <!-- 1 · HERO : Interiors + Infra showcase -->
 <section class="screen dark" id="s1" data-name="AlterCraft" data-dark>
-  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1900&q=80" alt="AlterCraft interiors"></div>
+  <div class="hero-bg"><img src="/images/generated/v1/brand-hero.webp" alt="AlterCraft interiors"></div>
   <div class="copy">
     <div class="kicker rev d1">Furniture · Interiors · Infrastructure — Ghaziabad & Delhi NCR</div>
-    <h2 class="rev d2">From a single bed<br>to complete <em class="grad-word">infrastructure.</em></h2>
+    <h1 class="rev d2">From a single bed<br>to complete <em class="grad-word">infrastructure.</em></h1>
     <p class="lede rev d3">AlterCraft has grown from custom furniture into full home interiors and turnkey infra — modular kitchens, wardrobes, walk-in closets, site execution and our own contractor technology. Everything below is one scroll away.</p>
+    <p class="concept-note rev d3" style="font-size:11px;letter-spacing:.4px;opacity:.72;margin:-10px 0 18px">AI-assisted design visualizations. Final materials, dimensions and execution are confirmed after site measurement.</p>
     <div class="cta-row rev d4">
       <button class="btn btn-solid" data-go="1">Start Shopping ↓</button>
       <button class="btn btn-ghost" data-go="6">See Our Infra</button>
@@ -338,9 +347,9 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
     </div>
   </div>
   <div class="hero-cards">
-    <div class="hero-card rev d3" data-go="1"><img src="https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=600&q=70" alt=""><b>Beds & Storage</b><span>from ₹24,999</span></div>
-    <div class="hero-card rev d4" data-go="3"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=70&w=600" alt=""><b>Modular Kitchens</b><span>from ₹1.4 L</span></div>
-    <div class="hero-card rev d5" data-go="2"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600" alt=""><b>Wardrobes</b><span>from ₹38,999</span></div>
+    <div class="hero-card rev d3" data-go="1"><img src="/images/generated/v1/bed-hydraulic-storage.webp" alt=""><b>Beds & Storage</b><span>from ₹24,999</span></div>
+    <div class="hero-card rev d4" data-go="3"><img src="/images/generated/v1/kitchen-premium-u-shape.webp" alt=""><b>Modular Kitchens</b><span>from ₹1.4 L</span></div>
+    <div class="hero-card rev d5" data-go="2"><img src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt=""><b>Wardrobes</b><span>from ₹38,999</span></div>
   </div>
   <div class="marquee"><div class="marquee-track" id="mq">
     <span>Beds</span><i>◆</i><span>Wardrobes</span><i>◆</i><span>Modular Kitchens</span><i>◆</i><span>Living & Dining</span><i>◆</i><span>Walk-in Closets</span><i>◆</i><span>Full Interiors</span><i>◆</i><span>Infra Projects</span><i>◆</i><span>Contractor Desk</span><i>◆</i>
@@ -360,18 +369,16 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <a class="btn btn-ghost" href="/beds">Explore All Beds →</a>
       </div>
       <div class="mini-strip rev d5">
-        <div class="mini"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=200" alt=""><div>Queen Storage Bed<em>₹28,499</em></div></div>
-        <div class="mini"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=200" alt=""><div>King Platform Bed<em>₹34,999</em></div></div>
-        <div class="mini"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=200" alt=""><div>Upholstered Bed<em>₹31,499</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/bed-hydraulic-storage.webp" alt=""><div>Queen Storage Bed<em>₹28,499</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/bed-upholstered-drawer.webp" alt=""><div>King Platform Bed<em>₹34,999</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/bed-upholstered-drawer.webp" alt=""><div>Upholstered Bed<em>₹31,499</em></div></div>
       </div>
     </div>
     <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s2" src="https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=1400&q=80" alt="Bed"><span class="float-chip">✓ 10-yr warranty</span><span class="g-label" id="lab-s2">Queen bed · walnut finish</span></div>
+      <div class="g-main"><img id="img-s2" src="/images/generated/v1/bed-hydraulic-storage.webp" alt="Bed"><span class="float-chip">✓ 10-yr warranty</span><span class="g-label" id="lab-s2">Hydraulic storage concept</span></div>
       <div class="g-thumbs" data-for="s2">
-        <button class="sel" data-full="https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=1400&q=80" data-label="Queen bed · walnut finish"><img src="https://images.unsplash.com/photo-1505693314127-4f8d16735a07?auto=format&fit=crop&w=400&q=60" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1400" data-label="Hydraulic storage · open"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1400" data-label="Bedroom set · styled"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1400" data-label="Headboard detail"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400" alt=""></button>
+        <button class="sel" data-full="/images/generated/v1/bed-hydraulic-storage.webp" data-label="Hydraulic storage concept"><img src="/images/generated/v1/bed-hydraulic-storage.webp" alt="Hydraulic storage bed design visualization"></button>
+        <button data-full="/images/generated/v1/bed-upholstered-drawer.webp" data-label="Upholstered storage concept"><img src="/images/generated/v1/bed-upholstered-drawer.webp" alt="Upholstered storage bed design visualization"></button>
       </div>
     </div>
   </div>
@@ -381,12 +388,10 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
 <section class="screen" id="s3" data-name="Wardrobes" style="background:#f1ebe2">
   <div class="split flip">
     <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s3" src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1400" alt="Wardrobe"><span class="float-chip">✓ Free measurement</span><span class="g-label" id="lab-s3">3-door hinged · matte laminate</span></div>
+      <div class="g-main"><img id="img-s3" src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt="Wardrobe"><span class="float-chip">✓ Free measurement</span><span class="g-label" id="lab-s3">Sliding wardrobe concept</span></div>
       <div class="g-thumbs" data-for="s3">
-        <button class="sel" data-full="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1400" data-label="3-door hinged · matte laminate"><img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1595428773711-e6b9e4a8ebeb?w=1400" data-label="Sliding · smoked glass"><img src="https://images.unsplash.com/photo-1595428773711-e6b9e4a8ebeb?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400" data-label="Internal fittings"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80" data-label="Loft storage combo"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=60" alt=""></button>
+        <button class="sel" data-full="/images/generated/v1/wardrobe-sliding-smoked.webp" data-label="Sliding wardrobe concept"><img src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt="Sliding wardrobe design visualization"></button>
+        <button data-full="/images/generated/v1/wardrobe-internal-storage.webp" data-label="Internal storage concept"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt="Wardrobe internal storage design visualization"></button>
       </div>
     </div>
     <div class="copy">
@@ -399,8 +404,8 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <a class="btn btn-ghost" href="/wardrobe-ghaziabad">Wardrobe Gallery →</a>
       </div>
       <div class="mini-strip rev d5">
-        <div class="mini"><img src="https://images.unsplash.com/photo-1595428773711-e6b9e4a8ebeb?w=200" alt=""><div>2-Door Hinged<em>₹38,999</em></div></div>
-        <div class="mini"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200" alt=""><div>Sliding 7ft<em>₹58,499</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt=""><div>2-Door Hinged<em>₹38,999</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt=""><div>Sliding 7ft<em>₹58,499</em></div></div>
       </div>
     </div>
   </div>
@@ -419,17 +424,15 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <a class="btn btn-ghost" href="/modular-kitchen">Kitchen Packages →</a>
       </div>
       <div class="mini-strip rev d5">
-        <div class="mini"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=200" alt=""><div>L-Shape Essential<em>₹1.4 L</em></div></div>
-        <div class="mini"><img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=60&w=200" alt=""><div>Island Premium<em>₹3.2 L</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/kitchen-compact-l-shape.webp" alt=""><div>L-Shape Essential<em>₹1.4 L</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/kitchen-premium-u-shape.webp" alt=""><div>Island Premium<em>₹3.2 L</em></div></div>
       </div>
     </div>
     <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s4" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1400" alt="Kitchen"><span class="float-chip">✓ Free 3D design</span><span class="g-label" id="lab-s4">U-shape · quartz counter</span></div>
+      <div class="g-main"><img id="img-s4" src="/images/generated/v1/kitchen-premium-u-shape.webp" alt="Kitchen"><span class="float-chip">✓ Free 3D design</span><span class="g-label" id="lab-s4">Premium U-shape concept</span></div>
       <div class="g-thumbs" data-for="s4">
-        <button class="sel" data-full="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1400" data-label="U-shape · quartz counter"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=60&w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1400" data-label="L-shape · handle-less"><img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1556912173-3bb406ef7e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1400" data-label="Island · breakfast counter"><img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=60&w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=80" data-label="Tall units · pantry"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=400&q=60" alt=""></button>
+        <button class="sel" data-full="/images/generated/v1/kitchen-premium-u-shape.webp" data-label="Premium U-shape concept"><img src="/images/generated/v1/kitchen-premium-u-shape.webp" alt="Premium U-shape kitchen design visualization"></button>
+        <button data-full="/images/generated/v1/kitchen-compact-l-shape.webp" data-label="Compact L-shape concept"><img src="/images/generated/v1/kitchen-compact-l-shape.webp" alt="Compact L-shape kitchen design visualization"></button>
       </div>
     </div>
   </div>
@@ -439,12 +442,10 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
 <section class="screen" id="s5" data-name="Living">
   <div class="split flip">
     <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s5" src="https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=1400&q=80" alt="Sofa"><span class="float-chip">✓ Custom sizes</span><span class="g-label" id="lab-s5">Nova L-shape sofa</span></div>
+      <div class="g-main"><img id="img-s5" src="/images/generated/v1/living-media-wall.webp" alt="Sofa"><span class="float-chip">✓ Custom sizes</span><span class="g-label" id="lab-s5">Media wall concept</span></div>
       <div class="g-thumbs" data-for="s5">
-        <button class="sel" data-full="https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=1400&q=80" data-label="Nova L-shape sofa"><img src="https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=400&q=60" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1400&q=80" data-label="Corner angle"><img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=400&q=60" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=80" data-label="Lounge chair pairing"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=400&q=60" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80" data-label="TV unit · walnut"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=400&q=60" alt=""></button>
+        <button class="sel" data-full="/images/generated/v1/living-media-wall.webp" data-label="Media wall concept"><img src="/images/generated/v1/living-media-wall.webp" alt="Living room media wall design visualization"></button>
+        <button data-full="/images/generated/v1/living-curved-collection.webp" data-label="Curved furniture concept"><img src="/images/generated/v1/living-curved-collection.webp" alt="Curved living furniture design visualization"></button>
       </div>
     </div>
     <div class="copy">
@@ -457,9 +458,9 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <a class="btn btn-ghost" href="/products">Living Catalog →</a>
       </div>
       <div class="mini-strip rev d5">
-        <div class="mini"><img src="https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=200&q=50" alt=""><div>Nova L-Shape<em>₹64,999</em></div></div>
-        <div class="mini"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=200&q=50" alt=""><div>Regal TV Console<em>₹22,499</em></div></div>
-        <div class="mini"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=200&q=50" alt=""><div>Coffee Table<em>₹9,999</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/living-media-wall.webp" alt=""><div>Nova L-Shape<em>₹64,999</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/living-media-wall.webp" alt=""><div>Regal TV Console<em>₹22,499</em></div></div>
+        <div class="mini"><img src="/images/generated/v1/living-curved-collection.webp" alt=""><div>Coffee Table<em>₹9,999</em></div></div>
       </div>
     </div>
   </div>
@@ -479,12 +480,10 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
       </div>
     </div>
     <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s6" src="https://images.unsplash.com/photo-1616628182509-9f5d4a4f2b12?auto=format&fit=crop&w=1400&q=80" alt="Walk-in closet"><span class="float-chip">✓ Turnkey execution</span><span class="g-label" id="lab-s6">Walk-in · open shelving</span></div>
+      <div class="g-main"><img id="img-s6" src="/images/generated/v1/walk-in-indian-storage.webp" alt="Walk-in closet"><span class="float-chip">✓ Turnkey execution</span><span class="g-label" id="lab-s6">Walk-in storage concept</span></div>
       <div class="g-thumbs" data-for="s6">
-        <button class="sel" data-full="https://images.unsplash.com/photo-1616628182509-9f5d4a4f2b12?auto=format&fit=crop&w=1400&q=80" data-label="Walk-in · open shelving"><img src="https://images.unsplash.com/photo-1616628182509-9f5d4a4f2b12?auto=format&fit=crop&w=400&q=60" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=1400" data-label="Dresser · LED mirror"><img src="https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=400" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80" data-label="Bedroom panelling"><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=60" alt=""></button>
-        <button data-full="https://images.unsplash.com/photo-1505832018823-50331d70d237?auto=format&fit=crop&w=1400&q=80" data-label="Full room view"><img src="https://images.unsplash.com/photo-1505832018823-50331d70d237?auto=format&fit=crop&w=400&q=60" alt=""></button>
+        <button class="sel" data-full="/images/generated/v1/walk-in-indian-storage.webp" data-label="Walk-in storage concept"><img src="/images/generated/v1/walk-in-indian-storage.webp" alt="Walk-in wardrobe design visualization"></button>
+        <button data-full="/images/generated/v1/wardrobe-internal-storage.webp" data-label="Indian wardrobe storage concept"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt="Indian wardrobe storage design visualization"></button>
       </div>
     </div>
   </div>
@@ -503,10 +502,10 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
       </div>
     </div>
     <div class="infra-grid">
-      <div class="infra-tile rev d2"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900" alt=""><b>CNC Precision Cutting</b></div>
-      <div class="infra-tile rev d3"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900" alt=""><b>Site Execution & Fit-outs</b></div>
-      <div class="infra-tile rev d4"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900" alt=""><b>Drawings & 3D Planning</b></div>
-      <div class="infra-tile rev d5"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=900" alt=""><b>ACOS — Our Own Software</b></div>
+      <div class="infra-tile rev d2"><img src="/images/generated/v1/cnc-workshop.webp" alt=""><b>CNC Precision Cutting</b></div>
+      <div class="infra-tile rev d3"><img src="/images/generated/v1/site-installation.webp" alt=""><b>Site Execution & Fit-outs</b></div>
+      <div class="infra-tile rev d4"><img src="/images/generated/v1/design-planning.webp" alt=""><b>Drawings & 3D Planning</b></div>
+      <div class="infra-tile rev d5"><img src="/images/generated/v1/design-planning.webp" alt=""><b>ACOS — Our Own Software</b></div>
     </div>
   </div>
 </section>
@@ -552,9 +551,9 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
       <h2 class="rev d2" style="font-size:clamp(28px,3.4vw,44px)">Ideas from the workshop.</h2>
     </div>
     <div class="blog-grid">
-      <div class="blog-card rev d2" onclick="location.href='/blog/'"><img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=900&q=70" alt=""><div><b>CNC interiors: why machine-cut beats carpenter-cut</b><span>Blog · 6 min read</span></div></div>
-      <div class="blog-card rev d3" onclick="location.href='/blog/'"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=70" alt=""><div><b>Wardrobe storage: planning interiors that actually fit</b><span>Blog · 5 min read</span></div></div>
-      <div class="blog-card rev d4" onclick="location.href='/blog/'"><img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=70" alt=""><div><b>About AlterCraft — from one workshop to full infra</b><span>Our story</span></div></div>
+      <div class="blog-card rev d2" onclick="location.href='/blog/'"><img src="/images/generated/v1/cnc-workshop.webp" alt=""><div><b>CNC interiors: why machine-cut beats carpenter-cut</b><span>Blog · 6 min read</span></div></div>
+      <div class="blog-card rev d3" onclick="location.href='/blog/'"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt=""><div><b>Wardrobe storage: planning interiors that actually fit</b><span>Blog · 5 min read</span></div></div>
+      <div class="blog-card rev d4" onclick="location.href='/blog/'"><img src="/images/generated/v1/brand-hero.webp" alt=""><div><b>About AlterCraft — from one workshop to full infra</b><span>Our story</span></div></div>
     </div>
     <div class="final-foot rev d5">
       <div class="addr"><b style="color:var(--ink)">Visit the Experience Store</b><br>Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Buzurg, Ghaziabad, UP 201009<br>+91 88175 03658 · Mon–Sun, 10am–8pm</div>
@@ -705,7 +704,7 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
   });
 
   // broken-image safety net
-  const FB='https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=70';
+  const FB='/images/generated/v1/brand-hero.webp';
   document.querySelectorAll('img').forEach(im=>im.addEventListener('error',()=>{
     if(!im.dataset.fb){im.dataset.fb=1;im.src=FB;}
   }));

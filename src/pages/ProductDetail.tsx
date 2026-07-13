@@ -70,6 +70,10 @@ export default function ProductDetail() {
               <span className="elegant-badge">{product.category}</span>
               <h1 className="elegant-product-title">{product.name}</h1>
               <p className="elegant-copy">{product.shortDescription}</p>
+              <p className="elegant-copy">
+                Design visualization only. Final dimensions, materials, price and delivery are
+                confirmed after measurement and scope review.
+              </p>
 
               <div className="elegant-product-price-panel">
                 {hasBuy ? (
@@ -141,7 +145,7 @@ export default function ProductDetail() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  WhatsApp to Order
+                  Get a Custom Quote
                 </a>
                 <Link className="elegant-button-secondary" to="/gallery">
                   Back to Gallery

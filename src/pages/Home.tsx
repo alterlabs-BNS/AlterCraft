@@ -227,7 +227,7 @@ export default function Home() {
       price: `Starting from ${formatInr(bedStartingPrice)}`,
       note: 'Hydraulic storage, platform and made-to-size bedroom furniture.',
       image:
-        'https://images.unsplash.com/photo-1696762932825-2737db830bbe?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/bed-hydraulic-storage.webp',
       to: '/beds',
       cta: 'View Bed Designs',
     },
@@ -236,7 +236,7 @@ export default function Home() {
       price: 'Starting from INR 7,600 / door',
       note: 'Door-specific warranty available for eligible specifications.',
       image:
-        'https://images.unsplash.com/photo-1603673298820-40d77252226d?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/flush-door.webp',
       to: '/flush-doors',
       cta: 'Check Door Options',
     },
@@ -288,31 +288,31 @@ export default function Home() {
       title: 'Modular Kitchen',
       to: '/modular-kitchen',
       image:
-        'https://images.unsplash.com/photo-1683629357935-f3f4777ddf41?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/kitchen-compact-l-shape.webp',
     },
     {
       title: 'Designer Beds',
       to: '/beds',
       image:
-        'https://images.unsplash.com/photo-1644057501622-dfa7dd26dbfb?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/bed-upholstered-drawer.webp',
     },
     {
       title: 'Flush Doors',
       to: '/flush-doors',
       image:
-        'https://images.unsplash.com/photo-1634822930432-0594057fdff2?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/flush-door.webp',
     },
     {
       title: 'Wardrobes & Storage',
       to: '/wardrobes',
       image:
-        'https://images.unsplash.com/photo-1672137233327-37b0c1049e77?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/wardrobe-sliding-smoked.webp',
     },
     {
       title: 'Office Interiors',
       to: '/office-commercial',
       image:
-        'https://images.unsplash.com/photo-1715593949273-09009558300a?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/office-commercial-interior.webp',
     },
   ];
 
@@ -320,22 +320,22 @@ export default function Home() {
     {
       label: 'Warm Modular Kitchen',
       image:
-        'https://images.unsplash.com/photo-1559554704-0f74b35a8718?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/kitchen-premium-u-shape.webp',
     },
     {
       label: 'Premium Living Storage',
       image:
-        'https://images.unsplash.com/photo-1704040686413-2c607dbd2f06?w=900&h=900&fit=crop&auto=format',
+        '/images/generated/v1/living-media-wall.webp',
     },
     {
       label: 'Wardrobe Planning',
       image:
-        'https://images.unsplash.com/photo-1649361811423-a55616f7ab11?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/wardrobe-internal-storage.webp',
     },
     {
       label: 'Designer Bedroom',
       image:
-        'https://images.unsplash.com/photo-1644057501622-dfa7dd26dbfb?w=900&h=900&fit=crop&auto=format',
+        '/images/generated/v1/bed-upholstered-drawer.webp',
     },
   ];
 
@@ -663,26 +663,24 @@ export default function Home() {
 
   const storyStages = [
     {
-      title: 'Before Site Photo',
-      desc: 'Clear photos of the current room or furniture area.',
-      image:
-        'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&h=680&fit=crop&auto=format',
+      title: 'Upload & Measure',
+      desc: 'Share your actual room photos and measurements. This is a planning visualization.',
+      image: '/images/generated/v1/design-planning.webp',
     },
     {
-      title: 'Design Preview',
-      desc: 'A first visual idea to help you choose the look and direction.',
+      title: 'Concept Direction',
+      desc: 'An AI-assisted design visualization to help choose the look and direction.',
       image: canvaVisuals.aiJourney,
     },
     {
-      title: 'Human-Verified Execution Design',
+      title: 'Material & Scope Review',
       desc: 'AlterCraft checks sizes, materials, scope and quotation with you.',
-      image: canvaVisuals.office,
+      image: '/images/generated/v1/joinery-soft-close.webp',
     },
     {
-      title: 'Final Execution',
-      desc: 'Production, installation and handover after confirmation.',
-      image:
-        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&h=680&fit=crop&auto=format',
+      title: 'Execution Planning',
+      desc: 'A process visualization of production, installation and handover after confirmation.',
+      image: '/images/generated/v1/site-installation.webp',
     },
   ];
 
@@ -706,37 +704,37 @@ export default function Home() {
       title: 'Bedroom Furniture',
       description: 'Bed, headboard, side table and storage ideas based on your room.',
       image:
-        'https://images.unsplash.com/photo-1644057501622-dfa7dd26dbfb?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/bed-upholstered-drawer.webp',
     },
     {
       title: 'Beds',
       description: 'Hydraulic, drawer, platform and upholstered bed options.',
       image:
-        'https://images.unsplash.com/photo-1696762932825-2737db830bbe?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/bed-hydraulic-storage.webp',
     },
     {
       title: 'Flush Doors',
       description: 'Door finishes, hardware and room-wise matching guidance.',
       image:
-        'https://images.unsplash.com/photo-1634822930432-0594057fdff2?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/flush-door.webp',
     },
     {
       title: 'TV Units',
       description: 'Wall panel, console, storage, wiring and lighting ideas.',
       image:
-        'https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/living-media-wall.webp',
     },
     {
       title: 'Custom Furniture',
       description: 'Measured ideas for mandirs, study tables, storage, counters and special units.',
       image:
-        'https://images.unsplash.com/photo-1611600700192-d87eaeed4f81?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/pooja-mandir-cnc.webp',
     },
     {
       title: 'Full Interior Execution',
       description: 'Room-by-room planning that can move into quotation and production.',
       image:
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&h=650&fit=crop&auto=format',
+        '/images/generated/v1/brand-hero.webp',
     },
   ];
 
@@ -977,7 +975,7 @@ export default function Home() {
 
         <section className="home-material-band">
           <img
-            src="https://images.unsplash.com/photo-1682662044733-9120471befc7?w=1920&h=760&fit=crop&auto=format"
+            src="/images/generated/v1/joinery-soft-close.webp"
             alt="Premium modular kitchen material finish"
           />
           <div className="home-material-overlay" />
@@ -1032,8 +1030,8 @@ export default function Home() {
           <div className="home-container">
             <div className="home-split-head">
               <div>
-                <p className="home-kicker">Portfolio</p>
-              <h2>Featured project ideas</h2>
+                <p className="home-kicker">Design Direction</p>
+              <h2>AI-assisted concept ideas</h2>
               </div>
               <Link to="/gallery" className="home-inline-link">
                 View all

@@ -71,7 +71,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Three Seater Sofa',
     category: 'living',
     image:
-      'https://images.unsplash.com/photo-1615873968403-89e068629265?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-curved-collection.webp',
     dimensions: '78 in x 34 in x 32 in',
     material: 'Kiln-dried wood, premium fabric',
     marketRent: 899,
@@ -87,7 +87,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'L-Shape Sofa',
     category: 'living',
     image:
-      'https://images.unsplash.com/photo-1549187774-b4e9b0445b41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-media-wall.webp',
     dimensions: '96 in x 60 in x 32 in',
     material: 'Hardwood frame, stain-resistant fabric',
     marketRent: 1499,
@@ -103,7 +103,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Classic TV Unit',
     category: 'living',
     image:
-      'https://images.unsplash.com/photo-1505691938895-1758d7feb511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-media-wall.webp',
     dimensions: '60 in x 16 in x 20 in',
     material: 'Pre-laminated board',
     marketRent: 499,
@@ -119,7 +119,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Solid Wood Coffee Table',
     category: 'living',
     image:
-      'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-curved-collection.webp',
     dimensions: '42 in x 24 in x 18 in',
     material: 'Solid wood top, powder-coated legs',
     marketRent: 599,
@@ -135,7 +135,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Queen Bed with Storage',
     category: 'bedroom',
     image:
-      'https://images.unsplash.com/photo-1505693314127-4f8d16735a07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/bed-hydraulic-storage.webp',
     dimensions: '78 in x 60 in',
     material: 'Engineered wood with walnut finish',
     marketRent: 999,
@@ -151,7 +151,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'King Bed',
     category: 'bedroom',
     image:
-      'https://images.unsplash.com/photo-1505691938895-1758d7feb511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/bed-upholstered-drawer.webp',
     dimensions: '78 in x 72 in',
     material: 'Hardwood frame, premium laminate',
     marketRent: 1299,
@@ -167,7 +167,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Two Door Wardrobe',
     category: 'bedroom',
     image:
-      'https://images.unsplash.com/photo-1616628182509-9f5d4a4f2b12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/wardrobe-internal-storage.webp',
     dimensions: '72 in x 36 in x 22 in',
     material: 'Pre-laminated board',
     marketRent: 399,
@@ -183,7 +183,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Three Door Wardrobe',
     category: 'bedroom',
     image:
-      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/wardrobe-sliding-smoked.webp',
     dimensions: '78 in x 54 in x 22 in',
     material: 'BWR plywood and laminate',
     marketRent: 499,
@@ -199,7 +199,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Bedside Table (Pair)',
     category: 'bedroom',
     image:
-      'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/bed-upholstered-drawer.webp',
     dimensions: '18 in x 16 in x 18 in',
     material: 'Engineered wood',
     marketRent: 320,
@@ -215,7 +215,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: '4 Seater Dining Set',
     category: 'dining',
     image:
-      'https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-curved-collection.webp',
     dimensions: 'Table 48 in x 30 in',
     material: 'Solid wood top, cushioned chairs',
     marketRent: 799,
@@ -231,7 +231,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: '6 Seater Dining Set',
     category: 'dining',
     image:
-      'https://images.unsplash.com/photo-1449247613801-ab06418e2861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-curved-collection.webp',
     dimensions: 'Table 60 in x 36 in',
     material: 'Engineered wood, premium laminate',
     marketRent: 1199,
@@ -247,7 +247,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Crockery Unit',
     category: 'dining',
     image:
-      'https://images.unsplash.com/photo-1600121848594-d8644e57abab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/living-media-wall.webp',
     dimensions: '66 in x 32 in x 18 in',
     material: 'Pre-laminated board',
     marketRent: 699,
@@ -263,7 +263,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Kitchen Base Unit',
     category: 'kitchen',
     image:
-      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/kitchen-compact-l-shape.webp',
     dimensions: '72 in x 24 in x 34 in',
     material: 'BWP plywood with laminate',
     marketRent: 1399,
@@ -279,7 +279,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Kitchen Wall Unit',
     category: 'kitchen',
     image:
-      'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/kitchen-premium-u-shape.webp',
     dimensions: '60 in x 14 in x 28 in',
     material: 'BWP plywood with laminate',
     marketRent: 799,
@@ -295,7 +295,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Kitchen Tall Unit',
     category: 'kitchen',
     image:
-      'https://images.unsplash.com/photo-1556912173-3bb406ef7e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/kitchen-premium-u-shape.webp',
     dimensions: '84 in x 24 in x 20 in',
     material: 'BWR plywood with laminate',
     marketRent: 999,
@@ -311,7 +311,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Study Table',
     category: 'office',
     image:
-      'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/design-planning.webp',
     dimensions: '48 in x 24 in x 30 in',
     material: 'Engineered wood',
     marketRent: 549,
@@ -327,7 +327,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Ergonomic Office Chair',
     category: 'office',
     image:
-      'https://images.unsplash.com/photo-1505832018823-50331d70d237?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/office-commercial-interior.webp',
     dimensions: 'Adjustable height',
     material: 'Mesh back with metal base',
     marketRent: 299,
@@ -343,7 +343,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Two Person Workstation',
     category: 'office',
     image:
-      'https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/office-commercial-interior.webp',
     dimensions: '78 in x 24 in x 30 in',
     material: 'Powder-coated frame, laminate top',
     marketRent: 1799,
@@ -359,7 +359,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Book Shelf',
     category: 'storage',
     image:
-      'https://images.unsplash.com/photo-1493809842364-78817add7ffb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/office-commercial-interior.webp',
     dimensions: '72 in x 30 in x 12 in',
     material: 'Engineered wood',
     marketRent: 499,
@@ -375,7 +375,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Shoe Rack',
     category: 'storage',
     image:
-      'https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/wardrobe-internal-storage.webp',
     dimensions: '36 in x 14 in x 36 in',
     material: 'Laminate with metal handles',
     marketRent: 299,
@@ -391,7 +391,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Chest of Drawers',
     category: 'storage',
     image:
-      'https://images.unsplash.com/photo-1505691938895-1758d7feb511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/joinery-soft-close.webp',
     dimensions: '42 in x 18 in x 36 in',
     material: 'Pre-laminated board',
     marketRent: 399,
@@ -407,7 +407,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Refrigerator 260L',
     category: 'appliances',
     image:
-      'https://images.unsplash.com/photo-1580915411954-282cb1c2b5c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/rental-appliances.webp',
     dimensions: '260 L capacity',
     material: 'Double door, energy efficient',
     marketRent: 1900,
@@ -423,7 +423,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Washing Machine 7kg',
     category: 'appliances',
     image:
-      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/rental-appliances.webp',
     dimensions: '7 kg capacity',
     material: 'Top load, stainless steel drum',
     marketRent: 1500,
@@ -439,7 +439,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Microwave 20L',
     category: 'appliances',
     image:
-      'https://images.unsplash.com/photo-1612222867275-537c48f80a32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/rental-appliances.webp',
     dimensions: '20 L capacity',
     material: 'Solo microwave',
     marketRent: 900,
@@ -455,7 +455,7 @@ export const catalogProducts: CatalogProduct[] = [
     name: 'Water Purifier',
     category: 'appliances',
     image:
-      'https://images.unsplash.com/photo-1581579186981-5b352d05b8a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/generated/v1/rental-appliances.webp',
     dimensions: '7-8 L storage',
     material: 'RO + UV',
     marketRent: 800,

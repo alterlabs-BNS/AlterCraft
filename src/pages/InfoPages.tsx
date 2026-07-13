@@ -19,7 +19,7 @@ export function WarrantyQuality() {
         title="Warranty & Quality"
         subtitle="Clear material choices, careful fabrication, professional installation and warranty support across eligible AlterCraft products and services."
         breadcrumb="Company / Warranty"
-        image="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=82"
+        image="/images/generated/v1/joinery-soft-close.webp"
         imageAlt="Premium furniture quality details"
         priceTag="Warranty support across eligible categories"
       />
@@ -44,7 +44,7 @@ export function WarrantyQuality() {
             </div>
           </div>
           <img
-            src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=82"
+            src="/images/generated/v1/living-media-wall.webp"
             alt="Premium interior finish quality"
           />
         </div>
@@ -106,7 +106,7 @@ export function About() {
         title="About AlterCraft"
         subtitle="A Ghaziabad-based furniture and interiors studio building measured furniture, modular storage and elegant interior elements for homes and businesses."
         breadcrumb="Company / About"
-        image="https://images.unsplash.com/photo-1766802981843-9da98dd1a414?auto=format&fit=crop&w=1800&q=82"
+        image="/images/generated/v1/cnc-workshop.webp"
         imageAlt="Furniture craftsmanship workshop detail"
         priceTag="Serving Ghaziabad, Delhi NCR and nearby cities"
       />
@@ -137,7 +137,7 @@ export function About() {
             </div>
           </div>
           <img
-            src="https://images.unsplash.com/photo-1611600700192-d87eaeed4f81?auto=format&fit=crop&w=1200&q=82"
+            src="/images/generated/v1/joinery-soft-close.webp"
             alt="Wood material and furniture craftsmanship"
           />
         </div>
@@ -180,7 +180,7 @@ export function Contact() {
         title="Contact / Get Quote"
         subtitle="Share room measurements, reference photos, material preference and timeline. Your enquiry goes directly to WhatsApp for faster response."
         breadcrumb="Contact"
-        image="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=82"
+        image="/images/generated/v1/brand-hero.webp"
         imageAlt="Elegant interior contact page"
         priceTag={`WhatsApp ${siteDetails.phoneDisplay}`}
       />

@@ -30,17 +30,17 @@ export function AboutUs() {
     {
       title: "Custom Wardrobes",
       description: "Built to fit your space precisely. Designed for strength and daily use over decades.",
-      image: "https://images.unsplash.com/photo-1766245456954-4822cabf63ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3YXJkcm9iZSUyMGludGVyaW9yfGVufDF8fHx8MTc2NzA5MzU4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "/images/generated/v1/wardrobe-sliding-smoked.webp"
     },
     {
       title: "Kitchen Cabinetry",
       description: "Moisture-resistant materials. Robust construction. Built to handle real kitchen demands.",
-      image: "https://images.unsplash.com/photo-1598698628529-78863e5d4b2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraXRjaGVuJTIwY2FiaW5ldHMlMjB3b29kfGVufDF8fHx8MTc2NzA5MzU4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "/images/generated/v1/kitchen-premium-u-shape.webp"
     },
     {
       title: "Storage Solutions",
       description: "Every shelf, every joint designed to bear real weight without compromise.",
-      image: "https://images.unsplash.com/photo-1766802981843-9da98dd1a414?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b20lMjBmdXJuaXR1cmUlMjBjcmFmdHNtYW5zaGlwfGVufDF8fHx8MTc2NzAyNzA0Nnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "/images/generated/v1/joinery-soft-close.webp"
     }
   ];
 
@@ -103,7 +103,7 @@ export function AboutUs() {
             
             <div className="relative h-[500px] rounded-sm overflow-hidden shadow-2xl">
               <ImageWithFallback 
-                src="https://images.unsplash.com/photo-1611600700192-d87eaeed4f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kJTIwZ3JhaW4lMjB0ZXh0dXJlfGVufDF8fHx8MTc2NzA5MzU4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/images/generated/v1/joinery-soft-close.webp"
                 alt="Wood grain texture"
                 className="w-full h-full object-cover"
               />
@@ -181,7 +181,7 @@ export function AboutUs() {
           <div className="grid md:grid-cols-2 gap-12 items-center bg-[#FAF7F2] p-12 rounded-sm">
             <div className="relative h-96 rounded-sm overflow-hidden">
               <ImageWithFallback 
-                src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Carpenter_at_work.JPG"
+                src="/images/generated/v1/cnc-workshop.webp"
                 alt="Indian carpenter at work"
                 className="w-full h-full object-cover"
               />
@@ -259,7 +259,7 @@ export function AboutUs() {
           <div className="grid md:grid-cols-2 gap-12 items-center bg-white p-12 rounded-sm shadow-md">
             <div className="relative h-96 rounded-sm overflow-hidden">
               <ImageWithFallback 
-                src="https://images.unsplash.com/photo-1714762306090-04426596ead7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kd29ya2luZyUyMHRvb2xzfGVufDF8fHx8MTc2NzA5MzU4NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/images/generated/v1/site-installation.webp"
                 alt="Woodworking tools"
                 className="w-full h-full object-cover"
               />
@@ -338,7 +338,7 @@ export function AboutUs() {
 
             <div className="relative h-[600px] rounded-sm overflow-hidden shadow-2xl">
               <ImageWithFallback 
-                src="https://images.unsplash.com/photo-1758749130179-46ebeba477bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbHl3b29kJTIwYm9hcmRzJTIwbWF0ZXJpYWx8ZW58MXx8fHwxNzY3MDkzNTg1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="/images/generated/v1/joinery-soft-close.webp"
                 alt="Wood materials"
                 className="w-full h-full object-cover"
               />

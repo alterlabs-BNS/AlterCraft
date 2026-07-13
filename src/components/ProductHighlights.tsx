@@ -71,7 +71,7 @@ export function ProductHighlights() {
             >
               <div className="relative h-64 overflow-hidden">
                 <ImageWithFallback
-                  src={product.image ?? 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80'}
+                  src={product.image ?? '/images/generated/v1/brand-hero.webp'}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />

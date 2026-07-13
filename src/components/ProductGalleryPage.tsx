@@ -113,11 +113,11 @@ export function ProductGalleryPage() {
         </div>
 
         <div className="product-gallery-title-wrap">
-          <span className="product-gallery-kicker">Product Gallery</span>
-          <h1 className="product-gallery-title">View Furniture Builds from Multiple Angles</h1>
+          <span className="product-gallery-kicker">Design Gallery</span>
+          <h1 className="product-gallery-title">Explore AlterCraft Design Directions</h1>
           <p className="product-gallery-subtitle">
-            Browse category-wise product cards. Open any card to inspect front, side, detail, and
-            close-up views before enquiry.
+            These AI-assisted concept visualizations communicate style and material direction.
+            Final sizes, finishes and execution are confirmed after site measurement.
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export function ProductGalleryPage() {
             <article key={product.id} className="product-gallery-card">
               <div className="product-gallery-cover">
                 <ImageWithFallback src={product.photos[0].src} alt={product.name} />
-                <span className="product-gallery-angle-chip">{product.photos.length} angles</span>
+                <span className="product-gallery-angle-chip">Concept visual</span>
               </div>
 
               <div className="product-gallery-card-body">
@@ -170,7 +170,7 @@ export function ProductGalleryPage() {
                   onClick={() => openProductViewer(product.id)}
                   className="product-gallery-view-btn"
                 >
-                  View All Angles
+                  View Design
                 </button>
               </div>
             </article>
@@ -189,22 +189,26 @@ export function ProductGalleryPage() {
               <span className="product-gallery-modal-angle">
                 {activeProduct.photos[activeImageIndex].label}
               </span>
-              <button
-                type="button"
-                onClick={showPreviousPhoto}
-                className="product-gallery-modal-nav prev"
-                aria-label="Previous photo"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                type="button"
-                onClick={showNextPhoto}
-                className="product-gallery-modal-nav next"
-                aria-label="Next photo"
-              >
-                <ChevronRight size={18} />
-              </button>
+              {activeProduct.photos.length > 1 ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPreviousPhoto}
+                    className="product-gallery-modal-nav prev"
+                    aria-label="Previous photo"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextPhoto}
+                    className="product-gallery-modal-nav next"
+                    aria-label="Next photo"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                </>
+              ) : null}
             </div>
 
             <div className="product-gallery-modal-panel">

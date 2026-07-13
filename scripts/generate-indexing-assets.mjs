@@ -193,7 +193,7 @@ const readBlogMeta = (slug) => {
   const image =
     extract(html, /<meta\s+property=["']og:image["'][^>]*content=["']([^"']+)["'][^>]*>/i) ||
     extract(html, /<img\s+class=["'][^"']*cover[^"']*["'][^>]*src=["']([^"']+)["'][^>]*>/i) ||
-    '/altercraft-logo.png';
+    '/images/generated/v1/brand-hero.webp';
   const category =
     decodeHtmlEntities(extract(html, /<p\s+class=["']k["'][^>]*>([\s\S]*?)<\/p>/i).replace(/<[^>]+>/g, '')) ||
     'AlterCraft Guide';
@@ -428,7 +428,7 @@ const renderBlogIndex = (blogMeta) => {
   <meta property="og:description" content="SEO-friendly guides for modular kitchens, custom furniture, wardrobes, office interiors, Contractor Desk APK and execution control." />
   <meta property="og:url" content="${baseUrl}/blog/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="${baseUrl}/images/blog/contractor-desk/contractor-desk-apk-cover.svg" />
+  <meta property="og:image" content="${baseUrl}/images/generated/v1/brand-hero.webp" />
   <link rel="stylesheet" href="/blog/blog-style.css" />
   <script type="application/ld+json">${JSON.stringify(itemListSchema)}</script>
 </head>

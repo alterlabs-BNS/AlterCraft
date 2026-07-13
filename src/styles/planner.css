@@ -40,7 +40,7 @@ body,
 .planner-hero { padding: clamp(4rem, 8vw, 6.8rem) 0;
   background:
     linear-gradient(90deg, rgba(42, 24, 16, 0.92), rgba(92, 51, 23, 0.78)),
-    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=82") center / cover;
+    url("/images/generated/v1/design-planning.webp") center / cover;
   color: var(--primary-foreground); }
 .planner-hero-grid,
 .planner-form-layout,

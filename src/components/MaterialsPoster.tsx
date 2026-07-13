@@ -7,7 +7,7 @@ export function MaterialsPoster() {
     <section className="relative min-h-[80vh] bg-[#2C2419] overflow-hidden">
       <div className="absolute inset-0 z-0">
         <ImageWithFallback 
-          src="https://images.unsplash.com/photo-1626890757788-af964c61b239" 
+          src="/images/generated/v1/joinery-soft-close.webp"
           alt="Dark wood grain" 
           className="w-full h-full object-cover opacity-20"
         />
