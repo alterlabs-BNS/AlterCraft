@@ -25,77 +25,41 @@ type AuthContextValue = {
 };
 
 const SESSION_KEY = 'altercraft-acos-session';
-const LOCAL_DEMO_EMAILS = new Set(['support@altercraft.in', 'admin@altercraft.in']);
-const LOCAL_DEMO_PASSWORD = 'AlterCraft#2026';
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-const canUseLocalDemo = () => {
-  if (typeof window === 'undefined') return false;
-  return ['localhost', '127.0.0.1'].includes(window.location.hostname);
-};
-
 const readSession = (): ACOSUser | null => {
   if (typeof window === 'undefined') return null;
-  if (!canUseLocalDemo()) return null;
-  try {
-    const raw = window.localStorage.getItem(SESSION_KEY);
-    return raw ? (JSON.parse(raw) as ACOSUser) : null;
-  } catch {
-    return null;
-  }
+  window.localStorage.removeItem(SESSION_KEY);
+  return null;
 };
 
-const writeSession = (user: ACOSUser | null) => {
+const clearSession = () => {
   if (typeof window === 'undefined') return;
-  if (!user) {
-    window.localStorage.removeItem(SESSION_KEY);
-    return;
-  }
-  window.localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+  window.localStorage.removeItem(SESSION_KEY);
 };
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<ACOSUser | null>(() => readSession());
 
   const value = useMemo<AuthContextValue>(() => {
-    const signIn = (email: string, password: string): SignInResult => {
-      const normalizedEmail = email.trim().toLowerCase();
-
-      // Static hosting cannot securely verify live admin passwords.
-      if (!canUseLocalDemo()) {
-        return {
-          ok: false,
-          message: 'Admin access is not available from this browser.',
-        };
-      }
-
-      if (!LOCAL_DEMO_EMAILS.has(normalizedEmail) || password !== LOCAL_DEMO_PASSWORD) {
-        return { ok: false, message: 'Invalid ACOS credentials.' };
-      }
-
-      const nextUser: ACOSUser = {
-        id: 'acos-admin-local',
-        name: 'AlterCraft Admin',
-        email: normalizedEmail,
-        role: 'admin',
-        phone: '+918817503658',
-        enabled: true,
-        lastLoginAt: new Date().toISOString(),
+    const signIn = (_email: string, _password: string): SignInResult => {
+      clearSession();
+      setUser(null);
+      return {
+        ok: false,
+        message: 'Secure admin authentication is not connected yet.',
       };
-      writeSession(nextUser);
-      setUser(nextUser);
-      return { ok: true };
     };
 
     const signOut = () => {
-      writeSession(null);
+      clearSession();
       setUser(null);
     };
 
     return {
       user,
-      isAdmin: canUseLocalDemo() && user?.role === 'admin' && user.enabled,
+      isAdmin: false,
       signIn,
       signOut,
     };
