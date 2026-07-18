@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Custom Furniture & Modular Kitchen from INR 1,200 / sq. ft. in Ghaziabad | AlterCraft</title>
 <meta name="description" content="AlterCraft designs custom furniture, modular kitchens from INR 1,200 / sq. ft., wardrobes, beds, office interiors and design previews in Ghaziabad, Noida, Greater Noida and Delhi NCR.">
 <meta name="robots" content="index, follow">
@@ -20,272 +20,311 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"AlterCraft","legalName":"AlterCraft Interiors and Furnitures","url":"https://www.altercraft.in/","telephone":"+918817503658","email":"support@altercraft.in","image":"https://www.altercraft.in/images/generated/v1/brand-hero.webp","address":{"@type":"PostalAddress","streetAddress":"Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Road","addressLocality":"Chipiyana Buzurg, Ghaziabad","addressRegion":"Uttar Pradesh","postalCode":"201009","addressCountry":"IN"},"priceRange":"INR 1,200 - 3,50,000"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#f8f4ee; --ink:#1c1a17; --ink-soft:#5c564e; --line:rgba(28,26,23,.12);
+  --cream:#f8f4ee; --ink:#1c1a17; --ink-soft:#5c564e;
   --accent:#b3773c; --accent-deep:#8a5a2b; --dark:#141210; --dark2:#1e1b18;
-  --ease:cubic-bezier(.76,0,.24,1); --dur:1000ms;
+  --ease:cubic-bezier(.76,0,.24,1); --dur:950ms;
+  --nav-h:60px;
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden;background:var(--cream);font-family:'Inter',sans-serif;color:var(--ink)}
 img{display:block;max-width:100%}
 button{font-family:inherit;cursor:pointer}
 a{color:inherit;text-decoration:none}
 
-/* ---------- NAV ---------- */
-nav{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:14px 44px;transition:color .5s,background .5s;background:rgba(248,244,238,.45);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.4)}
-nav.on-dark{background:rgba(16,13,10,.35);border-bottom-color:rgba(255,255,255,.08)}
-.logo{display:flex;align-items:center;gap:11px;cursor:pointer}
-.logo svg{height:34px;width:auto;display:block}
+/* film grain */
+body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- OPENING SEQUENCE ---------- */
+.intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:var(--dark);color:#f2ede6;clip-path:inset(0 0 0 0);transition:clip-path 1.05s var(--ease) .58s;overflow:hidden}
+.intro-lockup{text-align:center;transform:translateY(14px);opacity:0;animation:introLock .72s var(--ease) .12s forwards}
+.intro-lockup b{display:block;font-family:'Playfair Display',serif;font-size:clamp(34px,7vw,82px);font-weight:600;letter-spacing:.12em}
+.intro-lockup span{display:block;margin-top:12px;color:#d6b184;font-size:9px;font-weight:700;letter-spacing:.32em;text-transform:uppercase}
+.intro-rule{position:absolute;left:50%;top:50%;width:min(72vw,820px);height:1px;background:rgba(214,177,132,.62);transform:translate(-50%,64px) scaleX(0);animation:introRule .75s var(--ease) .26s forwards}
+body.ready .intro{clip-path:inset(0 0 100% 0);pointer-events:none}
+body.ready #hero .hero-bg img{animation:heroOpen 1.6s var(--ease) both}
+@keyframes introLock{to{opacity:1;transform:translateY(0)}}
+@keyframes introRule{to{transform:translate(-50%,64px) scaleX(1)}}
+@keyframes heroOpen{from{transform:scale(1.18)}to{transform:scale(1.1)}}
+
+/* ---------- NAV (mobile-first) ---------- */
+nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:60;display:flex;align-items:center;justify-content:space-between;padding:0 16px;transition:color .5s,background .5s;background:rgba(248,244,238,.5);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.4)}
+nav.on-dark{background:rgba(16,13,10,.4);border-bottom-color:rgba(255,255,255,.08);color:#f2ede6}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer}
+.logo svg{height:27px;width:auto;display:block}
 .logo .wood{fill:url(#woodgrad)}
 .logo .ink-part{fill:currentColor}
 .logo .ticks{stroke:currentColor;opacity:.45}
 .wordmark{display:flex;flex-direction:column;line-height:1}
-.wordmark b{font-size:16.5px;font-weight:700;letter-spacing:3.5px}
-.wordmark span{font-size:8px;letter-spacing:1.8px;font-weight:600;color:var(--accent);margin-top:4px;text-transform:uppercase;white-space:nowrap}
-.nav-links{display:flex;gap:26px;font-size:13px;font-weight:500;letter-spacing:.4px}
-.nav-links a{opacity:.75;transition:opacity .2s}
-.nav-links a:hover{opacity:1}
-.nav-cta{display:flex;align-items:center;gap:16px}
-.cart-btn{position:relative;background:none;border:none;color:inherit}
-.cart-btn svg{width:21px;height:21px}
-.cart-badge{position:absolute;top:-6px;right:-8px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:grid;place-items:center;padding:0 4px}
-.quote-btn{border:1px solid rgba(255,255,255,.5);background:rgba(179,119,60,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:inherit;padding:9px 20px;border-radius:100px;font-size:12.5px;font-weight:600;letter-spacing:.6px;transition:.25s;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
-.quote-btn:hover{background:rgba(179,119,60,.75);border-color:rgba(255,255,255,.6);color:#fff;transform:translateY(-1px)}
-nav.on-dark{color:#f2ede6}
-@media(max-width:900px){.nav-links{display:none}nav{padding:16px 20px}}
+.wordmark b{font-size:13px;font-weight:700;letter-spacing:2.6px}
+.wordmark span{font-size:6.5px;letter-spacing:1.4px;font-weight:600;color:var(--accent);margin-top:3px;text-transform:uppercase;white-space:nowrap}
+.nav-links{display:none}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.cart-btn{position:relative;background:none;border:none;color:inherit;padding:4px}
+.cart-btn svg{width:20px;height:20px}
+.cart-badge{position:absolute;top:-4px;right:-6px;background:var(--accent);color:#fff;font-size:9.5px;font-weight:700;min-width:15px;height:15px;border-radius:8px;display:grid;place-items:center;padding:0 4px;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(179,119,60,.5)}50%{box-shadow:0 0 0 7px rgba(179,119,60,0)}}
+.quote-btn{border:1px solid rgba(255,255,255,.5);background:rgba(179,119,60,.4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:inherit;padding:8px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.5px;transition:.25s;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.quote-btn:hover{background:rgba(179,119,60,.8);color:#fff}
+@media(min-width:900px){
+  nav{padding:0 40px;height:66px}
+  .logo svg{height:32px}
+  .wordmark b{font-size:15.5px}
+  .wordmark span{font-size:7.6px}
+  .nav-links{display:flex;gap:24px;font-size:12.5px;font-weight:500;letter-spacing:.4px}
+  .nav-links a{opacity:.75;transition:.2s}
+  .nav-links a:hover{opacity:1;color:var(--accent)}
+  .quote-btn{padding:9px 20px;font-size:12.5px}
+}
 
-/* ---------- DECK / FLIP ---------- */
-.screen{position:fixed;inset:0;visibility:hidden;z-index:1;background:var(--cream);will-change:transform;overflow:hidden}
+/* ---------- FLIP DECK ---------- */
+.screen{position:fixed;inset:0;visibility:hidden;z-index:1;background:var(--cream);will-change:transform;overflow:hidden;display:flex;flex-direction:column}
 .screen.active{visibility:visible;z-index:10;transform:translateY(0);transition:transform var(--dur) var(--ease)}
 .screen.enter-down{visibility:visible;z-index:10;transform:translateY(100%)}
 .screen.enter-up{visibility:visible;z-index:10;transform:translateY(-100%)}
-.screen.leaving{visibility:visible;z-index:5;transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease);transform:translateY(0) scale(.94);opacity:.35}
+.screen.leaving{visibility:visible;z-index:5;transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease);transform:translateY(0) scale(.94);opacity:.3}
 .screen.dark{background:var(--dark);color:#f2ede6}
 
-/* staggered content reveal */
-.rev{opacity:0;transform:translateY(46px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+/* category word sweep during flip */
+#sweep{position:fixed;inset:0;z-index:70;pointer-events:none;display:grid;place-items:center;visibility:hidden;overflow:hidden}
+#sweep b{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:clamp(64px,16vw,220px);letter-spacing:.02em;color:transparent;-webkit-text-stroke:1.5px rgba(179,119,60,.8);text-transform:uppercase;white-space:nowrap;filter:drop-shadow(0 8px 30px rgba(0,0,0,.25))}
+#sweep.run{visibility:visible}
+#sweep.run b{animation:sweepUp var(--dur) var(--ease)}
+#sweep.run.rev b{animation:sweepDown var(--dur) var(--ease)}
+@keyframes sweepUp{0%{transform:translateY(110vh) rotate(-4deg);opacity:0}25%{opacity:1}75%{opacity:1}100%{transform:translateY(-110vh) rotate(-4deg);opacity:0}}
+@keyframes sweepDown{0%{transform:translateY(-110vh) rotate(-4deg);opacity:0}25%{opacity:1}75%{opacity:1}100%{transform:translateY(110vh) rotate(-4deg);opacity:0}}
+
+/* staggered reveal */
+.rev{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .screen.active .rev{opacity:1;transform:none}
-.screen.active .rev:nth-child(1),.screen.active .d1{transition-delay:.35s}
+.screen.active .d1{transition-delay:.35s}
 .screen.active .d2{transition-delay:.5s}
 .screen.active .d3{transition-delay:.65s}
 .screen.active .d4{transition-delay:.8s}
-.screen.active .d5{transition-delay:.95s}
 
-/* ---------- SHARED LAYOUT ---------- */
-.split{display:grid;grid-template-columns:44fr 56fr;height:100%;padding:92px 44px 84px;gap:40px}
-.split.flip{grid-template-columns:56fr 44fr}
-.copy{display:flex;flex-direction:column;justify-content:center;max-width:560px}
-.split.flip .copy{justify-self:start}
-.kicker{font-size:11.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
-h1,h2{font-family:'Playfair Display',serif;font-weight:600;line-height:1.06}
-h2{font-size:clamp(34px,4.4vw,60px);margin-bottom:18px}
-.lede{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:26px;max-width:46ch}
-.dark .lede{color:#b8b0a4}
-.price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:26px}
-.price{font-size:26px;font-weight:700}
-.price small{font-size:13px;font-weight:500;color:var(--ink-soft)}
-.dark .price small{color:#b8b0a4}
-.strike{font-size:15px;color:var(--ink-soft);text-decoration:line-through}
-.tag{background:rgba(179,119,60,.14);color:var(--accent-deep);font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:100px}
-.dark .tag{background:rgba(179,119,60,.25);color:#e0a86b}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.btn{padding:15px 30px;border-radius:100px;font-size:13.5px;font-weight:600;letter-spacing:.4px;border:none;transition:.25s;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4)}
-.btn-solid{background:rgba(179,119,60,.55);border:1px solid rgba(255,255,255,.45);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25);box-shadow:0 14px 34px -14px rgba(179,119,60,.7),inset 0 1px 0 rgba(255,255,255,.4)}
-.btn-solid:hover{background:rgba(179,119,60,.8);transform:translateY(-2px)}
-.dark .btn-solid{background:rgba(179,119,60,.4);border-color:rgba(255,255,255,.3)}
-.dark .btn-solid:hover{background:rgba(179,119,60,.7)}
-.btn-ghost{background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.55);color:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent-deep);background:rgba(255,255,255,.5);transform:translateY(-2px)}
-.dark .btn-ghost{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
-.dark .btn-ghost:hover{color:#e0a86b;border-color:#e0a86b;background:rgba(255,255,255,.12)}
+/* quiet architectural background detail */
+.deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;opacity:.46;background-image:linear-gradient(rgba(28,26,23,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(28,26,23,.055) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(115deg,transparent 8%,#000 52%,transparent 94%)}
+.dark .deco{opacity:.18;background-image:linear-gradient(rgba(242,237,230,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,230,.11) 1px,transparent 1px)}
+.watermark{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(90px,22vw,320px);color:rgba(28,26,23,.045);z-index:0;pointer-events:none;white-space:nowrap;text-transform:uppercase}
+.dark .watermark{color:rgba(242,237,230,.05)}
 
-/* ---------- GALLERY ---------- */
-.gallery{position:relative;display:flex;flex-direction:column;gap:14px;justify-content:center}
-.g-main{position:relative;flex:1;min-height:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(28,26,23,.45)}
-.g-main img{width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform 8s linear}
-.screen.active .g-main img{transform:scale(1.06)}
-.g-main img.swap{opacity:0}
-.g-label{position:absolute;left:18px;bottom:18px;background:rgba(20,18,16,.72);backdrop-filter:blur(8px);color:#fff;font-size:12px;font-weight:600;letter-spacing:.5px;padding:8px 16px;border-radius:100px}
-.g-thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:12px;height:88px}
-.g-thumbs button{border:2px solid transparent;border-radius:14px;overflow:hidden;padding:0;background:none;transition:.25s;position:relative}
-.g-thumbs button img{width:100%;height:100%;object-fit:cover}
-.g-thumbs button:hover{transform:translateY(-4px)}
-.g-thumbs button.sel{border-color:var(--accent)}
-
-/* mini product strip */
-.mini-strip{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
-.mini{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 14px 8px 8px;font-size:12px;font-weight:600;transition:.25s;cursor:pointer}
-.dark .mini{background:var(--dark2);border-color:rgba(242,237,230,.12)}
-.mini:hover{transform:translateY(-3px);box-shadow:0 12px 24px -12px rgba(28,26,23,.4);border-color:var(--accent)}
-.mini img{width:44px;height:44px;object-fit:cover;border-radius:9px}
-.mini em{display:block;font-style:normal;color:var(--accent-deep);font-size:11px}
-.dark .mini em{color:#e0a86b}
-
-/* ---------- HERO (screen 1) ---------- */
-#s1 .hero-bg{position:absolute;inset:0}
-#s1 .hero-bg img{width:100%;height:100%;object-fit:cover}
-#s1 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(16,13,10,.82) 20%,rgba(16,13,10,.45) 55%,rgba(16,13,10,.25))}
-#s1 .copy{position:relative;z-index:2;color:#f6f1e9;height:100%;padding-left:44px;max-width:720px}
-#s1 h1,#s1 h2{font-size:clamp(40px,5.6vw,76px)}
-#s1 .lede{color:#d8d0c4}
-.hero-stats{display:flex;gap:38px;margin-top:38px}
-.hero-stats div b{display:block;font-family:'Playfair Display',serif;font-size:30px;font-weight:700}
-.hero-stats div span{font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:#c9bfb0}
-.hero-cards{position:absolute;right:44px;bottom:118px;z-index:2;display:flex;gap:14px}
-.hero-card{width:158px;background:rgba(255,255,255,.09);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:10px;color:#fff;cursor:pointer;transition:.3s}
-.hero-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.16)}
-.hero-card img{height:88px;width:100%;object-fit:cover;border-radius:12px;margin-bottom:9px}
-.hero-card b{font-size:12.5px;display:block}
-.hero-card span{font-size:10.5px;color:#cfc6b8;letter-spacing:.6px}
-@media(max-width:1100px){.hero-cards{display:none}}
-
-/* ---------- INFRA / TECH (screen 7) ---------- */
-.infra-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-content:center}
-.infra-tile{position:relative;border-radius:18px;overflow:hidden;height:190px;cursor:pointer}
-.infra-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.infra-tile:hover img{transform:scale(1.08)}
-.infra-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,8,6,.85))}
-.infra-tile b{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-size:13.5px;letter-spacing:.4px}
-@media(max-width:1200px){.infra-tile{height:150px}}
-
-/* ---------- CONTRACTOR DESK phone mock ---------- */
-.phone-wrap{display:flex;align-items:center;justify-content:center;gap:34px}
-.phone{width:270px;height:552px;background:#0c0b0a;border-radius:38px;border:6px solid #2a2724;box-shadow:0 40px 90px -30px rgba(0,0,0,.8);overflow:hidden;position:relative;flex:none}
-.phone .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:88px;height:20px;background:#000;border-radius:12px;z-index:3}
-.p-screen{position:absolute;inset:0;background:#171512;padding:44px 16px 16px;display:flex;flex-direction:column;gap:10px}
-.p-head{color:#f2ede6;font-size:15px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
-.p-head span{font-size:10px;background:var(--accent);padding:3px 9px;border-radius:100px}
-.job{background:#221f1b;border:1px solid rgba(242,237,230,.09);border-radius:14px;padding:12px;color:#e8e2d8;transition:.3s;cursor:pointer}
-.job:hover{border-color:var(--accent);transform:translateX(4px)}
-.job b{font-size:12.5px;display:block;margin-bottom:3px}
-.job span{font-size:10.5px;color:#9d9488}
-.job .bar{height:5px;border-radius:3px;background:#33302b;margin-top:9px;overflow:hidden}
-.job .bar i{display:block;height:100%;background:var(--accent);border-radius:3px;width:0;transition:width 1.4s var(--ease) .9s}
-.screen.active .job .bar i{width:var(--w)}
-.feat-list{list-style:none;display:flex;flex-direction:column;gap:16px;margin:26px 0}
-.feat-list li{display:flex;gap:14px;font-size:14px;line-height:1.5;color:#c9c1b4}
-.feat-list li::before{content:'✓';flex:none;width:24px;height:24px;border-radius:50%;background:rgba(179,119,60,.25);color:#e0a86b;display:grid;place-items:center;font-size:12px;font-weight:700}
-
-/* ---------- FINAL screen ---------- */
-.final-wrap{height:100%;padding:100px 44px 40px;display:flex;flex-direction:column;gap:26px}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.blog-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;transition:.3s}
-.blog-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -24px rgba(28,26,23,.35)}
-.blog-card img{height:130px;width:100%;object-fit:cover}
-.blog-card div{padding:14px 16px}
-.blog-card b{font-size:13.5px;line-height:1.4;display:block;margin-bottom:5px}
-.blog-card span{font-size:11px;color:var(--ink-soft)}
-.final-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;border-top:1px solid var(--line);padding-top:22px;flex-wrap:wrap}
-.final-foot .addr{font-size:12.5px;line-height:1.7;color:var(--ink-soft);max-width:420px}
-.final-links{display:flex;gap:22px;font-size:12.5px;font-weight:600}
-.final-links a:hover{color:var(--accent)}
-
-/* ---------- DOTS / UI CHROME ---------- */
-.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:13px;background:rgba(255,255,255,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.35);padding:16px 9px;border-radius:100px;box-shadow:0 12px 30px -14px rgba(28,26,23,.35)}
-.on-dark-ui .dots{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
-.dot{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(28,26,23,.25);border:none;padding:0;transition:.3s}
-.on-dark-ui .dot{background:rgba(242,237,230,.3)}
-.dot.sel{background:var(--accent);transform:scale(1.45)}
-.dot .tip{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:11px;font-weight:600;letter-spacing:.6px;background:var(--ink);color:#fff;padding:5px 12px;border-radius:100px;opacity:0;pointer-events:none;transition:.2s}
-.dot:hover .tip{opacity:1}
-.scroll-hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:60;font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:7px;transition:opacity .5s,color .5s}
-.on-dark-ui .scroll-hint{color:#b8b0a4}
-.scroll-hint::after{content:'';width:1.5px;height:30px;background:currentColor;animation:drip 1.6s infinite}
-@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-/* ---------- RICH UI LAYER ---------- */
-/* film grain */
-body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* ambient orbs + rotating ring per screen */
-.deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.split,.final-wrap{position:relative;z-index:2}
-.orb{position:absolute;border-radius:50%;filter:blur(75px);opacity:.55;animation:orbFloat 16s ease-in-out infinite alternate}
-.orb.o1{width:520px;height:520px;top:-140px;left:-140px;background:radial-gradient(circle,rgba(179,119,60,.5),transparent 70%)}
-.orb.o2{width:440px;height:440px;bottom:-120px;right:-100px;background:radial-gradient(circle,rgba(224,168,107,.45),transparent 70%);animation-duration:21s;animation-delay:-6s}
-.dark .orb{opacity:.4}
-@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-60px) scale(1.18)}}
-.ring{position:absolute;width:560px;height:560px;right:-160px;top:-160px;border:1.5px dashed rgba(179,119,60,.28);border-radius:50%;animation:spin 46s linear infinite}
-.dark .ring{border-color:rgba(224,168,107,.2)}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* glass copy panels */
-.split .copy{background:rgba(255,255,255,.42);backdrop-filter:blur(26px) saturate(1.4);-webkit-backdrop-filter:blur(26px) saturate(1.4);border:1px solid rgba(255,255,255,.6);border-radius:28px;padding:42px;align-self:center;box-shadow:0 30px 60px -35px rgba(28,26,23,.35),inset 0 1px 0 rgba(255,255,255,.7)}
-.dark .split .copy{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12);box-shadow:0 30px 60px -35px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08)}
-#s1 .copy{background:transparent;border:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border-radius:0}
-
-/* glass thumbs + minis */
-.g-thumbs button{background:rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.5)}
-.dark .g-thumbs button{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
-.mini{background:rgba(255,255,255,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(255,255,255,.65)}
-.dark .mini{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
-
-/* 3D tilt on gallery */
-.g-main{transition:transform .4s ease,box-shadow .4s ease;transform-style:preserve-3d}
-.g-main:hover{box-shadow:0 45px 90px -35px rgba(28,26,23,.55)}
-
-/* floating glass chip on hero images */
-.float-chip{position:absolute;top:18px;right:18px;z-index:3;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.6px;padding:10px 18px;border-radius:100px;animation:bob 3.6s ease-in-out infinite;box-shadow:0 12px 30px -12px rgba(0,0,0,.5)}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-
-/* button shimmer sweep */
-.btn{position:relative;overflow:hidden}
-.btn::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .55s ease}
-.btn:hover::after{left:130%}
-
-/* animated gradient word */
+/* ---------- HERO ---------- */
+#hero .hero-bg{position:absolute;inset:0}
+#hero .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.1)}
+#hero .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(16,13,10,.85) 30%,rgba(16,13,10,.45) 70%,rgba(16,13,10,.3))}
+.hero-in{position:relative;z-index:2;color:#f6f1e9;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 20px calc(64px + env(safe-area-inset-bottom))}
+.kicker{font-size:10px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#e0a86b;margin-bottom:12px}
+h1,h2{font-family:'Playfair Display',serif;font-weight:600;line-height:1.07}
+#hero h1{font-size:clamp(32px,9vw,72px);margin-bottom:12px}
 .grad-word{background:linear-gradient(90deg,#e0a86b,#b3773c,#f0d3a6,#b3773c,#e0a86b);background-size:280% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 6s linear infinite;font-style:italic}
 @keyframes gradShift{to{background-position:280% 0}}
-
-/* hero marquee */
-.marquee{position:absolute;left:0;right:0;bottom:0;z-index:3;overflow:hidden;background:rgba(12,10,8,.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.12);padding:13px 0}
-.marquee-track{display:inline-flex;gap:52px;white-space:nowrap;animation:marq 26s linear infinite;font-size:11.5px;letter-spacing:3px;text-transform:uppercase;color:#e8dfd2;font-weight:600;will-change:transform}
+#hero .lede{font-size:13.5px;line-height:1.6;color:#d8d0c4;margin-bottom:18px;max-width:52ch}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:100px;font-size:12.5px;font-weight:600;letter-spacing:.4px;border:none;transition:.25s;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);position:relative;overflow:hidden;text-align:center}
+.btn::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover::after{left:130%}
+.btn-solid{background:rgba(179,119,60,.55);border:1px solid rgba(255,255,255,.45);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25);box-shadow:0 14px 34px -14px rgba(179,119,60,.7),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-solid:hover{background:rgba(179,119,60,.8);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px;width:min(100%,560px)}
+.hero-stats div{min-width:0}
+.hero-stats div b{display:block;font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
+.hero-stats div span{display:block;font-size:9.5px;line-height:1.35;letter-spacing:1.2px;text-transform:uppercase;color:#c9bfb0}
+.marquee{position:absolute;left:0;right:0;bottom:0;z-index:3;overflow:hidden;background:rgba(12,10,8,.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.12);padding:10px 0}
+.marquee-track{display:inline-flex;gap:40px;white-space:nowrap;animation:marq 26s linear infinite;font-size:10px;letter-spacing:2.4px;text-transform:uppercase;color:#e8dfd2;font-weight:600;will-change:transform}
 .marquee-track i{font-style:normal;color:var(--accent)}
 @keyframes marq{to{transform:translateX(-50%)}}
-
-/* phone floating notification */
-.notif{position:absolute;right:-30px;top:90px;z-index:4;background:rgba(255,255,255,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:12px 16px;color:#f2ede6;font-size:11.5px;line-height:1.5;max-width:200px;animation:bob 4.2s ease-in-out infinite;box-shadow:0 18px 40px -16px rgba(0,0,0,.6)}
-.notif b{color:#7ddc9a;display:block;font-size:12px}
-.phone-wrap{position:relative}
-
-/* cart badge pulse */
-.cart-badge{animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(179,119,60,.5)}50%{box-shadow:0 0 0 7px rgba(179,119,60,0)}}
-
-/* infra tile glass caption */
-.infra-tile b{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:7px 14px;border-radius:100px;left:12px;bottom:12px}
-
-@media(max-width:900px){.split .copy{padding:24px}.notif{display:none}.ring{display:none}}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:900px){
-  nav{padding:12px 14px}
-  .cart-btn{display:none}
-  .quote-btn{padding:8px 12px;font-size:11px}
-  .wordmark span{display:none}
-  .split,.split.flip{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:80px 20px 70px;gap:16px}
-  .copy{padding-right:0;justify-content:flex-end}
-  h2{font-size:30px;margin-bottom:12px}
-  .lede{font-size:13.5px;margin-bottom:16px}
-  .g-thumbs{height:62px}
-  .mini-strip{display:none}
-  .dots{right:12px}
-  #s1 .copy{width:100%;padding-left:20px;padding-right:20px;justify-content:center;overflow-wrap:anywhere}
-  .hero-stats{gap:22px}
-  .blog-grid{grid-template-columns:1fr;overflow:auto}
-  .phone{width:210px;height:430px}
-  .infra-grid{grid-template-columns:1fr 1fr}
-  .infra-tile{height:110px}
+@media(min-width:900px){
+  .hero-in{justify-content:center;padding:0 6vw;max-width:860px}
+  #hero .lede{font-size:15.5px}
+  .kicker{font-size:11.5px;letter-spacing:3px}
+  .hero-stats div b{font-size:30px}
+  .btn{padding:15px 30px;font-size:13.5px}
 }
-@media(max-width:480px){
-  .quote-btn{display:none}
-  #s1 .lede,#s1 .concept-note{width:100%;max-width:calc(100vw - 40px);white-space:normal}
+@media(max-width:520px){
+  .hero-in{width:100%;min-width:0;padding-left:20px;padding-right:20px}
+  #hero .lede{width:100%;max-width:100%;min-width:0;overflow-wrap:anywhere}
+  #hero .cta-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:100%}
+  #hero .cta-row .btn{min-width:0;padding-left:10px;padding-right:10px}
+  .hero-stats{gap:10px;width:100%}
+  .hero-stats div b{font-size:17px;line-height:1.08;overflow-wrap:anywhere}
+  .hero-stats div span{font-size:7.5px;letter-spacing:.75px}
 }
+
+/* ---------- CATEGORY CAROUSEL SCREENS ---------- */
+.cat-head{position:relative;z-index:2;padding:calc(var(--nav-h) + 18px) 20px 0;text-align:center}
+.cat-head h2{font-size:clamp(26px,7vw,52px);margin-bottom:8px}
+.cat-head p{font-size:12.5px;color:var(--ink-soft);max-width:56ch;margin:0 auto}
+.dark .cat-head p{color:#b8b0a4}
+.cat-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.car{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:center;padding:26px 0 34px;scrollbar-width:none;cursor:grab}
+.car::-webkit-scrollbar{display:none}
+.car.dragging{cursor:grabbing;scroll-snap-type:none}
+.car::before,.car::after{content:'';flex:0 0 calc(50vw - var(--card-w)/2 - 16px)}
+.card{flex:0 0 var(--card-w);scroll-snap-align:center;border-radius:20px;overflow:hidden;background:rgba(255,255,255,.5);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.6);transform:scale(.86);transition:transform .4s var(--ease),box-shadow .4s var(--ease);box-shadow:0 14px 30px -18px rgba(28,26,23,.35);position:relative}
+.dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}
+.card.center{transform:scale(1);box-shadow:0 40px 60px -22px rgba(28,26,23,.55)}
+.card:hover{transform:scale(1.04);box-shadow:0 48px 70px -24px rgba(28,26,23,.6);z-index:2}
+.card img{width:100%;aspect-ratio:4/3.2;object-fit:cover;pointer-events:none}
+.card .c-info{padding:12px 14px 14px}
+.card .c-info b{font-size:13.5px;display:block;margin-bottom:3px}
+.card .c-info span{font-size:12px;color:var(--accent-deep);font-weight:700}
+.dark .card .c-info span{color:#e0a86b}
+.card .c-info em{display:block;font-style:normal;font-size:10.5px;color:var(--ink-soft);margin-top:2px}
+.dark .card .c-info em{color:#b8b0a4}
+.card .c-tag{position:absolute;top:10px;left:10px;background:rgba(20,18,16,.6);backdrop-filter:blur(8px);color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.8px;padding:5px 10px;border-radius:100px;text-transform:uppercase}
+.cat-foot{position:relative;z-index:2;display:flex;justify-content:center;gap:10px;padding:0 20px calc(56px + env(safe-area-inset-bottom))}
+.car-nav{display:none}
+:root{--card-w:min(66vw,300px)}
+@media(min-width:900px){
+  .cat-head{padding-top:calc(66px + 26px)}
+  .cat-head p{font-size:14px}
+  :root{--card-w:300px}
+  .car{gap:22px}
+  .car::before,.car::after{content:'';flex:0 0 calc(50vw - var(--card-w)/2 - 22px)}
+  .car-nav{display:flex;position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.4);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.6);align-items:center;justify-content:center;font-size:18px;transition:.25s;color:var(--ink)}
+  .dark .car-nav{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#f2ede6}
+  .car-nav:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .car-nav.prev{left:26px}
+  .car-nav.next{right:26px}
+  .cat-foot{padding-bottom:60px}
+}
+
+/* ---------- INFRA / CONTRACTOR / FINAL ---------- */
+.split{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;gap:16px;padding:calc(var(--nav-h) + 16px) 20px calc(52px + env(safe-area-inset-bottom));overflow:hidden}
+.copy{display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,.42);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border:1px solid rgba(255,255,255,.6);border-radius:22px;padding:22px}
+.dark .copy{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12)}
+.copy h2{font-size:clamp(24px,6.4vw,46px);margin-bottom:10px}
+.lede{font-size:13px;line-height:1.6;color:var(--ink-soft);margin-bottom:16px}
+.dark .lede{color:#b8b0a4}
+.dark .btn-ghost{color:#f2ede6}
+.infra-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.infra-tile{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/9;cursor:pointer}
+.infra-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.infra-tile:hover img{transform:scale(1.08)}
+.infra-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(10,8,6,.85))}
+.infra-tile b{position:absolute;left:10px;bottom:9px;z-index:2;color:#fff;font-size:10.5px;letter-spacing:.3px;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:5px 10px;border-radius:100px}
+.phone-wrap{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-height:0}
+.phone{width:200px;height:400px;background:#0c0b0a;border-radius:32px;border:5px solid #2a2724;box-shadow:0 34px 70px -26px rgba(0,0,0,.8);overflow:hidden;position:relative;flex:none}
+.phone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:16px;background:#000;border-radius:10px;z-index:3}
+.p-screen{position:absolute;inset:0;background:#171512;padding:34px 12px 12px;display:flex;flex-direction:column;gap:8px}
+.p-head{color:#f2ede6;font-size:12.5px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.p-head span{font-size:8.5px;background:var(--accent);padding:2px 7px;border-radius:100px}
+.job{background:#221f1b;border:1px solid rgba(242,237,230,.09);border-radius:11px;padding:9px;color:#e8e2d8}
+.job b{font-size:10.5px;display:block;margin-bottom:2px}
+.job span{font-size:8.5px;color:#9d9488}
+.job .bar{height:4px;border-radius:3px;background:#33302b;margin-top:7px;overflow:hidden}
+.job .bar i{display:block;height:100%;background:var(--accent);border-radius:3px;width:0;transition:width 1.4s var(--ease) .9s}
+.screen.active .job .bar i{width:var(--w)}
+.notif{position:absolute;right:2px;top:24px;z-index:4;background:rgba(255,255,255,.12);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.28);border-radius:13px;padding:9px 12px;color:#f2ede6;font-size:9.5px;line-height:1.45;max-width:150px;animation:bob 4.2s ease-in-out infinite;box-shadow:0 18px 40px -16px rgba(0,0,0,.6)}
+.notif b{color:#7ddc9a;display:block;font-size:10px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin:4px 0 14px}
+.feat-list li{display:flex;gap:9px;font-size:11.5px;line-height:1.45;color:#c9c1b4;align-items:flex-start}
+.feat-list li::before{content:'✓';flex:none;width:18px;height:18px;border-radius:50%;background:rgba(179,119,60,.25);color:#e0a86b;display:grid;place-items:center;font-size:9px;font-weight:700}
+.blog-grid{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.blog-grid::-webkit-scrollbar{display:none}
+.blog-card{flex:0 0 78vw;max-width:320px;background:rgba(255,255,255,.6);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.65);border-radius:16px;overflow:hidden;cursor:pointer;transition:.3s}
+.blog-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -24px rgba(28,26,23,.35)}
+.blog-card img{height:110px;width:100%;object-fit:cover}
+.blog-card div{padding:11px 13px}
+.blog-card b{font-size:12px;line-height:1.4;display:block;margin-bottom:4px}
+.blog-card span{font-size:10px;color:var(--ink-soft)}
+.final-foot{display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(28,26,23,.12);padding-top:14px}
+.final-foot .addr{font-size:11px;line-height:1.65;color:var(--ink-soft)}
+.final-links{display:flex;gap:14px;font-size:11px;font-weight:600;flex-wrap:wrap}
+.final-links a:hover{color:var(--accent)}
+@media(min-width:900px){
+  .split{flex-direction:row;gap:34px;padding:calc(66px + 24px) 44px 70px;align-items:stretch}
+  .split>*{flex:1}
+  .copy{padding:40px;max-width:560px}
+  .lede{font-size:15px}
+  .feat-list li{font-size:13.5px}
+  .phone{width:250px;height:505px}
+  .infra-grid{align-content:center}
+  .infra-tile{aspect-ratio:16/8}
+  .infra-tile b{font-size:12.5px}
+  .blog-grid{overflow:visible;display:grid;grid-template-columns:repeat(3,1fr)}
+  .blog-card{max-width:none;flex:auto}
+  .blog-card img{height:130px}
+  .final-foot{flex-direction:row;justify-content:space-between;align-items:flex-end}
+}
+
+/* ---------- VIEWPORT-FIT SAFETY (mobile-first, no clipped content) ---------- */
+html,body{overflow-x:hidden}
+@media(max-width:899px){
+  .split{overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .phone{width:170px;height:340px}
+  .p-screen{padding:30px 10px 10px}
+  .notif{max-width:132px;font-size:9px;top:12px}
+}
+@media(max-height:700px){
+  :root{--card-w:min(56vw,250px)}
+  .cat-head{padding-top:calc(var(--nav-h) + 10px)}
+  .cat-head h2{font-size:clamp(22px,5.5vw,38px)}
+  .car{padding:16px 0 22px}
+  .cat-foot{padding-bottom:46px}
+  .card .c-info em{display:none}
+  .hero-stats{margin-top:12px}
+  .hero-stats div b{font-size:18px}
+  #hero h1{font-size:clamp(26px,7.5vw,60px)}
+  .copy{padding:16px}
+  .copy h2{font-size:clamp(20px,5.4vw,38px)}
+  .lede{font-size:12px;margin-bottom:10px}
+}
+@media(max-height:590px){
+  :root{--card-w:min(46vw,200px)}
+  .cat-head p{display:none}
+  .cat-head h2{font-size:clamp(20px,5vw,30px)}
+  .card .c-info b{font-size:12px}
+  .feat-list li:nth-child(3){display:none}
+  .phone{width:148px;height:296px}
+  .notif{display:none}
+  #hero .lede{display:none}
+  .hero-stats{display:none}
+  .blog-card img{height:84px}
+}
+@media(max-height:470px){
+  :root{--card-w:min(34vw,150px)}
+  .kicker{margin-bottom:6px}
+  .cat-head h2{margin-bottom:2px}
+  .car{padding:10px 0 14px}
+  .cat-foot{padding-bottom:38px}
+  .cat-foot .btn{padding:9px 16px;font-size:11px}
+  .feat-list{display:none}
+  .marquee{display:none}
+  .scroll-hint{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .intro{display:none}
+  body.ready #hero .hero-bg img{animation:none}
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* ---------- CHROME ---------- */
+.dots{position:fixed;right:8px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.35);padding:12px 7px;border-radius:100px;box-shadow:0 12px 30px -14px rgba(28,26,23,.35)}
+.on-dark-ui .dots{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
+.dot{position:relative;width:7px;height:7px;border-radius:50%;background:rgba(28,26,23,.25);border:none;padding:0;transition:.3s}
+.on-dark-ui .dot{background:rgba(242,237,230,.3)}
+.dot.sel{background:var(--accent);transform:scale(1.5)}
+.dot .tip{position:absolute;right:18px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:10px;font-weight:600;letter-spacing:.5px;background:var(--ink);color:#fff;padding:4px 10px;border-radius:100px;opacity:0;pointer-events:none;transition:.2s}
+.dot:hover .tip{opacity:1}
+@media(min-width:900px){.dots{right:20px;gap:12px}.dot{width:9px;height:9px}}
+.scroll-hint{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:5px;transition:opacity .5s,color .5s}
+.on-dark-ui .scroll-hint{color:#b8b0a4}
+.scroll-hint::after{content:'';width:1.5px;height:22px;background:currentColor;animation:drip 1.6s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 </style>
 </head>
 <body>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-lockup"><b>ALTERCRAFT</b><span>Design · Plan · Produce · Execute</span></div>
+  <i class="intro-rule"></i>
+</div>
 
 <nav id="nav">
   <div class="logo" data-go="0" title="AlterCraft — home">
@@ -295,202 +334,54 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
           <stop offset="0" stop-color="#a56a33"/><stop offset=".5" stop-color="#8a5227"/><stop offset="1" stop-color="#b3773c"/>
         </linearGradient>
       </defs>
-      <!-- A left leg (diagonal) -->
       <polygon class="ink-part" points="250,0 330,0 130,440 30,440"/>
-      <!-- A right leg / C spine (solid vertical bar) -->
       <rect class="ink-part" x="270" y="0" width="80" height="440"/>
-      <!-- A crossbar (fills between legs, leaves counter triangle above) -->
       <polygon class="ink-part" points="180,330 270,330 270,440 130,440"/>
-      <!-- C top arm (wood) -->
       <rect class="wood" x="362" y="0" width="238" height="130"/>
-      <!-- C bottom arm: chamfered wedge + bar (wood, thin seam between) -->
       <polygon class="wood" points="452,330 452,440 362,440"/>
       <polygon class="wood" points="464,330 600,330 600,440 464,440"/>
-      <!-- blueprint crosshair ticks -->
       <g class="ticks" stroke-width="4" fill="none">
-        <path d="M350,-16 v32 M334,0 h32"/>
-        <path d="M600,114 v32 M584,130 h32"/>
-        <path d="M30,424 v32 M14,440 h32"/>
-        <path d="M600,314 v32 M584,330 h32"/>
+        <path d="M350,-16 v32 M334,0 h32"/><path d="M600,114 v32 M584,130 h32"/>
+        <path d="M30,424 v32 M14,440 h32"/><path d="M600,314 v32 M584,330 h32"/>
       </g>
     </svg>
     <div class="wordmark"><b>ALTERCRAFT</b><span>Design · Plan · Produce · Execute</span></div>
   </div>
-  <div class="nav-links">
-    <a href="/beds">Beds</a><a href="/wardrobe-ghaziabad">Wardrobes</a><a href="/modular-kitchen">Kitchens</a><a href="/products">Living</a><a href="/gallery">Gallery</a><a href="/blog/">Blog</a><a href="/contact">Contact</a>
-  </div>
+  <div class="nav-links" id="navLinks"></div>
   <div class="nav-cta">
-    <button class="cart-btn" aria-label="Enquiry list" onclick="location.href='/cart'">
+    <a class="cart-btn" href="/products" aria-label="Browse the product catalogue">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2.5l2.2 12.5a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6"/></svg>
-      <span class="cart-badge" id="cartN">0</span>
-    </button>
-    <a class="quote-btn" style="display:inline-block" href="/contact">Get Free Quote</a>
+    </a>
+    <a class="quote-btn" href="/contact">Get Quote</a>
   </div>
 </nav>
 
-<!-- 1 · HERO : Interiors + Infra showcase -->
-<section class="screen dark" id="s1" data-name="AlterCraft" data-dark>
-  <div class="hero-bg"><img src="/images/generated/v1/brand-hero.webp" alt="AlterCraft interiors"></div>
-  <div class="copy">
-    <div class="kicker rev d1">Furniture · Interiors · Infrastructure — Ghaziabad & Delhi NCR</div>
-    <h1 class="rev d2">From a single bed<br>to complete <em class="grad-word">infrastructure.</em></h1>
-    <p class="lede rev d3">AlterCraft has grown from custom furniture into full home interiors and turnkey infra — modular kitchens, wardrobes, walk-in closets, site execution and our own contractor technology. Everything below is one scroll away.</p>
-    <p class="concept-note rev d3" style="font-size:11px;letter-spacing:.4px;opacity:.72;margin:-10px 0 18px">AI-assisted design visualizations. Final materials, dimensions and execution are confirmed after site measurement.</p>
+<!-- HERO -->
+<section class="screen dark" id="hero" data-name="AlterCraft" data-dark data-word="AlterCraft">
+  <div class="hero-bg"><img id="heroBg" src="/images/generated/v1/brand-hero.webp" alt="AlterCraft custom furniture and interior execution" fetchpriority="high" decoding="async"></div>
+  <div class="hero-in">
+    <div class="kicker rev d1">Furniture · Interiors · Execution</div>
+    <h1 class="rev d2">From a single bed to complete <em class="grad-word">infrastructure.</em></h1>
+    <p class="lede rev d3">Shop factory-made furniture, or hand us the whole project — kitchens, wardrobes, full interiors and site execution, tracked on our own tech.</p>
     <div class="cta-row rev d4">
       <button class="btn btn-solid" data-go="1">Start Shopping ↓</button>
-      <button class="btn btn-ghost" data-go="6">See Our Infra</button>
+      <button class="btn btn-ghost" data-go="8">Our Infra & Tech</button>
     </div>
-    <div class="hero-stats rev d5">
-      <div><b data-n="500" data-suf="+">0+</b><span>Projects</span></div>
-      <div><b data-n="10" data-suf=" yr">0 yr</b><span>Warranty</span></div>
-      <div><b data-n="45" data-suf=" d">0 d</b><span>Delivery</span></div>
+    <div class="hero-stats rev d4">
+      <div><b>INR 1,200</b><span>Kitchen start / sq. ft.</span></div>
+      <div><b>40</b><span>Designer bed styles</span></div>
+      <div><b>Delhi NCR</b><span>Primary service area</span></div>
     </div>
-  </div>
-  <div class="hero-cards">
-    <div class="hero-card rev d3" data-go="1"><img src="/images/generated/v1/bed-hydraulic-storage.webp" alt=""><b>Beds & Storage</b><span>from ₹24,999</span></div>
-    <div class="hero-card rev d4" data-go="3"><img src="/images/generated/v1/kitchen-premium-u-shape.webp" alt=""><b>Modular Kitchens</b><span>from ₹1.4 L</span></div>
-    <div class="hero-card rev d5" data-go="2"><img src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt=""><b>Wardrobes</b><span>from ₹38,999</span></div>
   </div>
   <div class="marquee"><div class="marquee-track" id="mq">
-    <span>Beds</span><i>◆</i><span>Wardrobes</span><i>◆</i><span>Modular Kitchens</span><i>◆</i><span>Living & Dining</span><i>◆</i><span>Walk-in Closets</span><i>◆</i><span>Full Interiors</span><i>◆</i><span>Infra Projects</span><i>◆</i><span>Contractor Desk</span><i>◆</i>
+    <span>Beds</span><i>◆</i><span>Mandir Units</span><i>◆</i><span>Wardrobes</span><i>◆</i><span>Shoe Racks</span><i>◆</i><span>Mattresses</span><i>◆</i><span>Modular Kitchens</span><i>◆</i><span>Living & Dining</span><i>◆</i><span>Full Interiors</span><i>◆</i>
   </div></div>
 </section>
 
-<!-- 2 · BEDS -->
-<section class="screen" id="s2" data-name="Beds">
-  <div class="split">
-    <div class="copy">
-      <div class="kicker rev d1">Beds</div>
-      <h2 class="rev d2">Beds built around your storage.</h2>
-      <p class="lede rev d3">Hydraulic lift-ups, drawer bases and platform frames in kiln-dried hardwood. Made to your mattress size, delivered assembled.</p>
-      <div class="price-row rev d3"><span class="price">₹24,999 <small>onwards</small></span><span class="strike">₹32,000</span><span class="tag">EMI available</span></div>
-      <div class="cta-row rev d4">
-        <button class="btn btn-solid add-cart">Add to Enquiry</button>
-        <a class="btn btn-ghost" href="/beds">Explore All Beds →</a>
-      </div>
-      <div class="mini-strip rev d5">
-        <div class="mini"><img src="/images/generated/v1/bed-hydraulic-storage.webp" alt=""><div>Queen Storage Bed<em>₹28,499</em></div></div>
-        <div class="mini"><img src="/images/generated/v1/bed-upholstered-drawer.webp" alt=""><div>King Platform Bed<em>₹34,999</em></div></div>
-        <div class="mini"><img src="/images/generated/v1/bed-upholstered-drawer.webp" alt=""><div>Upholstered Bed<em>₹31,499</em></div></div>
-      </div>
-    </div>
-    <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s2" src="/images/generated/v1/bed-hydraulic-storage.webp" alt="Bed"><span class="float-chip">✓ 10-yr warranty</span><span class="g-label" id="lab-s2">Hydraulic storage concept</span></div>
-      <div class="g-thumbs" data-for="s2">
-        <button class="sel" data-full="/images/generated/v1/bed-hydraulic-storage.webp" data-label="Hydraulic storage concept"><img src="/images/generated/v1/bed-hydraulic-storage.webp" alt="Hydraulic storage bed design visualization"></button>
-        <button data-full="/images/generated/v1/bed-upholstered-drawer.webp" data-label="Upholstered storage concept"><img src="/images/generated/v1/bed-upholstered-drawer.webp" alt="Upholstered storage bed design visualization"></button>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- CATEGORY SCREENS injected by JS here -->
 
-<!-- 3 · WARDROBES -->
-<section class="screen" id="s3" data-name="Wardrobes" style="background:#f1ebe2">
-  <div class="split flip">
-    <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s3" src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt="Wardrobe"><span class="float-chip">✓ Free measurement</span><span class="g-label" id="lab-s3">Sliding wardrobe concept</span></div>
-      <div class="g-thumbs" data-for="s3">
-        <button class="sel" data-full="/images/generated/v1/wardrobe-sliding-smoked.webp" data-label="Sliding wardrobe concept"><img src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt="Sliding wardrobe design visualization"></button>
-        <button data-full="/images/generated/v1/wardrobe-internal-storage.webp" data-label="Internal storage concept"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt="Wardrobe internal storage design visualization"></button>
-      </div>
-    </div>
-    <div class="copy">
-      <div class="kicker rev d1">Wardrobes</div>
-      <h2 class="rev d2">Wardrobes measured to the millimetre.</h2>
-      <p class="lede rev d3">Hinged, sliding and loft combinations — CNC-cut carcasses, soft-close hardware and interiors planned around what you actually own.</p>
-      <div class="price-row rev d3"><span class="price">₹38,999 <small>onwards</small></span><span class="tag">Free site measurement</span></div>
-      <div class="cta-row rev d4">
-        <button class="btn btn-solid add-cart">Add to Enquiry</button>
-        <a class="btn btn-ghost" href="/wardrobe-ghaziabad">Wardrobe Gallery →</a>
-      </div>
-      <div class="mini-strip rev d5">
-        <div class="mini"><img src="/images/generated/v1/wardrobe-sliding-smoked.webp" alt=""><div>2-Door Hinged<em>₹38,999</em></div></div>
-        <div class="mini"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt=""><div>Sliding 7ft<em>₹58,499</em></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4 · MODULAR KITCHEN -->
-<section class="screen dark" id="s4" data-name="Kitchens" data-dark>
-  <div class="split">
-    <div class="copy">
-      <div class="kicker rev d1">Modular Kitchens</div>
-      <h2 class="rev d2">The kitchen, engineered end-to-end.</h2>
-      <p class="lede rev d3">L-shape, U-shape, parallel and island layouts with marine-grade ply, quartz tops and branded hardware — designed in 3D before a single cut is made.</p>
-      <div class="price-row rev d3"><span class="price">₹1.4 L <small>onwards</small></span><span class="tag">10-year warranty</span></div>
-      <div class="cta-row rev d4">
-        <a class="btn btn-solid" href="/modular-kitchen-quotation-ghaziabad">Book Free 3D Design</a>
-        <a class="btn btn-ghost" href="/modular-kitchen">Kitchen Packages →</a>
-      </div>
-      <div class="mini-strip rev d5">
-        <div class="mini"><img src="/images/generated/v1/kitchen-compact-l-shape.webp" alt=""><div>L-Shape Essential<em>₹1.4 L</em></div></div>
-        <div class="mini"><img src="/images/generated/v1/kitchen-premium-u-shape.webp" alt=""><div>Island Premium<em>₹3.2 L</em></div></div>
-      </div>
-    </div>
-    <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s4" src="/images/generated/v1/kitchen-premium-u-shape.webp" alt="Kitchen"><span class="float-chip">✓ Free 3D design</span><span class="g-label" id="lab-s4">Premium U-shape concept</span></div>
-      <div class="g-thumbs" data-for="s4">
-        <button class="sel" data-full="/images/generated/v1/kitchen-premium-u-shape.webp" data-label="Premium U-shape concept"><img src="/images/generated/v1/kitchen-premium-u-shape.webp" alt="Premium U-shape kitchen design visualization"></button>
-        <button data-full="/images/generated/v1/kitchen-compact-l-shape.webp" data-label="Compact L-shape concept"><img src="/images/generated/v1/kitchen-compact-l-shape.webp" alt="Compact L-shape kitchen design visualization"></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5 · LIVING FURNITURE -->
-<section class="screen" id="s5" data-name="Living">
-  <div class="split flip">
-    <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s5" src="/images/generated/v1/living-media-wall.webp" alt="Sofa"><span class="float-chip">✓ Custom sizes</span><span class="g-label" id="lab-s5">Media wall concept</span></div>
-      <div class="g-thumbs" data-for="s5">
-        <button class="sel" data-full="/images/generated/v1/living-media-wall.webp" data-label="Media wall concept"><img src="/images/generated/v1/living-media-wall.webp" alt="Living room media wall design visualization"></button>
-        <button data-full="/images/generated/v1/living-curved-collection.webp" data-label="Curved furniture concept"><img src="/images/generated/v1/living-curved-collection.webp" alt="Curved living furniture design visualization"></button>
-      </div>
-    </div>
-    <div class="copy">
-      <div class="kicker rev d1">Living & Dining</div>
-      <h2 class="rev d2">Sofas, TV units & tables that anchor the room.</h2>
-      <p class="lede rev d3">Deep-seat sectionals, solid-wood coffee tables and wall-hung TV consoles — sized for Indian living rooms and made in our own workshop.</p>
-      <div class="price-row rev d3"><span class="price">₹18,499 <small>onwards</small></span><span class="tag">Custom sizes free</span></div>
-      <div class="cta-row rev d4">
-        <button class="btn btn-solid add-cart">Add to Enquiry</button>
-        <a class="btn btn-ghost" href="/products">Living Catalog →</a>
-      </div>
-      <div class="mini-strip rev d5">
-        <div class="mini"><img src="/images/generated/v1/living-media-wall.webp" alt=""><div>Nova L-Shape<em>₹64,999</em></div></div>
-        <div class="mini"><img src="/images/generated/v1/living-media-wall.webp" alt=""><div>Regal TV Console<em>₹22,499</em></div></div>
-        <div class="mini"><img src="/images/generated/v1/living-curved-collection.webp" alt=""><div>Coffee Table<em>₹9,999</em></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · WALK-IN CLOSET + BEDROOM INTERIORS -->
-<section class="screen" id="s6" data-name="Closets" style="background:#efe7db">
-  <div class="split">
-    <div class="copy">
-      <div class="kicker rev d1">Walk-in Closets & Bedroom Interiors</div>
-      <h2 class="rev d2">A dressing room, not just a cupboard.</h2>
-      <p class="lede rev d3">Full bedroom interiors — walk-in closets, dressers, false ceilings and panelling — planned as one project with a single site team and one timeline.</p>
-      <div class="price-row rev d3"><span class="price">₹95,000 <small>onwards</small></span><span class="tag">Turnkey execution</span></div>
-      <div class="cta-row rev d4">
-        <a class="btn btn-solid" href="/wardrobe-quotation-ghaziabad">Plan My Bedroom</a>
-        <a class="btn btn-ghost" href="/wardrobe-design-ghaziabad">Closet Gallery →</a>
-      </div>
-    </div>
-    <div class="gallery rev d2">
-      <div class="g-main"><img id="img-s6" src="/images/generated/v1/walk-in-indian-storage.webp" alt="Walk-in closet"><span class="float-chip">✓ Turnkey execution</span><span class="g-label" id="lab-s6">Walk-in storage concept</span></div>
-      <div class="g-thumbs" data-for="s6">
-        <button class="sel" data-full="/images/generated/v1/walk-in-indian-storage.webp" data-label="Walk-in storage concept"><img src="/images/generated/v1/walk-in-indian-storage.webp" alt="Walk-in wardrobe design visualization"></button>
-        <button data-full="/images/generated/v1/wardrobe-internal-storage.webp" data-label="Indian wardrobe storage concept"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt="Indian wardrobe storage design visualization"></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · INFRA TECH -->
-<section class="screen dark" id="s7" data-name="Infra" data-dark>
+<!-- INFRA TECH -->
+<section class="screen dark" id="infra" data-name="Infra & Tech" data-dark data-word="Infra">
   <div class="split">
     <div class="copy">
       <div class="kicker rev d1">Infrastructure & Tech</div>
@@ -498,33 +389,32 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
       <p class="lede rev d3">CNC cutting, edge-banding and in-house finishing — plus the software we built to run it. AlterCraft executes complete infra projects: commercial interiors, site work and fit-outs, tracked digitally end-to-end.</p>
       <div class="cta-row rev d4">
         <a class="btn btn-solid" href="/contact">Book a Factory Visit</a>
-        <button class="btn btn-ghost" data-go="7">See Contractor Desk ↓</button>
+        <button class="btn btn-ghost" data-go-name="Contractor Desk">Contractor Desk ↓</button>
       </div>
     </div>
-    <div class="infra-grid">
-      <div class="infra-tile rev d2"><img src="/images/generated/v1/cnc-workshop.webp" alt=""><b>CNC Precision Cutting</b></div>
-      <div class="infra-tile rev d3"><img src="/images/generated/v1/site-installation.webp" alt=""><b>Site Execution & Fit-outs</b></div>
-      <div class="infra-tile rev d4"><img src="/images/generated/v1/design-planning.webp" alt=""><b>Drawings & 3D Planning</b></div>
-      <div class="infra-tile rev d5"><img src="/images/generated/v1/design-planning.webp" alt=""><b>ACOS — Our Own Software</b></div>
+    <div class="infra-grid rev d3">
+      <div class="infra-tile"><img src="/images/generated/v1/cnc-workshop.webp" alt="AlterCraft CNC workshop" loading="lazy" decoding="async"><b>CNC Precision</b></div>
+      <div class="infra-tile"><img src="/images/generated/v1/site-installation.webp" alt="AlterCraft site installation" loading="lazy" decoding="async"><b>Site Execution</b></div>
+      <div class="infra-tile"><img src="/images/generated/v1/design-planning.webp" alt="Interior drawings and design planning" loading="lazy" decoding="async"><b>3D Planning</b></div>
+      <div class="infra-tile"><img src="/images/generated/v1/office-commercial-interior.webp" alt="AlterCraft commercial project management" loading="lazy" decoding="async"><b>Contractor Desk</b></div>
     </div>
   </div>
 </section>
 
-<!-- 8 · CONTRACTOR DESK -->
-<section class="screen dark" id="s8" data-name="Contractor Desk" data-dark style="background:var(--dark2)">
+<!-- CONTRACTOR DESK -->
+<section class="screen dark" id="cdesk" data-name="Contractor Desk" data-dark data-word="Tech" style="background:var(--dark2)">
   <div class="split">
     <div class="copy">
       <div class="kicker rev d1">Contractor Desk</div>
-      <h2 class="rev d2">The app that runs every AlterCraft site.</h2>
+      <h2 class="rev d2">The app that runs every site.</h2>
       <p class="lede rev d3">Built in-house for our contractors and partners — live job tracking, measurements, payments and material status in one place.</p>
       <ul class="feat-list">
         <li class="rev d3">Live progress on every job — no phone calls needed</li>
-        <li class="rev d4">Site measurements & photos synced instantly</li>
-        <li class="rev d5">Milestone payments, transparent to the customer</li>
+        <li class="rev d3">Site measurements & photos synced instantly</li>
+        <li class="rev d4">Milestone payments, transparent to the customer</li>
       </ul>
-      <div class="cta-row rev d5">
+      <div class="cta-row rev d4">
         <a class="btn btn-solid" href="/contractor-desk">Partner With Us</a>
-        <a class="btn btn-ghost" href="/contractor-desk">Learn About ACOS →</a>
       </div>
     </div>
     <div class="phone-wrap rev d3">
@@ -536,56 +426,145 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
           <div class="job" style="--w:78%"><b>Kitchen — Indirapuram</b><span>Carcass install · Day 12 of 16</span><div class="bar"><i></i></div></div>
           <div class="job" style="--w:45%"><b>Wardrobe — Noida Ext.</b><span>CNC cutting · Day 4 of 9</span><div class="bar"><i></i></div></div>
           <div class="job" style="--w:92%"><b>Full Interior — Vaishali</b><span>Final finishing · Day 33 of 36</span><div class="bar"><i></i></div></div>
-          <div class="job" style="--w:15%"><b>Walk-in — Crossings</b><span>Measurement done · Design</span><div class="bar"><i></i></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9 · BLOG / ABOUT / CONTACT -->
-<section class="screen" id="s9" data-name="Blog & More">
-  <div class="final-wrap">
+<!-- BLOG / ABOUT / CONTACT -->
+<section class="screen" id="more" data-name="Blog & Contact" data-word="Ideas">
+  <div class="split" style="flex-direction:column">
     <div>
-      <div class="kicker rev d1">From the Blog · Story · Contact</div>
-      <h2 class="rev d2" style="font-size:clamp(28px,3.4vw,44px)">Ideas from the workshop.</h2>
+      <div class="kicker rev d1" style="margin-top:6px">From the Blog · Story · Contact</div>
+      <h2 class="rev d2" style="font-size:clamp(24px,6vw,42px)">Ideas from the workshop.</h2>
     </div>
-    <div class="blog-grid">
-      <div class="blog-card rev d2" onclick="location.href='/blog/'"><img src="/images/generated/v1/cnc-workshop.webp" alt=""><div><b>CNC interiors: why machine-cut beats carpenter-cut</b><span>Blog · 6 min read</span></div></div>
-      <div class="blog-card rev d3" onclick="location.href='/blog/'"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt=""><div><b>Wardrobe storage: planning interiors that actually fit</b><span>Blog · 5 min read</span></div></div>
-      <div class="blog-card rev d4" onclick="location.href='/blog/'"><img src="/images/generated/v1/brand-hero.webp" alt=""><div><b>About AlterCraft — from one workshop to full infra</b><span>Our story</span></div></div>
+    <div class="blog-grid rev d3">
+      <div class="blog-card" onclick="location.href='/blog/'"><img src="/images/generated/v1/cnc-workshop.webp" alt="CNC furniture production" loading="lazy" decoding="async"><div><b>CNC interiors: why machine-cut beats carpenter-cut</b><span>Blog · 6 min read</span></div></div>
+      <div class="blog-card" onclick="location.href='/blog/'"><img src="/images/generated/v1/wardrobe-internal-storage.webp" alt="Custom wardrobe internal storage" loading="lazy" decoding="async"><div><b>Wardrobe storage: planning interiors that actually fit</b><span>Blog · 5 min read</span></div></div>
+      <div class="blog-card" onclick="location.href='/about'"><img src="/images/generated/v1/brand-hero.webp" alt="AlterCraft design and execution" loading="lazy" decoding="async"><div><b>About AlterCraft — design, production and execution</b><span>Our story</span></div></div>
     </div>
-    <div class="final-foot rev d5">
-      <div class="addr"><b style="color:var(--ink)">Visit the Experience Store</b><br>Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Buzurg, Ghaziabad, UP 201009<br>+91 88175 03658 · Mon–Sun, 10am–8pm</div>
+    <div class="final-foot rev d4">
+      <div class="addr"><b style="color:var(--ink)">Visit the Experience Store</b><br>Shop No. 7, J.S. Plaza, Near Zero Gravity Sports Complex, Chipiyana Buzurg, Ghaziabad, UP 201009<br>+91 88175 03658 · Mon–Sat, 10:00 AM–7:00 PM</div>
       <div class="final-links"><a href="/portfolio">About</a><a href="/blog/">Blog</a><a href="/interiors-ghaziabad">Service Areas</a><a href="/cancellation-policy">Policies</a><a href="/contact">Contact</a></div>
       <a class="btn btn-solid" href="https://wa.me/918817503658" target="_blank" rel="noopener">WhatsApp Us</a>
     </div>
   </div>
 </section>
 
-<!-- chrome -->
+<div id="sweep"><b id="sweepWord">Beds</b></div>
 <div class="dots" id="dots"></div>
 <div class="scroll-hint" id="hint">Scroll</div>
 
 <script>
 (function(){
+  const intro=document.getElementById('intro');
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reducedMotion){
+    document.body.classList.add('ready');
+    intro?.remove();
+  }else{
+    requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('ready')));
+    setTimeout(()=>intro?.remove(),1900);
+  }
+
+  /* ============ CATEGORY DATA ============ */
+  const CATS=[
+    {id:'beds',name:'Beds',word:'Beds',desc:'Designer non-hydraulic box beds made to your mattress size. Hydraulic storage is quoted separately by hardware quality.',link:'/beds',dark:false,products:[
+      {n:'Emerald Channel Bed',p:'₹15,000 + tax',t:'Straight',img:'/images/beds/bed-01.jpg'},
+      {n:'Ivory Arc Bed',p:'₹17,500 + tax',t:'Curved',img:'/images/beds/bed-02.jpg'},
+      {n:'Royal Sapphire Bed',p:'₹21,000 + tax',t:'Signature',img:'/images/beds/bed-03.jpg'},
+      {n:'Olive Crest Bed',p:'₹15,000 + tax',t:'Straight',img:'/images/beds/bed-16.jpg'},
+      {n:'Sand Halo Bed',p:'₹21,000 + tax',t:'Signature',img:'/images/beds/bed-40.jpg'}]},
+    {id:'mandir',name:'Mandir Units',word:'Mandir',desc:'Wall-mounted and floor-standing pooja units planned around your available wall, storage and lighting.',link:'/gallery',dark:true,products:[
+      {n:'Traditional Teak Temple',p:'₹42,000',t:'Teak',img:'/images/generated/v1/pooja-mandir-cnc.webp'},
+      {n:'Wall-Mounted Modern Mandir',p:'₹21,500',t:'Compact',img:'/images/generated/v1/pooja-mandir-cnc.webp'},
+      {n:'Jali Mandir with Storage',p:'Quote after measurement',t:'Custom',img:'/images/generated/v1/pooja-mandir-cnc.webp'}]},
+    {id:'wardrobes',name:'Wardrobes',word:'Wardrobes',desc:'Hinged, sliding and walk-in wardrobes planned from your wall dimensions and storage requirements.',link:'/wardrobes',dark:false,products:[
+      {n:'Executive Sliding Wardrobe',p:'₹48,000',t:'Sliding',img:'/images/generated/v1/wardrobe-sliding-smoked.webp'},
+      {n:'Compact Swing Wardrobe',p:'₹24,500',t:'Hinged',img:'/images/generated/v1/wardrobe-internal-storage.webp'},
+      {n:'Custom Wardrobe Build',p:'From ₹780 / sq. ft.',t:'Measured',img:'/images/generated/v1/wardrobe-sliding-smoked.webp'},
+      {n:'Indian Storage Layout',p:'Quote after measurement',t:'Internal',img:'/images/generated/v1/wardrobe-internal-storage.webp'},
+      {n:'Walk-in Storage Plan',p:'Quote after measurement',t:'Premium',img:'/images/generated/v1/walk-in-indian-storage.webp'}]},
+    {id:'shoeracks',name:'Shoe Racks',word:'Shoe Racks',desc:'Ventilated entry storage, seated benches and tall units designed for the actual pair count and wall space.',link:'/shoe-rack-design',dark:false,products:[
+      {n:'Compact Shoe Rack',p:'₹6,000',t:'Compact',img:'/images/generated/v1/wardrobe-internal-storage.webp'},
+      {n:'Ventilated Entry Unit',p:'Quote after measurement',t:'Custom',img:'/images/generated/v1/joinery-soft-close.webp'},
+      {n:'Seated Shoe Bench',p:'Quote after measurement',t:'Entryway',img:'/images/generated/v1/living-curved-collection.webp'},
+      {n:'Tall Shoe Storage',p:'Quote after measurement',t:'High capacity',img:'/images/generated/v1/wardrobe-sliding-smoked.webp'}]},
+    {id:'mattresses',name:'Mattress Planning',word:'Mattress',desc:'Choose the mattress size and comfort direction with the bed so clearances, headboard and storage access remain practical.',link:'/beds',dark:true,products:[
+      {n:'Queen Mattress Fit Check',p:'Ask for size quote',t:'Queen',img:'/images/generated/v1/bed-hydraulic-storage.webp'},
+      {n:'King Mattress Fit Check',p:'Ask for size quote',t:'King',img:'/images/generated/v1/bed-upholstered-drawer.webp'},
+      {n:'Bed + Mattress Planning',p:'Matched to your room',t:'Assisted',img:'/images/beds/bed-11.jpg'}]},
+    {id:'kitchens',name:'Modular Kitchens',word:'Kitchens',desc:'L, U, parallel and island layouts from ₹1,200 / sq. ft. for the agreed modular cabinet scope.',link:'/modular-kitchen',dark:true,products:[
+      {n:'Compact L-Shape Kitchen',p:'From ₹1,200 / sq. ft.',t:'Popular',img:'/images/generated/v1/kitchen-compact-l-shape.webp'},
+      {n:'Premium U-Shape Kitchen',p:'From ₹1,200 / sq. ft.',t:'U-Shape',img:'/images/generated/v1/kitchen-premium-u-shape.webp'},
+      {n:'Parallel Kitchen Plan',p:'From ₹1,200 / sq. ft.',t:'Space-efficient',img:'/images/generated/v1/kitchen-compact-l-shape.webp'},
+      {n:'Island Kitchen Direction',p:'Quote after measurement',t:'Premium',img:'/images/generated/v1/kitchen-premium-u-shape.webp'}]},
+    {id:'living',name:'Living & Dining',word:'Living',desc:'Sofas, TV units, tables and storage selected or made to fit Indian living and dining rooms.',link:'/products',dark:false,products:[
+      {n:'Three Seater Sofa',p:'₹36,000',t:'Living',img:'/images/generated/v1/living-curved-collection.webp'},
+      {n:'L-Shape Sofa',p:'₹60,000',t:'Lounge',img:'/images/generated/v1/living-media-wall.webp'},
+      {n:'Classic TV Unit',p:'₹15,000',t:'Media',img:'/images/generated/v1/living-media-wall.webp'},
+      {n:'Solid Wood Coffee Table',p:'₹9,000',t:'Table',img:'/images/generated/v1/living-curved-collection.webp'},
+      {n:'Six Seater Dining Set',p:'₹38,000',t:'Dining',img:'/images/generated/v1/living-curved-collection.webp'}]}
+  ];
+
+  /* ============ BUILD CATEGORY SCREENS ============ */
+  const heroEl=document.getElementById('hero');
+  let insertAfter=heroEl;
+  CATS.forEach(c=>{
+    const s=document.createElement('section');
+    s.className='screen'+(c.dark?' dark':'');
+    s.id='cat-'+c.id;
+    s.dataset.name=c.name;s.dataset.word=c.word;
+    if(c.dark)s.setAttribute('data-dark','');
+    s.innerHTML=
+      '<div class="watermark">'+c.word+'</div>'+
+      '<div class="cat-head"><div class="kicker rev d1">Shop '+c.name+'</div>'+
+      '<h2 class="rev d2">'+c.name+'</h2><p class="rev d3">'+c.desc+'</p></div>'+
+      '<div class="cat-body rev d3"><button class="car-nav prev" aria-label="Previous">‹</button>'+
+      '<div class="car">'+c.products.map(p=>
+        '<a class="card" href="'+c.link+'" draggable="false">'+
+        (p.t?'<span class="c-tag">'+p.t+'</span>':'')+
+        '<img src="'+p.img+'" alt="'+p.n+'" draggable="false" loading="lazy" decoding="async">'+
+        '<div class="c-info"><b>'+p.n+'</b><span>'+p.p+'</span><em>View details →</em></div></a>').join('')+
+      '</div><button class="car-nav next" aria-label="Next">›</button></div>'+
+      '<div class="cat-foot rev d4"><a class="btn btn-solid" href="'+c.link+'">Shop All '+c.name+' →</a></div>';
+    insertAfter.after(s);insertAfter=s;
+  });
+
+  /* ============ FLIP ENGINE ============ */
   const screens=[...document.querySelectorAll('.screen')];
   const dotsBox=document.getElementById('dots');
   const nav=document.getElementById('nav');
   const hint=document.getElementById('hint');
+  const sweep=document.getElementById('sweep');
+  const sweepWord=document.getElementById('sweepWord');
   const N=screens.length;
-  let idx=0,busy=false;
+  const requestedScreen=decodeURIComponent(location.hash.replace(/^#/,''));
+  let idx=requestedScreen?screens.findIndex(s=>s.id===requestedScreen):-1;
+  if(idx<0&&requestedScreen)idx=screens.findIndex(s=>s.id==='cat-'+requestedScreen);
+  if(idx<0)idx=0;
+  let busy=false;
 
   screens.forEach((s,i)=>{
     const b=document.createElement('button');
-    b.className='dot'+(i===0?' sel':'');
+    b.className='dot'+(i===idx?' sel':'');
     b.innerHTML='<span class="tip">'+s.dataset.name+'</span>';
     b.addEventListener('click',()=>go(i));
     dotsBox.appendChild(b);
   });
   const dots=[...dotsBox.children];
 
-  screens[0].classList.add('active');
+  // desktop nav links from categories
+  const navLinks=document.getElementById('navLinks');
+  CATS.slice(0,5).forEach(c=>{
+    const a=document.createElement('a');a.href='#';a.textContent=c.name;
+    a.addEventListener('click',e=>{e.preventDefault();go(screens.findIndex(s=>s.id==='cat-'+c.id));});
+    navLinks.appendChild(a);
+  });
+  const blogA=document.createElement('a');blogA.href='/blog/';blogA.textContent='Blog';navLinks.appendChild(blogA);
+
+  screens[idx].classList.add('active');
   syncChrome();
 
   function syncChrome(){
@@ -601,120 +580,138 @@ body::after{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;opa
     busy=true;
     const down=n>idx;
     const cur=screens[idx],nxt=screens[n];
+    // category word sweep
+    sweepWord.textContent=nxt.dataset.word||nxt.dataset.name;
+    sweep.classList.remove('run','rev');void sweep.offsetWidth;
+    sweep.classList.add('run');if(!down)sweep.classList.add('rev');
     nxt.classList.add(down?'enter-down':'enter-up');
     nxt.getBoundingClientRect();
     cur.classList.remove('active');cur.classList.add('leaving');
     nxt.classList.remove('enter-down','enter-up');nxt.classList.add('active');
     idx=n;syncChrome();
-    setTimeout(()=>{cur.classList.remove('leaving');busy=false;},1050);
+    const sectionId=nxt.id.startsWith('cat-')?nxt.id.slice(4):(nxt.id==='hero'?'':nxt.id);
+    history.replaceState(null,'',location.pathname+location.search+(sectionId?'#'+sectionId:''));
+    setTimeout(()=>{cur.classList.remove('leaving');sweep.classList.remove('run','rev');busy=false;centerScan();},1000);
   }
 
+  document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(+el.dataset.go);}));
+  document.querySelectorAll('[data-go-name]').forEach(el=>el.addEventListener('click',e=>{
+    e.preventDefault();go(screens.findIndex(s=>s.dataset.name===el.dataset.goName));
+  }));
+
+  /* inner-scroll guard: if an element inside can still scroll that direction, don't flip */
+  function innerScrollBlocks(target,dirDown){
+    let el=target instanceof Element?target:null;
+    while(el&&el!==document.body){
+      const oy=getComputedStyle(el).overflowY;
+      if((oy==='auto'||oy==='scroll')&&el.scrollHeight>el.clientHeight+4){
+        if(dirDown&&el.scrollTop+el.clientHeight<el.scrollHeight-2)return true;
+        if(!dirDown&&el.scrollTop>2)return true;
+      }
+      el=el.parentElement;
+    }
+    return false;
+  }
+
+  /* wheel — a small scroll flips the page (ignore horizontal wheel over carousels) */
   let acc=0,lastWheel=0;
   window.addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
+    if(innerScrollBlocks(e.target,e.deltaY>0)){acc=0;return;}
     const now=Date.now();
     if(now-lastWheel>180)acc=0;
     lastWheel=now;
     if(busy)return;
     acc+=e.deltaY;
-    if(acc>60){acc=0;go(idx+1);}
-    else if(acc<-60){acc=0;go(idx-1);}
+    if(acc>55){acc=0;go(idx+1);}
+    else if(acc<-55){acc=0;go(idx-1);}
   },{passive:true});
 
-  let ty=null;
-  window.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});
+  /* touch — vertical swipe flips, horizontal swipe stays with the carousel */
+  let tx=null,tyy=null,tTarget=null;
+  window.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;tyy=e.touches[0].clientY;tTarget=e.target},{passive:true});
   window.addEventListener('touchend',e=>{
-    if(ty===null)return;
-    const dy=ty-e.changedTouches[0].clientY;ty=null;
-    if(Math.abs(dy)>50)go(idx+(dy>0?1:-1));
+    if(tyy===null)return;
+    const dx=tx-e.changedTouches[0].clientX,dy=tyy-e.changedTouches[0].clientY;
+    const tgt=tTarget;tx=tyy=tTarget=null;
+    if(Math.abs(dy)>56&&Math.abs(dy)>Math.abs(dx)*1.4){
+      if(innerScrollBlocks(tgt,dy>0))return;
+      go(idx+(dy>0?1:-1));
+    }
   },{passive:true});
 
   window.addEventListener('keydown',e=>{
-    if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(idx+1);}
+    if(['ArrowDown','PageDown'].includes(e.key)){e.preventDefault();go(idx+1);}
     else if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(idx-1);}
     else if(e.key==='Home')go(0);
     else if(e.key==='End')go(N-1);
   });
 
-  document.querySelectorAll('[data-go]').forEach(el=>{
-    el.addEventListener('click',e=>{e.preventDefault();go(+el.dataset.go);});
-  });
-
-  document.querySelectorAll('.g-thumbs').forEach(strip=>{
-    const id=strip.dataset.for;
-    const main=document.getElementById('img-'+id);
-    const lab=document.getElementById('lab-'+id);
-    strip.querySelectorAll('button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        strip.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
-        btn.classList.add('sel');
-        main.classList.add('swap');
-        setTimeout(()=>{
-          main.src=btn.dataset.full;
-          if(lab)lab.textContent=btn.dataset.label||'';
-          main.onload=()=>main.classList.remove('swap');
-        },220);
-      });
+  /* ============ CAROUSELS: center-card scale + drag + arrows ============ */
+  function centerScan(){
+    const car=screens[idx].querySelector('.car');
+    if(!car)return;
+    const mid=innerWidth/2;
+    let best=null,bd=1e9;
+    car.querySelectorAll('.card').forEach(cd=>{
+      const r=cd.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-mid);
+      cd.classList.toggle('center',false);
+      if(d<bd){bd=d;best=cd;}
     });
+    if(best)best.classList.add('center');
+  }
+  document.querySelectorAll('.car').forEach(car=>{
+    let raf=null;
+    car.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=null;centerScan();});},{passive:true});
+    // drag-to-scroll on desktop; suppress click after a real drag
+    let down=false,sx=0,sl=0,moved=0;
+    car.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;moved=0;sx=e.clientX;sl=car.scrollLeft;car.classList.add('dragging');});
+    window.addEventListener('pointermove',e=>{if(!down)return;const d=e.clientX-sx;moved=Math.max(moved,Math.abs(d));car.scrollLeft=sl-d;});
+    window.addEventListener('pointerup',()=>{if(!down)return;down=false;car.classList.remove('dragging');});
+    car.addEventListener('click',e=>{if(moved>8){e.preventDefault();e.stopPropagation();moved=0;}},true);
+    // arrows
+    const body=car.parentElement;
+    const step=()=>car.querySelector('.card').getBoundingClientRect().width+22;
+    body.querySelector('.prev')?.addEventListener('click',()=>car.scrollBy({left:-step(),behavior:'smooth'}));
+    body.querySelector('.next')?.addEventListener('click',()=>car.scrollBy({left:step(),behavior:'smooth'}));
   });
+  window.addEventListener('resize',centerScan);
+  setTimeout(centerScan,300);
 
-  // ambient orbs + rotating ring on every screen (skip hero)
-  screens.forEach((s,i)=>{
-    if(i===0)return;
-    const d=document.createElement('div');
-    d.className='deco';
-    d.innerHTML='<span class="orb o1"></span><span class="orb o2"></span><span class="ring"></span>';
-    s.prepend(d);
-  });
+  /* ============ EXTRAS ============ */
+  const mqEl=document.getElementById('mq');if(mqEl)mqEl.innerHTML+=mqEl.innerHTML;
 
-  // 3D tilt on gallery images
-  document.querySelectorAll('.g-main').forEach(g=>{
-    g.addEventListener('mousemove',e=>{
-      const r=g.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-      g.style.transform='perspective(950px) rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg)';
-    });
-    g.addEventListener('mouseleave',()=>{g.style.transform='';});
-  });
-
-  // hero background parallax
-  const heroImg=document.querySelector('#s1 .hero-bg img');
-  heroImg.style.transform='scale(1.1)';
-  heroImg.style.transition='transform .9s ease-out';
+  const heroBg=document.getElementById('heroBg');
   window.addEventListener('mousemove',e=>{
     if(idx!==0)return;
     const mx=e.clientX/innerWidth-.5,my=e.clientY/innerHeight-.5;
-    heroImg.style.transform='scale(1.1) translate('+(mx*-16)+'px,'+(my*-12)+'px)';
+    heroBg.style.transform='scale(1.1) translate('+(mx*-14)+'px,'+(my*-10)+'px)';
   });
 
-  // seamless marquee
-  const mq=document.getElementById('mq');
-  if(mq)mq.innerHTML+=mq.innerHTML;
-
-  // count-up hero stats
   document.querySelectorAll('[data-n]').forEach(el=>{
     const n=+el.dataset.n,suf=el.dataset.suf||'';
     setTimeout(()=>{
       const t0=performance.now();
       (function step(t){
-        const p=Math.min((t-t0)/1500,1),e=1-Math.pow(1-p,3);
-        el.textContent=Math.round(n*e)+suf;
+        const p=Math.min((t-t0)/1500,1),e2=1-Math.pow(1-p,3);
+        el.textContent=Math.round(n*e2)+suf;
         if(p<1)requestAnimationFrame(step);
       })(t0);
     },700);
+  });
+
+  // ambient deco on non-hero screens
+  screens.forEach((s,i)=>{
+    if(i===0)return;
+    const d=document.createElement('div');
+    d.className='deco';
+    s.prepend(d);
   });
 
   // broken-image safety net
   const FB='/images/generated/v1/brand-hero.webp';
   document.querySelectorAll('img').forEach(im=>im.addEventListener('error',()=>{
     if(!im.dataset.fb){im.dataset.fb=1;im.src=FB;}
-  }));
-
-  // enquiry cart
-  let cart=0;const badge=document.getElementById('cartN');
-  document.querySelectorAll('.add-cart').forEach(b=>b.addEventListener('click',()=>{
-    cart++;badge.textContent=cart;
-    b.textContent='Added ✓';b.style.background='rgba(179,119,60,.9)';
-    setTimeout(()=>{b.textContent='Add to Enquiry';b.style.background='';},1600);
   }));
 })();
 </script>

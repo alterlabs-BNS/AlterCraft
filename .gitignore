@@ -26,3 +26,16 @@ tmp/
 server/data/*.db
 server/data/*.sqlite
 server/data/*.sqlite-*
+
+# Design handoff bundles — kept locally, never committed
+/Continue Development/
+/Continue Development.zip
+/Elegant Furniture Business Website/
+/Elegant Furniture Business Website.zip
+/Mobile UI Design for Contractor Desk/
+/Mobile UI Design for Contractor Desk.zip
+
+# Debug APK artifacts — never committed (hosted externally per release process)
+/public/downloads/*.apk
+/public/downloads/*debug*.json
+/build/downloads/*.apk
