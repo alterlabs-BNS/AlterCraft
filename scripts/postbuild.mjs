@@ -78,6 +78,14 @@ const spaRoutes = [
   '/ai-planner/requirements',
   '/ai-planner/confirm',
   '/ai-planner/submitted',
+  // Phase-2 storefront. Without these the new routes fall through to 404.html:
+  // the SPA still boots on GitHub Pages, but the page answers with a 404 status
+  // and search engines drop it. Product pages are added by scripts/prerender.mjs,
+  // which can read the catalogue.
+  '/shop',
+  '/account',
+  '/account/sign-in',
+  '/account/sign-up',
 ];
 
 if (!existsSync(indexPath)) {

@@ -1,0 +1,223 @@
+/* AlterCraft — cream-theme repaint for the shared .elegant-* component system
+   (service, category, local-SEO and info pages).
+
+   The dark studio layer in elegant-site.css (from ~line 2704) and the dark
+   service-page.css tail hardcode their colours with !important on single-class
+   selectors, so plain overrides lose no matter what order the bundle lands in.
+   Every rule here therefore carries !important behind a `.ac-site` ancestor:
+   (0,2,0) beats (0,1,0) at equal importance, and the `.ac-site` scope keeps the
+   repaint off the desk apps (operator, contractor, ACOS, planner), which share
+   this stylesheet and keep their dark theme.
+
+   Colour is the only thing that changes — box model, radius, padding and
+   transitions stay with the source rules. --card / --border / --muted /
+   --muted-foreground / --primary / --shadow-* are already remapped to the cream
+   palette by the `.elegant-site.ac-site` token block in site-chrome.css, so they
+   are used in preference to literals wherever the source used a token. */
+
+/* ---------- Secondary buttons ----------
+   The label was rgba(255,247,231,.88) — 1.03:1 once the ground went cream, so
+   the button was invisible. It stays transparent rather than taking var(--card),
+   because it renders inside .elegant-quote-card which is also var(--card): a
+   white fill there left a white pill on a white card whose only edge was a
+   1.33:1 border, under the 3:1 WCAG asks of a control boundary. The source's own
+   light base rule used transparent for the same reason. */
+/* The primary CTA kept the old copper #d8a35f, which is 2.02:1 against cream —
+   under the 3:1 a control's own boundary needs — and sat beside the secondary
+   button now on --accent-deep, so every conversion row showed two different
+   coppers. Matching the solid CTA treatment used everywhere else on the site. */
+.ac-site .elegant-button {
+  border-color: var(--accent-deep) !important;
+  background: var(--accent-deep) !important;
+  color: #fff !important;
+  box-shadow: 0 14px 30px rgba(138, 90, 43, 0.28) !important;
+}
+.ac-site .elegant-button:hover {
+  background: var(--ink) !important;
+  box-shadow: 0 20px 40px rgba(28, 26, 23, 0.28) !important;
+}
+
+.ac-site .elegant-button-secondary,
+.ac-site .elegant-button-light,
+.ac-site .hero-poster-secondary,
+.ac-site .elegant-card-link {
+  border-color: var(--accent) !important;
+  background: transparent !important;
+  color: var(--accent-deep) !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+}
+.ac-site .elegant-button-secondary:hover,
+.ac-site .elegant-button-light:hover,
+.ac-site .hero-poster-secondary:hover,
+.ac-site .elegant-card-link:hover {
+  border-color: var(--accent-deep) !important;
+  background: var(--muted) !important;
+  color: var(--accent-deep) !important;
+}
+
+/* ---------- Quote / contact card ---------- */
+.ac-site .elegant-quote-card {
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+  box-shadow: var(--shadow-soft) !important;
+  backdrop-filter: none;
+}
+/* The card's own copy is painted for a dark ground by the studio layer, so it
+   has to travel with the surface or it disappears on white. */
+.ac-site .elegant-quote-card .elegant-kicker {
+  color: var(--accent-deep) !important;
+}
+.ac-site .elegant-quote-card .elegant-heading {
+  color: var(--primary) !important;
+}
+.ac-site .elegant-quote-card .elegant-copy {
+  color: var(--muted-foreground) !important;
+}
+
+/* ---------- Price cards ---------- */
+/* Cream tint rather than #fff: these sit inside .elegant-section-card, which
+   the cream tokens resolve to #fff — a white card there would have no edge. */
+/* .elegant-price-row shares this whole declaration block with .elegant-price-card
+   (service-page.css:120-141) and drives the price panels on ProductDetail, so it
+   has to travel with the card or those pages keep dark panels. */
+.ac-site .elegant-price-card,
+.ac-site .elegant-price-row {
+  border-color: var(--border) !important;
+  background: var(--cream) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+.ac-site .elegant-price-card span,
+.ac-site .elegant-price-row span {
+  color: var(--muted-foreground) !important;
+}
+.ac-site .elegant-price-card strong,
+.ac-site .elegant-price-row strong {
+  color: var(--accent-deep) !important;
+}
+.ac-site .elegant-price-card p {
+  color: var(--muted-foreground) !important;
+}
+
+/* Photography was being dimmed to sit on the dark ground; on cream it just
+   reads muddy. */
+.ac-site .elegant-split > img {
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-soft) !important;
+  filter: none;
+}
+
+/* ---------- Process step numbers ---------- */
+/* The chip already draws itself on var(--muted); only the copper text failed. */
+.ac-site .elegant-number {
+  color: var(--accent-deep) !important;
+}
+
+/* ---------- Section surfaces ----------
+   The studio layer repaints every section variant with a dark gradient, so the
+   page bodies stayed dark even after the document surface went cream. The base
+   rules at the top of elegant-site.css already point at --muted / --card, which
+   the cream token block resolves correctly; these just win the !important war
+   back. The hero is deliberately left alone — it sits over photography and
+   keeps its light type, matching the flip deck's dark image screens. */
+.ac-site .elegant-section,
+.ac-site .elegant-product-shell,
+.ac-site .elegant-related {
+  background: var(--cream) !important;
+}
+.ac-site .elegant-section-muted {
+  background: var(--muted) !important;
+}
+.ac-site .elegant-section-card {
+  background: var(--card) !important;
+}
+
+/* ---------- Mobile bottom navigation ----------
+   elegant-site.css:3028-3047 forces this bar dark with !important, beating the
+   cream rules both site-chrome.css and elegant-site.css already define for it.
+   Worse, the active item was painted --ac-copper-soft on top of a near-white
+   ::before glow, so the label for the page you are on measured ~1.2:1 — on
+   phones there was no way to tell which tab was selected. */
+.ac-site .ac-mobile-bottom-nav {
+  border-color: var(--line) !important;
+  background: rgba(248, 244, 238, 0.94) !important;
+}
+.ac-site .ac-mobile-bottom-link {
+  border-color: var(--line) !important;
+  color: var(--ink-soft) !important;
+}
+.ac-site .ac-mobile-bottom-link.active,
+.ac-site .ac-mobile-bottom-link.active svg {
+  color: var(--accent-deep) !important;
+}
+.ac-site .ac-mobile-bottom-link svg {
+  color: inherit !important;
+}
+/* The glow was lit for the dark bar; on cream it only washes out the label. */
+.ac-site .ac-mobile-bottom-link::before {
+  background: rgba(179, 119, 60, 0.12) !important;
+}
+
+/* ---------- Price strip ----------
+   Deliberately a dark contrast band, and the flip deck uses dark surfaces too,
+   so this keeps the band and only moves it off the old graphite/copper pair
+   (#1e2125/#2e323a with #f0c987) onto the locked darks. Accent on --dark is
+   4.8:1 and cream on --dark is about 17:1. */
+.ac-site .elegant-price-strip {
+  background: linear-gradient(135deg, var(--dark2) 0%, var(--dark) 100%) !important;
+  color: var(--cream);
+}
+/* !important because service-page.css:108-118 sets this text with !important on
+   single-class selectors; higher specificity alone loses to it. */
+.ac-site .elegant-price-strip strong { color: var(--cream) !important; }
+.ac-site .elegant-price-strip span { color: var(--accent) !important; }
+.ac-site .elegant-price-strip p { color: rgba(248, 244, 238, 0.82) !important; }
+
+/* ---------- Headings and body copy ----------
+   Ivory headings measured 1.03:1 once the sections went cream — invisible.
+   This is the same rule that made the 404 page's headline disappear. */
+.ac-site .elegant-heading,
+.ac-site .elegant-card h3,
+.ac-site .elegant-card h2,
+.ac-site .elegant-product-title,
+.ac-site .elegant-product-card h2 {
+  color: var(--primary) !important;
+}
+.ac-site .elegant-copy,
+.ac-site .elegant-card p,
+.ac-site .elegant-product-card p,
+.ac-site .elegant-spec-item,
+.ac-site .elegant-card-price small {
+  color: var(--muted-foreground) !important;
+}
+.ac-site .elegant-kicker,
+.ac-site .elegant-badge,
+.ac-site .elegant-card-price {
+  color: var(--accent-deep) !important;
+}
+
+/* ---------- Cards ---------- */
+.ac-site .elegant-card,
+.ac-site .elegant-product-info,
+.ac-site .elegant-product-card,
+.ac-site .elegant-product-main-image {
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+  box-shadow: var(--shadow-card) !important;
+  backdrop-filter: none;
+}
+
+/* ---------- Form controls ----------
+   The quote form's fields kept a near-black fill with ivory text, which read as
+   a dark widget dropped into a white card. */
+.ac-site .elegant-form input,
+.ac-site .elegant-form select,
+.ac-site .elegant-form textarea {
+  border-color: var(--border) !important;
+  background: #fff !important;
+  color: var(--primary) !important;
+}
+.ac-site .elegant-form input::placeholder,
+.ac-site .elegant-form textarea::placeholder {
+  color: var(--muted-foreground) !important;
+}

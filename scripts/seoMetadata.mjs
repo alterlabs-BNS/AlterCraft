@@ -3,9 +3,9 @@ const defaultImage = `${baseUrl}/images/generated/v1/brand-hero.webp`;
 const modularKitchenPrice = 'INR 1,200 / sq. ft.';
 
 const defaultSeo = {
-  title: `Custom Furniture & Modular Kitchen from ${modularKitchenPrice} in Ghaziabad | AlterCraft`,
+  title: `Custom Furniture, Beds & Modular Kitchens from ${modularKitchenPrice} | AlterCraft`,
   description:
-    `AlterCraft designs custom furniture, modular kitchens from ${modularKitchenPrice}, wardrobes, beds, office interiors and design previews in Ghaziabad, Noida, Greater Noida and Delhi NCR.`,
+    `AlterCraft designs and delivers custom furniture, beds, wardrobes, mandir units, shoe racks and modular kitchens from ${modularKitchenPrice}, made to order and installed Pan-India. Visit our Ghaziabad experience store.`,
   robots: 'index, follow',
 };
 
@@ -23,7 +23,7 @@ const routeSeo = {
   '/gallery': {
     title: 'Gallery & Portfolio | AlterCraft Furniture and Interiors',
     description:
-      'View AlterCraft portfolio work for modular kitchens, wardrobes, beds, doors, office interiors, TV units and custom furniture in Delhi NCR.',
+      'View AlterCraft portfolio work for modular kitchens, wardrobes, beds, doors, office interiors, TV units and custom furniture, delivered Pan-India.',
     canonical: `${baseUrl}/gallery`,
   },
   '/portfolio': {
@@ -311,15 +311,37 @@ const routeSeo = {
       'Warranty support across eligible AlterCraft furniture, modular kitchen, wardrobe, bed, door, hardware, workmanship and installation work.',
     canonical: `${baseUrl}/warranty-quality/`,
   },
+  '/shop': {
+    title: 'Shop Custom Furniture Online | Beds, Wardrobes & Kitchens | AlterCraft',
+    description:
+      'Shop AlterCraft beds, wardrobes, mandir units, shoe racks, custom mattresses and modular kitchens. Fixed-price pieces and made-to-order work, delivered and installed Pan-India.',
+  },
+  // Signed-in surfaces: real pages so they do not 404, but nothing here is worth
+  // indexing and the content differs per visitor.
+  '/account': {
+    title: 'Your Account | AlterCraft',
+    description: 'Sign in to track AlterCraft orders, saved addresses and design requests.',
+    robots: 'noindex, follow',
+  },
+  '/account/sign-in': {
+    title: 'Sign In | AlterCraft',
+    description: 'Sign in to your AlterCraft account to track orders and design requests.',
+    robots: 'noindex, follow',
+  },
+  '/account/sign-up': {
+    title: 'Create an Account | AlterCraft',
+    description: 'Create an AlterCraft account to track orders, addresses and design requests.',
+    robots: 'noindex, follow',
+  },
   '/about': {
     title: 'About AlterCraft | Custom Furniture and Interiors',
     description:
-      'About AlterCraft, a Ghaziabad based custom furniture, modular kitchen and interior execution studio serving Noida, Greater Noida and Delhi NCR.',
+      'About AlterCraft, a custom furniture, modular kitchen and interior execution studio delivering and installing Pan-India from our Ghaziabad experience store.',
   },
   '/contact': {
     title: 'Contact AlterCraft | Get Furniture and Interior Quote',
     description:
-      'Contact AlterCraft for custom furniture, modular kitchen, wardrobe, bed, door, office interior and design preview enquiries in Delhi NCR.',
+      'Contact AlterCraft for custom furniture, modular kitchen, wardrobe, bed, door, office interior and design preview enquiries, delivered Pan-India.',
   },
   '/get-quote': {
     title: 'Get a Quote | AlterCraft Furniture and Interiors',

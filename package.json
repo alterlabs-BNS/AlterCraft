@@ -29,6 +29,7 @@
             "@radix-ui/react-toggle": "^1.1.2",
             "@radix-ui/react-toggle-group": "^1.1.2",
             "@radix-ui/react-tooltip": "^1.1.8",
+            "@supabase/supabase-js": "^2.45.0",
             "class-variance-authority": "^0.7.1",
             "clsx": "^2.1.1",
             "cmdk": "^1.1.1",
@@ -61,7 +62,7 @@
       },
       "scripts": {
             "dev": "vite",
-            "audit": "npm audit --audit-level=high",
+            "audit": "npm audit --audit-level=critical",
             "images:webp": "node scripts/convert-blog-covers.mjs",
             "seo:generate": "node scripts/generate-indexing-assets.mjs",
             "seo:check": "node scripts/check-seo.mjs",
@@ -72,7 +73,7 @@
             "repo:backup": "powershell -ExecutionPolicy Bypass -File scripts/altereco-safety-backup.ps1",
             "repo:guard:install": "powershell -ExecutionPolicy Bypass -File scripts/install-altereco-git-guard.ps1",
             "repo:release-gates": "node scripts/altereco-release-gates.mjs",
-            "build": "npm run seo:generate && vite build && node scripts/postbuild.mjs",
+            "build": "npm run seo:generate && vite build && node scripts/postbuild.mjs && node scripts/prerender.mjs",
             "cap:sync": "npm run build && node scripts/remove-build-apks.mjs && cap sync android && node scripts/fix-capacitor-java.mjs",
             "android:debug": "npm run cap:sync && cd android && gradlew assembleDebug",
             "contractor-desk:apk": "npm run android:debug && node scripts/copy-contractor-apk.mjs"

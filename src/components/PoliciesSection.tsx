@@ -36,7 +36,7 @@ const policies = [
     id: 'delivery',
     title: 'Delivery and Assembly',
     items: [
-      'Delivery and assembly are included within 150 km radius.',
+      'Delivery and assembly are available Pan-India, quoted per destination.',
       'Slots are confirmed after order approval.',
       'Staircase or lift constraints should be shared in advance.',
       'Assembly is completed on-site by AlterCraft technicians.',
@@ -54,16 +54,18 @@ const policies = [
   },
 ];
 
+const headingFont = { fontFamily: '"Playfair Display", Georgia, serif' } as const;
+
 export function PoliciesSection() {
   return (
-    <section id="policies" className="py-24 bg-white">
+    <section id="policies" className="py-24 bg-[#f8f4ee]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <div className="inline-block px-3 py-1 border border-[#6B5D4F]/30 rounded-full mb-4">
-            <span className="text-xs tracking-widest text-[#6B5D4F]">POLICIES</span>
+          <div className="inline-block px-3 py-1 border border-[#b3773c]/40 rounded-full mb-4">
+            <span className="text-xs tracking-widest text-[#8a5a2b]">POLICIES</span>
           </div>
-          <h2 className="text-[#2C2419] mb-4">Clear Terms, Transparent Policies</h2>
-          <p className="text-[#5A4D3F] text-lg max-w-2xl mx-auto">
+          <h2 className="text-[#1c1a17] mb-4" style={headingFont}>Clear Terms, Transparent Policies</h2>
+          <p className="text-[#5c564e] text-lg max-w-2xl mx-auto">
             Essential policies covering rentals, purchases, delivery, and trade-ins.
           </p>
         </div>
@@ -73,12 +75,15 @@ export function PoliciesSection() {
             <div
               key={policy.id}
               id={policy.id}
-              className="bg-[#FAF7F2] rounded-sm border border-[#E5DDD1] p-8"
+              className="bg-white rounded-2xl border border-[#e7ded0] p-8 shadow-[0_14px_30px_rgba(28,26,23,0.06)]"
             >
-              <h3 className="text-lg text-[#2C2419] mb-4">{policy.title}</h3>
-              <ul className="space-y-2 text-sm text-[#6B5D4F]">
+              <h3 className="text-lg text-[#1c1a17] mb-4" style={headingFont}>{policy.title}</h3>
+              <ul className="space-y-2 text-sm text-[#5c564e]">
                 {policy.items.map((item) => (
-                  <li key={item}>- {item}</li>
+                  <li key={item} className="flex gap-2">
+                    <span className="text-[#b3773c]">•</span>
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
             </div>
