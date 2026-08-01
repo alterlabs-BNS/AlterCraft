@@ -311,6 +311,28 @@ const routeSeo = {
       'Warranty support across eligible AlterCraft furniture, modular kitchen, wardrobe, bed, door, hardware, workmanship and installation work.',
     canonical: `${baseUrl}/warranty-quality/`,
   },
+  '/shop': {
+    title: 'Shop Custom Furniture Online | Beds, Wardrobes & Kitchens | AlterCraft',
+    description:
+      'Shop AlterCraft beds, wardrobes, mandir units, shoe racks, custom mattresses and modular kitchens. Fixed-price pieces and made-to-order work, delivered and installed Pan-India.',
+  },
+  // Signed-in surfaces: real pages so they do not 404, but nothing here is worth
+  // indexing and the content differs per visitor.
+  '/account': {
+    title: 'Your Account | AlterCraft',
+    description: 'Sign in to track AlterCraft orders, saved addresses and design requests.',
+    robots: 'noindex, follow',
+  },
+  '/account/sign-in': {
+    title: 'Sign In | AlterCraft',
+    description: 'Sign in to your AlterCraft account to track orders and design requests.',
+    robots: 'noindex, follow',
+  },
+  '/account/sign-up': {
+    title: 'Create an Account | AlterCraft',
+    description: 'Create an AlterCraft account to track orders, addresses and design requests.',
+    robots: 'noindex, follow',
+  },
   '/about': {
     title: 'About AlterCraft | Custom Furniture and Interiors',
     description:

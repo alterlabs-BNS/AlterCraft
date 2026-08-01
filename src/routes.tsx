@@ -296,7 +296,9 @@ function withSiteErrorFallback(routes: RouteObject[]): RouteObject[] {
   });
 }
 
-export const router = createBrowserRouter(withSiteErrorFallback([
+// Exported separately from the browser router so a Node prerender can import the
+// route tree without createBrowserRouter touching window.history at module load.
+export const routes: RouteObject[] = withSiteErrorFallback([
   {
     path: "/",
     Component: FlipHomeRedirect,
@@ -657,4 +659,12 @@ export const router = createBrowserRouter(withSiteErrorFallback([
     path: "*",
     Component: NotFound,
   },
-]));
+]);
+
+// Only the browser builds a history-backed router. The prerender imports this
+// module for `routes` alone, and createBrowserRouter would reach for
+// document.defaultView at import time and crash Node before rendering starts.
+// App.tsx is the sole consumer and never runs server-side.
+export const router = typeof document === 'undefined'
+  ? (null as unknown as ReturnType<typeof createBrowserRouter>)
+  : createBrowserRouter(routes);

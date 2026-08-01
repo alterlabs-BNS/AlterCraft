@@ -73,7 +73,7 @@
             "repo:backup": "powershell -ExecutionPolicy Bypass -File scripts/altereco-safety-backup.ps1",
             "repo:guard:install": "powershell -ExecutionPolicy Bypass -File scripts/install-altereco-git-guard.ps1",
             "repo:release-gates": "node scripts/altereco-release-gates.mjs",
-            "build": "npm run seo:generate && vite build && node scripts/postbuild.mjs",
+            "build": "npm run seo:generate && vite build && node scripts/postbuild.mjs && node scripts/prerender.mjs",
             "cap:sync": "npm run build && node scripts/remove-build-apks.mjs && cap sync android && node scripts/fix-capacitor-java.mjs",
             "android:debug": "npm run cap:sync && cd android && gradlew assembleDebug",
             "contractor-desk:apk": "npm run android:debug && node scripts/copy-contractor-apk.mjs"
