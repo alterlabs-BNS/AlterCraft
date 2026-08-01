@@ -126,7 +126,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--ac-accent);
+  background: var(--ac-accent-deep);
   color: #fff;
   border: 0;
   border-radius: 999px;
@@ -136,8 +136,10 @@
   cursor: pointer;
   text-decoration: none;
 }
+/* No locked palette step sits between --ac-accent-deep and --ac-ink, so hover is
+   carried by elevation rather than a darker ground. */
 .account-btn-solid:hover {
-  background: var(--ac-accent-deep);
+  box-shadow: 0 18px 40px rgba(28, 26, 23, 0.08);
 }
 .account-btn-solid:disabled {
   opacity: 0.55;

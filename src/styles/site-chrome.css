@@ -14,7 +14,13 @@
   color: var(--ink);
   font-family: 'Inter', system-ui, sans-serif;
 }
-.ac-site a { color: inherit; }
+/* :where() so this carries ZERO specificity. As `.ac-site a` it scored (0,1,1)
+   and outranked every single-class button rule, repainting their labels: an
+   <a class="beds-buy-button"> declaring color:#fff still rendered ink at 3.2:1
+   while the neighbouring <button> was correct. Matching on class names instead
+   ("btn", "button", "cta", …) only moves the problem around, so the default
+   now simply loses to any authored rule. */
+:where(.ac-site a) { color: inherit; }
 
 /* ---------- Top bar ---------- */
 .ac-topbar {
@@ -150,8 +156,17 @@
   border: 1px solid transparent;
   transition: all 0.2s var(--ease);
 }
-.ac-btn-solid { background: var(--accent); color: #fff; }
-.ac-btn-solid:hover { background: var(--accent-deep); }
+/* The homepage's solid button sits on photography, where --accent plus a text
+   shadow reads fine. On a flat cream page the same fill gives white text only
+   3.7:1, so interior pages use the deeper wood tone (5.9:1) and darken to ink
+   on hover, keeping both states inside the locked palette. */
+.ac-btn-solid { background: var(--accent-deep); color: #fff; }
+.ac-btn-solid:hover { background: var(--ink); }
+/* Both `.ac-site a` and `.ac-footer-grid a` outrank a bare `.ac-btn-solid`, so
+   the label was being repainted ink in the header and cream in the footer. The
+   anchor-qualified selector wins back the white on every solid CTA. */
+.ac-site a.ac-btn-solid,
+.ac-footer a.ac-btn-solid { color: #fff; }
 
 .ac-mobile-toggle {
   display: none;
@@ -265,6 +280,16 @@
   .ac-mobile-toggle { display: inline-flex; }
   .ac-footer-grid { grid-template-columns: 1fr 1fr; }
 }
+@media (max-width: 700px) {
+  /* Below this the three topbar items wrap onto separate lines, which pushed the
+     sticky header to 193px — a quarter of a phone screen, held on every scroll.
+     The address and hours are both repeated in the footer; the phone stays. */
+  .ac-topbar-inner > span { display: none; }
+  .ac-topbar-inner > a {
+    min-height: 34px;
+    padding: 4px 8px;
+  }
+}
 @media (max-width: 560px) {
   .ac-footer-grid { grid-template-columns: 1fr; }
   .ac-mobile-bottom-nav {
@@ -315,6 +340,24 @@
   --radius: 14px;
   --shadow-soft: 0 18px 40px rgba(28, 26, 23, 0.08);
   --shadow-card: 0 14px 30px rgba(28, 26, 23, 0.07);
+}
+
+/* ---------- Surface ownership ----------
+   elegant-site.css ends with a dark studio layer that sets html/body to
+   --ac-forest-950 and paints .elegant-site::before with a grid+glow texture
+   built for that dark ground. Both are global, so a cream page sat on a dark
+   body: dark bands on overscroll and a muddy haze over the content. The body
+   class is toggled by ElegantLayout, which mounts only on public pages, so the
+   desk apps (operator, contractor, ACOS) keep the dark surface they expect. */
+body.ac-cream-surface {
+  background: #f8f4ee;
+  color: #1c1a17;
+}
+.elegant-site.ac-site {
+  min-height: 100vh;
+}
+.elegant-site.ac-site::before {
+  display: none;
 }
 
 /* ---------- Scroll-reveal motion (matches the homepage's presentation feel) ---------- */

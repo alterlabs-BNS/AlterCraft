@@ -18,6 +18,7 @@ import { siteDetails } from '../../data/siteDetails';
 import { createWhatsappLink } from '../../utils/contact';
 import { useAuth } from '../../contexts/AuthContext';
 import '../../styles/site-chrome.css';
+import '../../styles/elegant-theme-light.css';
 
 // Sitewide nav routes into the new /shop ecom, matching the homepage taxonomy.
 const navItems = [
@@ -290,8 +291,19 @@ function useScrollReveal() {
   }, [pathname]);
 }
 
+// The dark html/body rule in elegant-site.css is global, so public pages claim
+// the cream surface for as long as this layout is mounted and hand it back on
+// unmount, leaving the desk apps' dark theme alone.
+function useCreamSurface() {
+  useEffect(() => {
+    document.body.classList.add('ac-cream-surface');
+    return () => document.body.classList.remove('ac-cream-surface');
+  }, []);
+}
+
 export function ElegantLayout({ children }: ElegantLayoutProps) {
   useScrollReveal();
+  useCreamSurface();
   return (
     <div className="elegant-site ac-site">
       <ElegantHeader />

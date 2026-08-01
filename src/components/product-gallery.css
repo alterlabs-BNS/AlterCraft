@@ -44,9 +44,9 @@
   background: #ffffff;
 }
 
-.product-gallery-whatsapp,
-.product-gallery-modal-whatsapp {
-  background: #b3773c;
+.ac-site .product-gallery-whatsapp,
+.ac-site .product-gallery-modal-whatsapp {
+  background: var(--accent-deep);
   color: #ffffff;
 }
 
@@ -55,8 +55,8 @@
   margin-bottom: 2rem;
 }
 
-.product-gallery-kicker {
-  color: var(--accent);
+.ac-site .product-gallery-kicker {
+  color: var(--accent-deep);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.22em;
@@ -96,10 +96,10 @@
   transition: all 180ms ease;
 }
 
-.product-gallery-filter-btn:hover,
-.product-gallery-filter-btn.active {
-  border-color: #b3773c;
-  background: #b3773c;
+.ac-site .product-gallery-filter-btn:hover,
+.ac-site .product-gallery-filter-btn.active {
+  border-color: var(--accent-deep);
+  background: var(--accent-deep);
   color: #ffffff;
 }
 
@@ -152,9 +152,9 @@
   padding: 1.1rem;
 }
 
-.product-gallery-card-category,
-.product-gallery-panel-category {
-  color: var(--accent);
+.ac-site .product-gallery-card-category,
+.ac-site .product-gallery-panel-category {
+  color: var(--accent-deep);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;

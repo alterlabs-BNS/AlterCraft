@@ -299,11 +299,13 @@
   white-space: nowrap;
 }
 .shop-btn-solid {
-  background: var(--shop-accent);
+  background: var(--shop-accent-deep);
   color: #fff;
 }
+/* No locked palette step sits between --shop-accent-deep and --shop-ink, so hover
+   is carried by elevation rather than a darker ground. */
 .shop-btn-solid:hover {
-  background: var(--shop-accent-deep);
+  box-shadow: var(--shop-shadow);
 }
 .shop-btn-ghost {
   background: transparent;
@@ -349,8 +351,11 @@
   cursor: pointer;
   box-shadow: var(--shop-shadow);
 }
+/* Ink label, not #fff: keeps the count readable on --shop-accent while the pill
+   still separates from the ink fab behind it. */
 .shop-cart-fab strong {
   background: var(--shop-accent);
+  color: var(--shop-ink);
   border-radius: 999px;
   padding: 1px 8px;
   font-size: 13px;
