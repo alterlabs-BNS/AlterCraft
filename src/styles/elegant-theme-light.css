@@ -22,6 +22,21 @@
    white fill there left a white pill on a white card whose only edge was a
    1.33:1 border, under the 3:1 WCAG asks of a control boundary. The source's own
    light base rule used transparent for the same reason. */
+/* The primary CTA kept the old copper #d8a35f, which is 2.02:1 against cream —
+   under the 3:1 a control's own boundary needs — and sat beside the secondary
+   button now on --accent-deep, so every conversion row showed two different
+   coppers. Matching the solid CTA treatment used everywhere else on the site. */
+.ac-site .elegant-button {
+  border-color: var(--accent-deep) !important;
+  background: var(--accent-deep) !important;
+  color: #fff !important;
+  box-shadow: 0 14px 30px rgba(138, 90, 43, 0.28) !important;
+}
+.ac-site .elegant-button:hover {
+  background: var(--ink) !important;
+  box-shadow: 0 20px 40px rgba(28, 26, 23, 0.28) !important;
+}
+
 .ac-site .elegant-button-secondary,
 .ac-site .elegant-button-light,
 .ac-site .hero-poster-secondary,
@@ -117,6 +132,32 @@
   background: var(--card) !important;
 }
 
+/* ---------- Mobile bottom navigation ----------
+   elegant-site.css:3028-3047 forces this bar dark with !important, beating the
+   cream rules both site-chrome.css and elegant-site.css already define for it.
+   Worse, the active item was painted --ac-copper-soft on top of a near-white
+   ::before glow, so the label for the page you are on measured ~1.2:1 — on
+   phones there was no way to tell which tab was selected. */
+.ac-site .ac-mobile-bottom-nav {
+  border-color: var(--line) !important;
+  background: rgba(248, 244, 238, 0.94) !important;
+}
+.ac-site .ac-mobile-bottom-link {
+  border-color: var(--line) !important;
+  color: var(--ink-soft) !important;
+}
+.ac-site .ac-mobile-bottom-link.active,
+.ac-site .ac-mobile-bottom-link.active svg {
+  color: var(--accent-deep) !important;
+}
+.ac-site .ac-mobile-bottom-link svg {
+  color: inherit !important;
+}
+/* The glow was lit for the dark bar; on cream it only washes out the label. */
+.ac-site .ac-mobile-bottom-link::before {
+  background: rgba(179, 119, 60, 0.12) !important;
+}
+
 /* ---------- Price strip ----------
    Deliberately a dark contrast band, and the flip deck uses dark surfaces too,
    so this keeps the band and only moves it off the old graphite/copper pair
@@ -126,9 +167,11 @@
   background: linear-gradient(135deg, var(--dark2) 0%, var(--dark) 100%) !important;
   color: var(--cream);
 }
-.ac-site .elegant-price-strip-inner strong { color: var(--cream); }
-.ac-site .elegant-price-strip-inner strong span { color: var(--accent); }
-.ac-site .elegant-price-strip-inner p { color: rgba(248, 244, 238, 0.82); }
+/* !important because service-page.css:108-118 sets this text with !important on
+   single-class selectors; higher specificity alone loses to it. */
+.ac-site .elegant-price-strip strong { color: var(--cream) !important; }
+.ac-site .elegant-price-strip span { color: var(--accent) !important; }
+.ac-site .elegant-price-strip p { color: rgba(248, 244, 238, 0.82) !important; }
 
 /* ---------- Headings and body copy ----------
    Ivory headings measured 1.03:1 once the sections went cream — invisible.

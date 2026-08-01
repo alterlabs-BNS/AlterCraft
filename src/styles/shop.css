@@ -1,6 +1,13 @@
 /* AlterCraft storefront (Shop + PDP) — self-contained, brand-consistent tokens. */
+/* The cart FAB and drawer render as siblings of <main className="shop">, not
+   inside it (Shop.tsx:403 and :415, after </main> at :400), so they have to be
+   named here too. Without them every var(--shop-*) in the drawer is
+   unresolvable: the Checkout button lost its accent ground and rendered as a
+   white label on the cream page. */
 .shop,
-.shop-pdp {
+.shop-pdp,
+.shop-cart-fab,
+.shop-cart-layer {
   --shop-cream: #f8f4ee;
   --shop-surface: #ffffff;
   --shop-ink: #1c1a17;

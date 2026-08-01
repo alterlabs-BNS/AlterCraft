@@ -349,12 +349,21 @@
    body: dark bands on overscroll and a muddy haze over the content. The body
    class is toggled by ElegantLayout, which mounts only on public pages, so the
    desk apps (operator, contractor, ACOS) keep the dark surface they expect. */
+/* html carries the background too, and it — not body — is what propagates to
+   the canvas, so without this the overscroll/rubber-band region stayed near
+   black while scrolling even though the page itself looked right. */
+html:has(body.ac-cream-surface),
 body.ac-cream-surface {
   background: #f8f4ee;
   color: #1c1a17;
 }
+/* .elegant-site and .ac-site both set a background at (0,1,0) on this same
+   element, so which one wins is decided purely by bundle order — today cream
+   only because site-chrome.css lands in ElegantLayout's lazy chunk. Declaring
+   it on the two-class selector settles it at (0,2,0) regardless of chunking. */
 .elegant-site.ac-site {
   min-height: 100vh;
+  background: var(--cream);
 }
 .elegant-site.ac-site::before {
   display: none;
