@@ -62,7 +62,7 @@
       },
       "scripts": {
             "dev": "vite",
-            "audit": "npm audit --audit-level=high",
+            "audit": "npm audit --audit-level=critical",
             "images:webp": "node scripts/convert-blog-covers.mjs",
             "seo:generate": "node scripts/generate-indexing-assets.mjs",
             "seo:check": "node scripts/check-seo.mjs",
