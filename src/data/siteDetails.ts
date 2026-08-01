@@ -19,7 +19,7 @@ export const siteDetails = {
   gstin: '09DPRPR7653F1Z2',
   udyamRegistration: 'UDYAM-UP-29-0218457',
   businessActivity: 'Manufacture of furniture made of wood',
-  serviceRadius: '150 km',
+  serviceRadius: 'Pan-India',
   serviceAreas: [
     'Ghaziabad',
     'Noida',

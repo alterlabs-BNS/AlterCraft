@@ -1,12 +1,16 @@
 import React, { lazy } from "react";
 import { Navigate, createBrowserRouter, useLocation, type RouteObject } from "react-router";
-import Home from "./pages/Home";
 import { useAuth } from "./contexts/AuthContext";
 
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const ProductGalleryPage = lazy(() =>
   import("./components/ProductGalleryPage").then((module) => ({ default: module.ProductGalleryPage }))
 );
+const Shop = lazy(() => import("./pages/Shop"));
+const ShopProduct = lazy(() => import("./pages/ShopProduct"));
+const AccountDashboard = lazy(() => import("./pages/Account").then((module) => ({ default: module.AccountDashboard })));
+const AccountSignIn = lazy(() => import("./pages/Account").then((module) => ({ default: module.AccountSignIn })));
+const AccountSignUp = lazy(() => import("./pages/Account").then((module) => ({ default: module.AccountSignUp })));
 const ModularKitchenNearMe = lazy(() =>
   import("./pages/ModularKitchenNearMe").then((module) => ({ default: module.ModularKitchenNearMe }))
 );
@@ -184,6 +188,26 @@ const ContractorAdminDesk = lazy(() => import("./pages/ContractorAdminDesk"));
 const OperatorDesk = lazy(() => import("./pages/OperatorDesk"));
 const contractorDeskApkPath = "/downloads/contractor-desk-debug.apk";
 
+function FlipHomeRedirect() {
+  React.useEffect(() => {
+    window.location.replace("/home-flip.html");
+  }, []);
+
+  return (
+    <main className="site-error-fallback">
+      <div className="site-error-fallback__panel">
+        <p>AlterCraft</p>
+        <h1>Opening the store.</h1>
+        <span>If the homepage does not open automatically, use the link below.</span>
+        <div>
+          <a href="/home-flip.html">Enter AlterCraft</a>
+          <a href="/shop">Go to Shop</a>
+        </div>
+      </div>
+    </main>
+  );
+}
+
 function StaticBlogRedirect() {
   React.useEffect(() => {
     window.location.replace("/blog/index.html");
@@ -275,7 +299,7 @@ function withSiteErrorFallback(routes: RouteObject[]): RouteObject[] {
 export const router = createBrowserRouter(withSiteErrorFallback([
   {
     path: "/",
-    Component: Home,
+    Component: FlipHomeRedirect,
   },
   {
     path: "/false",
@@ -292,6 +316,26 @@ export const router = createBrowserRouter(withSiteErrorFallback([
   {
     path: "/products",
     Component: ProductGalleryPage,
+  },
+  {
+    path: "/shop",
+    Component: Shop,
+  },
+  {
+    path: "/shop/p/:slug",
+    Component: ShopProduct,
+  },
+  {
+    path: "/account",
+    Component: AccountDashboard,
+  },
+  {
+    path: "/account/sign-in",
+    Component: AccountSignIn,
+  },
+  {
+    path: "/account/sign-up",
+    Component: AccountSignUp,
   },
   {
     path: "/ContractorDesk",

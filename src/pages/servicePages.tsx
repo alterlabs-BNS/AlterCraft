@@ -24,7 +24,7 @@ export function ModularKitchen() {
   return (
     <ServicePage
       seo={{
-        title: `Modular Kitchen from ${modularKitchenStartingPrice} in Ghaziabad & Delhi NCR | AlterCraft`,
+        title: `Modular Kitchen from ${modularKitchenStartingPrice}, Installed Pan-India | AlterCraft`,
         description: `${modularKitchenPricingLine} AlterCraft designs, manufactures and installs modular kitchens with BWP/BWR plywood options, laminate finishes, hardware guidance and measured quotations.`,
         canonical: 'https://www.altercraft.in/modular-kitchen/',
         jsonLd: [
@@ -56,7 +56,7 @@ export function ModularKitchen() {
       hero={{
         title: 'Modular Kitchen Solutions',
         subtitle:
-          `Measured modular kitchens from ${modularKitchenStartingPrice} for Delhi NCR, Noida, Ghaziabad and Greater Noida West with practical storage, moisture-aware materials, branded hardware and elegant finishes.`,
+          `Measured modular kitchens from ${modularKitchenStartingPrice} for homes across India, with practical storage, moisture-aware materials, branded hardware and elegant finishes.`,
         breadcrumb: 'Products / Modular Kitchen',
         image:
           '/images/generated/v1/kitchen-premium-u-shape.webp',

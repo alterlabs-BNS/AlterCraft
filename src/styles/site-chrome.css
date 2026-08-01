@@ -1,0 +1,333 @@
+/* AlterCraft shared chrome — matches the flip homepage design system.
+   Tokens mirror public/home-flip.html: cream / ink / wood accent, Inter + Playfair. */
+.ac-site {
+  --cream: #f8f4ee;
+  --ink: #1c1a17;
+  --ink-soft: #5c564e;
+  --line: #e7ded0;
+  --accent: #b3773c;
+  --accent-deep: #8a5a2b;
+  --dark: #141210;
+  --dark2: #1e1b18;
+  --ease: cubic-bezier(0.76, 0, 0.24, 1);
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.ac-site a { color: inherit; }
+
+/* ---------- Top bar ---------- */
+.ac-topbar {
+  background: var(--dark);
+  color: #d9cfbe;
+  font-size: 12.5px;
+}
+.ac-topbar-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 7px 22px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ac-topbar-inner span,
+.ac-topbar-inner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #d9cfbe;
+  text-decoration: none;
+}
+.ac-topbar-inner svg { color: var(--accent); }
+
+/* ---------- Header ---------- */
+.ac-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(248, 244, 238, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.ac-nav-row {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.ac-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  margin-right: auto;
+}
+.ac-brand-mark {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ac-brand-mark img { width: 100%; height: 100%; object-fit: contain; }
+.ac-brand-text { display: flex; flex-direction: column; line-height: 1; }
+.ac-brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.ac-brand-sub {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin-top: 3px;
+}
+.ac-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.ac-nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s var(--ease);
+}
+.ac-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s var(--ease);
+}
+.ac-nav a:hover { color: var(--accent-deep); }
+.ac-nav a:hover::after { width: 100%; }
+
+.ac-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ac-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.ac-icon-btn:hover { border-color: var(--accent); color: var(--accent-deep); }
+.ac-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s var(--ease);
+}
+.ac-btn-solid { background: var(--accent); color: #fff; }
+.ac-btn-solid:hover { background: var(--accent-deep); }
+
+.ac-mobile-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink);
+}
+.ac-mobile-panel {
+  display: none;
+  border-top: 1px solid var(--line);
+  background: var(--cream);
+}
+.ac-mobile-panel.open { display: block; }
+.ac-mobile-panel-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ac-mobile-panel-inner a {
+  padding: 12px 4px;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Footer ---------- */
+.ac-footer {
+  background: var(--dark);
+  color: #d9cfbe;
+  margin-top: 60px;
+}
+.ac-footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) 22px 30px;
+}
+.ac-footer-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ac-footer-cta h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 3vw, 32px);
+  color: #fff;
+  margin: 4px 0 0;
+  max-width: 620px;
+}
+.ac-footer-cta span { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.ac-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 28px;
+  padding: 36px 0;
+}
+.ac-footer-grid h3 { font-family: 'Playfair Display', Georgia, serif; color: #fff; font-size: 18px; margin: 0 0 12px; }
+.ac-footer-grid h4 { color: #fff; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 14px; }
+.ac-footer-grid p { font-size: 14px; line-height: 1.6; color: #b8ad9c; }
+.ac-footer-grid ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.ac-footer-grid li { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.ac-footer-grid a { color: #d9cfbe; text-decoration: none; }
+.ac-footer-grid a:hover { color: var(--accent); }
+.ac-footer-grid svg { color: var(--accent); flex-shrink: 0; }
+.ac-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12.5px;
+  color: #9c9384;
+}
+
+/* ---------- Floating WhatsApp + mobile bottom nav ---------- */
+.ac-floating-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 76px;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 999px;
+  padding: 11px 16px;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(20, 18, 16, 0.22);
+}
+.ac-mobile-bottom-nav { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .ac-nav,
+  .ac-actions .ac-btn { display: none; }
+  .ac-mobile-toggle { display: inline-flex; }
+  .ac-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .ac-footer-grid { grid-template-columns: 1fr; }
+  .ac-mobile-bottom-nav {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 44;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(248, 244, 238, 0.94);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line);
+    padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+  }
+  .ac-mobile-bottom-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 4px 10px;
+  }
+  .ac-mobile-bottom-link.active { color: var(--accent-deep); }
+  .ac-floating-whatsapp { bottom: 72px; }
+}
+
+/* ---------- Re-theme the elegant page BODIES to the homepage palette ----------
+   elegant-site.css is variable-driven, so remapping its tokens on the wrapper
+   re-skins every content page (About, Contact, service, gallery, policies,
+   local-SEO) to the homepage cream/ink/wood system with no per-page edits.
+   Fonts already match (Playfair + Inter). Higher specificity than :root and
+   .elegant-site so it wins regardless of load order or light/dark scope. */
+.elegant-site.ac-site {
+  --background: #f8f4ee;
+  --foreground: #1c1a17;
+  --card: #ffffff;
+  --card-foreground: #1c1a17;
+  --primary: #1c1a17;
+  --primary-soft: #5c564e;
+  --primary-foreground: #ffffff;
+  --secondary: #efe7d9;
+  --muted: #f1e9db;
+  --muted-foreground: #5c564e;
+  --accent: #b3773c;
+  --border: #e7ded0;
+  --ring: #b3773c;
+  --radius: 14px;
+  --shadow-soft: 0 18px 40px rgba(28, 26, 23, 0.08);
+  --shadow-card: 0 14px 30px rgba(28, 26, 23, 0.07);
+}
+
+/* ---------- Scroll-reveal motion (matches the homepage's presentation feel) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .ac-site .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    will-change: opacity, transform;
+  }
+  .ac-site .reveal.reveal--in {
+    opacity: 1;
+    transform: none;
+  }
+}
+

@@ -104,11 +104,11 @@ export function About() {
     <ElegantLayout>
       <PageHero
         title="About AlterCraft"
-        subtitle="A Ghaziabad-based furniture and interiors studio building measured furniture, modular storage and elegant interior elements for homes and businesses."
+        subtitle="A Pan-India furniture and interiors studio — with an experience store in Ghaziabad — building measured furniture, modular storage and elegant interior elements for homes and businesses."
         breadcrumb="Company / About"
         image="/images/generated/v1/cnc-workshop.webp"
         imageAlt="Furniture craftsmanship workshop detail"
-        priceTag="Serving Ghaziabad, Delhi NCR and nearby cities"
+        priceTag="Designed, delivered & installed Pan-India"
       />
 
       <section className="elegant-section">
@@ -157,7 +157,7 @@ export function About() {
               ['Reliable Support', 'After handover, warranty and service support remain part of the relationship.'],
               ['Clear Scope', 'Professional quotations, realistic timelines and careful execution.'],
               ['Registered Business', `GSTIN ${siteDetails.gstin} and Udyam ${siteDetails.udyamRegistration}.`],
-              ['Regional Reach', `Projects are served across ${siteDetails.serviceRadius} from ${siteDetails.shortAddress}.`],
+              ['Pan-India Reach', 'Delivered and installed Pan-India, dispatched from our Ghaziabad workshop.'],
             ].map(([title, description]) => (
               <article className="elegant-card" key={title}>
                 <div className="elegant-card-body">
@@ -229,7 +229,7 @@ export function Contact() {
               <div className="elegant-price-card">
                 <span>Service Coverage</span>
                 <strong>{siteDetails.serviceRadius}</strong>
-                <p>Ghaziabad, Noida, Greater Noida, Delhi, Gurugram and nearby locations.</p>
+                <p>Delivered and installed across India. Walk-in experience store in Ghaziabad.</p>
               </div>
               <div className="elegant-price-card">
                 <span>GSTIN</span>

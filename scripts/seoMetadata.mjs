@@ -3,9 +3,9 @@ const defaultImage = `${baseUrl}/images/generated/v1/brand-hero.webp`;
 const modularKitchenPrice = 'INR 1,200 / sq. ft.';
 
 const defaultSeo = {
-  title: `Custom Furniture & Modular Kitchen from ${modularKitchenPrice} in Ghaziabad | AlterCraft`,
+  title: `Custom Furniture, Beds & Modular Kitchens from ${modularKitchenPrice} | AlterCraft`,
   description:
-    `AlterCraft designs custom furniture, modular kitchens from ${modularKitchenPrice}, wardrobes, beds, office interiors and design previews in Ghaziabad, Noida, Greater Noida and Delhi NCR.`,
+    `AlterCraft designs and delivers custom furniture, beds, wardrobes, mandir units, shoe racks and modular kitchens from ${modularKitchenPrice}, made to order and installed Pan-India. Visit our Ghaziabad experience store.`,
   robots: 'index, follow',
 };
 
