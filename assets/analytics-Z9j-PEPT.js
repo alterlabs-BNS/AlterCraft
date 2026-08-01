@@ -1,0 +1,1 @@
+var e=(e,t={})=>{if(typeof window>`u`)return;let n=window.gtag;if(typeof n==`function`){n(`event`,e,t);return}let r={event:e,...t},i=window.dataLayer;Array.isArray(i)?i.push(r):window.dataLayer=[r]};export{e as t};

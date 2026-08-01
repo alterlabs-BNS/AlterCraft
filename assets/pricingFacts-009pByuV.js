@@ -1,0 +1,1 @@
+var e=`INR 1,200 / sq. ft.`,t=`Modular kitchen starts at ${e} for the agreed modular cabinet scope, with no hidden cost after scope confirmation.`;export{e as n,t};
