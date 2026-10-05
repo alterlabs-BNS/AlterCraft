@@ -1,0 +1,21 @@
+hw_id,category,description,quantity,used_for,status,notes
+H01,Connector,"Cam-lock (minifix-type) connector set, 15 mm cam, for 18 mm board",20,Carcass joints (top/bottom/rails to sides and partitions),GENERIC - model not selected,10 joints x 2. Bore pattern depends on selected brand - NOT final
+H02,Dowel,Fluted beech dowel 8 x 35 mm,20,Location at every cam-lock joint,GENERIC - model not selected,
+H03,Screw,Chipboard screw 4 x 30 mm,10,"Bottom panel to plinth rails (from above, under shelves)",GENERIC - model not selected,
+H04,Screw,Panhead screw 3.5 x 16 mm,21,Back panel fixing @ <=150 mm pitch,GENERIC - model not selected,
+H05,Shelf support,"Shelf pin 5 mm, metal",8,Adjustable shelves,GENERIC - model not selected,System-32 line holes assumed - confirm with machine
+H06,Floor contact,Adhesive felt/PVC floor protector pads,6,Under sides and plinth rails,GENERIC - model not selected,
+H07,Anti-tip,Wall anti-tip bracket + 6 mm wall plug and screw,1,Rear plinth rail to wall,GENERIC - model not selected,Recommended for seat furniture; installer to fit
+H08,Hinge,"35 mm cup concealed hinge, full overlay, 110 deg, non-spring (for push-to-open), with euro-screw/dowel mounting plate for particle board",4,"Doors (2 per door, door height < 900 mm)",GENERIC - model not selected,Cup boring position from selected hinge datasheet - NOT final
+H09,Push latch,Push-to-open magnetic latch / tip-on unit,2,Doors,GENERIC - model not selected,
+H10,Bumper,Self-adhesive silicone door bumper 8 mm,4,Doors,GENERIC - model not selected,
+H11,Screw,Chipboard screw 4 x 25 mm,8,Cushion base fixed from below through seat substrate,GENERIC - model not selected,
+H12,Upholstery,"Upholstery fabric (TBD), approx. area m2",1,Cushion,GENERIC - model not selected,~0.34 m2 incl. wrap allowance
+H13,Upholstery,Staples 10 mm + spray adhesive,1,Cushion,GENERIC - model not selected,
+H15,Lighting,Aluminium LED profile 17 x 9 mm surface type + opal diffuser + end caps + clips,3,LED profiles,GENERIC - model not selected,total profile length 0.99 m
+H16,Lighting,"24 V COB LED strip, 3000 K warm white, ~8-10 W/m (m)",1.0,Inside profiles,GENERIC - model not selected,
+H17,Lighting,"24 V constant-voltage LED driver, plug-in, BIS-certified, sized >= 1.3 x load",1,Power,GENERIC - model not selected,Mounted in plinth void on rear rail
+H18,Wiring,2-core 0.5 mm2 cable + cable clips + 25 mm grommet in back panel,1,Wiring route along rear plinth rail,GENERIC - model not selected,Grommet hole not modelled in v1.1
+H19,Lighting,"PIR motion sensor switch, 24 V",1,Plinth light - arrival trigger,GENERIC - model not selected,
+H20,Lighting,"Door-contact / IR door sensor switch, 24 V",2,Interior light - on when door opens,GENERIC - model not selected,
+H14,Ventilation,Vent grommet / slot pattern in back panel,0,Odour ventilation,OPEN - founder decision,Not modelled in v1

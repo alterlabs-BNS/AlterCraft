@@ -1,0 +1,11 @@
+part_id,part_name,quantity,length_mm,width_mm,thickness_mm,material,grain_direction,edge_band_top,edge_band_bottom,edge_band_left,edge_band_right,cut_length_mm,cut_width_mm,laminate,corner_radii,notes
+S01-P01,Side panel L,1,425,334,18,PLPB,along length,CONCEALED:0,EXPOSED:2,FLOOR:0.8,CONCEALED:0,424.2,332.0,WALNUT,-,length=Z-axis; Front edge visible at door reveal; exposed if bay open
+S01-P02,Side panel R,1,425,334,18,PLPB,along length,CONCEALED:0,EXPOSED:2,FLOOR:0.8,CONCEALED:0,424.2,332.0,WALNUT,-,length=Z-axis; Front edge visible at door reveal; exposed if bay open
+S01-P03,Bottom panel,1,694,334,18,PLPB,along length,CONCEALED:0,EXPOSED:2,CONCEALED:0,CONCEALED:0,694.0,332.0,FROSTY_WHITE,-,length=X-axis; 
+S01-P04,Kick rail (front plinth),1,694,75,18,PLPB,along length,CONCEALED:0,FLOOR:0.8,CONCEALED:0,CONCEALED:0,694.0,74.2,CHARCOAL,-,length=X-axis; Recessed toe-kick; bears on floor
+S01-P05,Rear plinth rail,1,694,75,18,PLPB,along length,CONCEALED:0,FLOOR:0.8,CONCEALED:0,CONCEALED:0,694.0,74.2,FROSTY_WHITE,-,length=X-axis; Bears on floor; anti-tip bracket fixing zone
+S01-P06,Partition 1,1,332,334,18.0,PLPB,along length,CONCEALED:0,EXPOSED:2,CONCEALED:0,CONCEALED:0,332.0,332.0,FROSTY_WHITE,-,length=Z-axis; Seat intermediate support; carries load to bottom panel + plinth rails
+S01-P07,Shelf bay1-1,1,336.0,319,18.0,PLPB,along length,CONCEALED:0,EXPOSED:2,CONCEALED:0,CONCEALED:0,336.0,317.0,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P08,Shelf bay2-1,1,336.0,319,18.0,PLPB,along length,CONCEALED:0,EXPOSED:2,CONCEALED:0,CONCEALED:0,336.0,317.0,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P09,Back panel,1,730,425,6,HDF,none,CONCEALED:0,FLOOR:0.8,WALL:0,WALL:0,730.0,424.2,FROSTY_WHITE,-,length=X-axis; Screwed to sides/bottom/partitions/rails. Ventilation slots: see validation (open item)
+S01-P10,Seat top,1,750,350,25,PLPB 25 mm,along length,WALL:0,EXPOSED:2,EXPOSED:2,EXPOSED:2,746.0,348.0,WALNUT,bl:R30;br:R30,length=X-axis; Seating surface. Overhangs door face by 10 mm

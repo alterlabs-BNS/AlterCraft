@@ -1,0 +1,15 @@
+input,key,value
+board_area_m2,PLPB 18 mm WALNUT,0.269
+board_area_m2,PLPB 18 mm FROSTY_WHITE,0.579
+board_area_m2,PLPB 18 mm CHARCOAL,0.052
+board_area_m2,HDF 6 mm FROSTY_WHITE,0.31
+board_area_m2,PLPB 25 mm 25 mm WALNUT,0.263
+board_area_m2,PLPB 18 mm WARM_BEIGE,0.126
+edge_band_m,0.8 mm band WALNUT,1.06
+edge_band_m,2 mm band WALNUT,1.85
+edge_band_m,2 mm band FROSTY_WHITE,1.36
+edge_band_m,0.8 mm band CHARCOAL,0.69
+edge_band_m,0.8 mm band FROSTY_WHITE,1.76
+edge_band_m,2 mm band WARM_BEIGE,1.42
+panel_count,board parts,11
+hardware_lines,items,17

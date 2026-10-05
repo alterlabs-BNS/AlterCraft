@@ -1,0 +1,14 @@
+part_id,part_name,quantity,length_mm,width_mm,thickness_mm,material,grain_direction,edge_band_top,edge_band_bottom,edge_band_left,edge_band_right,cut_length_mm,cut_width_mm,laminate,corner_radii,notes
+S01-P01,Side panel L,1,383,316,18,PLPB,along length,CONCEALED:0,SEMI:0.8,FLOOR:0.8,CONCEALED:0,382.2,315.2,WALNUT,-,length=Z-axis; Front edge visible at door reveal; exposed if bay open
+S01-P02,Side panel R,1,383,316,18,PLPB,along length,CONCEALED:0,SEMI:0.8,FLOOR:0.8,CONCEALED:0,382.2,315.2,WALNUT,-,length=Z-axis; Front edge visible at door reveal; exposed if bay open
+S01-P03,Bottom panel,1,544,316,18,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,544.0,315.2,FROSTY_WHITE,-,length=X-axis; 
+S01-P04,Kick rail (front plinth),1,544,75,18,PLPB,along length,CONCEALED:0,FLOOR:0.8,CONCEALED:0,CONCEALED:0,544.0,74.2,CHARCOAL,-,length=X-axis; Recessed toe-kick; bears on floor
+S01-P05,Rear plinth rail,1,544,75,18,PLPB,along length,CONCEALED:0,FLOOR:0.8,CONCEALED:0,CONCEALED:0,544.0,74.2,FROSTY_WHITE,-,length=X-axis; Bears on floor; anti-tip bracket fixing zone
+S01-P06,Partition 1,1,290,316,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,290.0,315.2,FROSTY_WHITE,-,length=Z-axis; Seat intermediate support; carries load to bottom panel + plinth rails
+S01-P07,Shelf bay1-1,1,261.0,301,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,261.0,300.2,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P08,Shelf bay2-1,1,261.0,301,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,261.0,300.2,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P09,Back panel,1,580,383,6,HDF,none,CONCEALED:0,FLOOR:0.8,WALL:0,WALL:0,580.0,382.2,FROSTY_WHITE,-,length=X-axis; Screwed to sides/bottom/partitions/rails. Ventilation slots: see validation (open item)
+S01-P10,Seat top,1,600,350,18,PLPB,along length,WALL:0,EXPOSED:2,EXPOSED:2,EXPOSED:2,596.0,348.0,WALNUT,bl:R30;br:R30,length=X-axis; Upholstery substrate. Overhangs door face by 10 mm
+S01-P11,Cushion base,1,580,330,9,Plywood 9 mm (upholstery base),none,CONCEALED:0,CONCEALED:0,CONCEALED:0,CONCEALED:0,580.0,330.0,NONE_UPHOLSTERED,-,length=X-axis; Fabric wrapped and stapled underneath
+S01-P13,Door bay1,1,305,287.0,18,PLPB,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,301.0,283.0,WARM_BEIGE,-,"length=Z-axis; Full overlay, push-to-open, hinged left. Vertical grain"
+S01-P14,Door bay2,1,305,287.0,18,PLPB,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,301.0,283.0,WARM_BEIGE,-,"length=Z-axis; Full overlay, push-to-open, hinged right. Vertical grain"
