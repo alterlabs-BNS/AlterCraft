@@ -1,0 +1,61 @@
+part_id,part_name,edge_2d,physical_edge,edge_class,band_thickness_mm,edge_length_mm,rule
+S01-P01,Side panel L,left,lower,FLOOR,0.0,316,"On floor: no band, seal edge"
+S01-P01,Side panel L,right,upper,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P01,Side panel L,bottom,front,SEMI,0.8,425,Visible inside bay/at reveal: thin band
+S01-P01,Side panel L,top,rear,CONCEALED,0.0,425,Hidden by adjoining panel: no band
+S01-P02,Side panel R,left,lower,FLOOR,0.0,316,"On floor: no band, seal edge"
+S01-P02,Side panel R,right,upper,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P02,Side panel R,bottom,front,SEMI,0.8,425,Visible inside bay/at reveal: thin band
+S01-P02,Side panel R,top,rear,CONCEALED,0.0,425,Hidden by adjoining panel: no band
+S01-P03,Bottom panel,left,left,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P03,Bottom panel,right,right,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P03,Bottom panel,bottom,front,SEMI,0.8,1064,Visible inside bay/at reveal: thin band
+S01-P03,Bottom panel,top,rear,CONCEALED,0.0,1064,Hidden by adjoining panel: no band
+S01-P04,Kick rail (front plinth),left,left,CONCEALED,0.0,75,Hidden by adjoining panel: no band
+S01-P04,Kick rail (front plinth),right,right,CONCEALED,0.0,75,Hidden by adjoining panel: no band
+S01-P04,Kick rail (front plinth),bottom,lower,FLOOR,0.0,1064,"On floor: no band, seal edge"
+S01-P04,Kick rail (front plinth),top,upper,CONCEALED,0.0,1064,Hidden by adjoining panel: no band
+S01-P05,Rear plinth rail,left,left,CONCEALED,0.0,75,Hidden by adjoining panel: no band
+S01-P05,Rear plinth rail,right,right,CONCEALED,0.0,75,Hidden by adjoining panel: no band
+S01-P05,Rear plinth rail,bottom,lower,FLOOR,0.0,1064,"On floor: no band, seal edge"
+S01-P05,Rear plinth rail,top,upper,CONCEALED,0.0,1064,Hidden by adjoining panel: no band
+S01-P06,Partition 1,left,lower,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P06,Partition 1,right,upper,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P06,Partition 1,bottom,front,SEMI,0.8,332,Visible inside bay/at reveal: thin band
+S01-P06,Partition 1,top,rear,CONCEALED,0.0,332,Hidden by adjoining panel: no band
+S01-P07,Partition 2,left,lower,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P07,Partition 2,right,upper,CONCEALED,0.0,316,Hidden by adjoining panel: no band
+S01-P07,Partition 2,bottom,front,SEMI,0.8,332,Visible inside bay/at reveal: thin band
+S01-P07,Partition 2,top,rear,CONCEALED,0.0,332,Hidden by adjoining panel: no band
+S01-P08,Shelf bay1-1,left,left,CONCEALED,0.0,301,Hidden by adjoining panel: no band
+S01-P08,Shelf bay1-1,right,right,CONCEALED,0.0,301,Hidden by adjoining panel: no band
+S01-P08,Shelf bay1-1,bottom,front,SEMI,0.8,340.667,Visible inside bay/at reveal: thin band
+S01-P08,Shelf bay1-1,top,rear,CONCEALED,0.0,340.667,Hidden by adjoining panel: no band
+S01-P09,Shelf bay2-1,left,left,CONCEALED,0.0,301,Hidden by adjoining panel: no band
+S01-P09,Shelf bay2-1,right,right,CONCEALED,0.0,301,Hidden by adjoining panel: no band
+S01-P09,Shelf bay2-1,bottom,front,SEMI,0.8,340.666,Visible inside bay/at reveal: thin band
+S01-P09,Shelf bay2-1,top,rear,CONCEALED,0.0,340.666,Hidden by adjoining panel: no band
+S01-P10,Shelf bay3-1,left,left,CONCEALED,0.0,301,Hidden by adjoining panel: no band
+S01-P10,Shelf bay3-1,right,right,CONCEALED,0.0,301,Hidden by adjoining panel: no band
+S01-P10,Shelf bay3-1,bottom,front,SEMI,0.8,340.667,Visible inside bay/at reveal: thin band
+S01-P10,Shelf bay3-1,top,rear,CONCEALED,0.0,340.667,Hidden by adjoining panel: no band
+S01-P11,Back panel,left,left,WALL,0.0,425,Against wall: no band
+S01-P11,Back panel,right,right,WALL,0.0,425,Against wall: no band
+S01-P11,Back panel,bottom,lower,FLOOR,0.0,1100,"On floor: no band, seal edge"
+S01-P11,Back panel,top,upper,CONCEALED,0.0,1100,Hidden by adjoining panel: no band
+S01-P12,Seat top,left,left,EXPOSED,2.0,350,Customer-visible: matching finish band
+S01-P12,Seat top,right,right,EXPOSED,2.0,350,Customer-visible: matching finish band
+S01-P12,Seat top,bottom,front,EXPOSED,2.0,1100,Customer-visible: matching finish band
+S01-P12,Seat top,top,rear,WALL,0.0,1100,Against wall: no band
+S01-P13,Door bay1,left,lower,EXPOSED,2.0,366.667,Customer-visible: matching finish band
+S01-P13,Door bay1,right,upper,EXPOSED,2.0,366.667,Customer-visible: matching finish band
+S01-P13,Door bay1,bottom,left,EXPOSED,2.0,347,Customer-visible: matching finish band
+S01-P13,Door bay1,top,right,EXPOSED,2.0,347,Customer-visible: matching finish band
+S01-P14,Door bay2,left,lower,EXPOSED,2.0,357.666,Customer-visible: matching finish band
+S01-P14,Door bay2,right,upper,EXPOSED,2.0,357.666,Customer-visible: matching finish band
+S01-P14,Door bay2,bottom,left,EXPOSED,2.0,347,Customer-visible: matching finish band
+S01-P14,Door bay2,top,right,EXPOSED,2.0,347,Customer-visible: matching finish band
+S01-P15,Door bay3,left,lower,EXPOSED,2.0,366.667,Customer-visible: matching finish band
+S01-P15,Door bay3,right,upper,EXPOSED,2.0,366.667,Customer-visible: matching finish band
+S01-P15,Door bay3,bottom,left,EXPOSED,2.0,347,Customer-visible: matching finish band
+S01-P15,Door bay3,top,right,EXPOSED,2.0,347,Customer-visible: matching finish band

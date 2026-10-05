@@ -1,0 +1,193 @@
+{
+  "resolved": {
+    "WIDTH": 900,
+    "DEPTH": 350,
+    "TOTAL_HEIGHT": 450,
+    "BODY_HEIGHT": 425,
+    "BOARD_THICKNESS": 18,
+    "BACK_PANEL_THICKNESS": 6,
+    "PLINTH_HEIGHT": 75,
+    "PLINTH_RECESS": 40,
+    "SHELF_COUNT": 1,
+    "SHELF_SPACING": "auto",
+    "SHELF_SETBACK": 15,
+    "DOOR_MODE": "closed",
+    "SEAT_MODE": "wood",
+    "SEAT_THICKNESS": 25,
+    "SEAT_OVERHANG": 10,
+    "CUSHION_THICKNESS": 40,
+    "CUSHION_BASE_THICKNESS": 9,
+    "MAX_SEAT_SPAN": 450,
+    "DOOR_GAP": 3,
+    "MATERIAL": "BWP_PLY",
+    "FINISH": "WALNUT",
+    "EDGE_BANDING_THICKNESS": 2.0,
+    "EDGE_BANDING_INTERNAL": 0.8,
+    "PRODUCT_ID": "S01"
+  },
+  "spec": {
+    "WIDTH": {
+      "default": 900,
+      "min": 500,
+      "max": 1200,
+      "unit": "mm",
+      "desc": "Overall width (seat top)"
+    },
+    "DEPTH": {
+      "default": 350,
+      "min": 300,
+      "max": 420,
+      "unit": "mm",
+      "desc": "Overall depth incl. seat overhang"
+    },
+    "TOTAL_HEIGHT": {
+      "default": 450,
+      "min": 420,
+      "max": 480,
+      "unit": "mm",
+      "desc": "Floor to finished seating surface"
+    },
+    "BODY_HEIGHT": {
+      "default": null,
+      "unit": "mm",
+      "desc": "Derived: floor to underside of seat top"
+    },
+    "BOARD_THICKNESS": {
+      "default": 18,
+      "options": [
+        18
+      ],
+      "unit": "mm",
+      "desc": "Carcass/shelf/door board"
+    },
+    "BACK_PANEL_THICKNESS": {
+      "default": 6,
+      "options": [
+        6,
+        8,
+        9
+      ],
+      "unit": "mm",
+      "desc": "Back panel board"
+    },
+    "PLINTH_HEIGHT": {
+      "default": 75,
+      "min": 60,
+      "max": 100,
+      "unit": "mm",
+      "desc": "Floor to underside of bottom panel"
+    },
+    "PLINTH_RECESS": {
+      "default": 40,
+      "min": 20,
+      "max": 60,
+      "unit": "mm",
+      "desc": "Kick rail set-back from carcass front"
+    },
+    "SHELF_COUNT": {
+      "default": 1,
+      "min": 0,
+      "max": 2,
+      "unit": "per bay",
+      "desc": "Adjustable shelves per bay"
+    },
+    "SHELF_SPACING": {
+      "default": "auto",
+      "unit": "mm",
+      "desc": "'auto' = equal tiers, or a number = tier pitch from bottom panel"
+    },
+    "SHELF_SETBACK": {
+      "default": 15,
+      "unit": "mm",
+      "desc": "Shelf front edge set back from carcass front"
+    },
+    "DOOR_MODE": {
+      "default": "closed",
+      "options": [
+        "open",
+        "closed",
+        "mixed"
+      ],
+      "desc": "open = no doors, closed = door per bay, mixed = first bay open"
+    },
+    "SEAT_MODE": {
+      "default": "wood",
+      "options": [
+        "wood",
+        "upholstered"
+      ],
+      "desc": "Seat finish"
+    },
+    "SEAT_THICKNESS": {
+      "default": 25,
+      "options": [
+        18,
+        25
+      ],
+      "unit": "mm",
+      "desc": "Seat top board (wood mode). Upholstered uses 18 substrate"
+    },
+    "SEAT_OVERHANG": {
+      "default": 10,
+      "min": 0,
+      "max": 25,
+      "unit": "mm",
+      "desc": "Seat top projection beyond door face"
+    },
+    "CUSHION_THICKNESS": {
+      "default": 40,
+      "options": [
+        30,
+        40,
+        50
+      ],
+      "unit": "mm",
+      "desc": "Foam (upholstered mode)"
+    },
+    "CUSHION_BASE_THICKNESS": {
+      "default": 9,
+      "unit": "mm",
+      "desc": "Cushion ply base (upholstered mode)"
+    },
+    "MAX_SEAT_SPAN": {
+      "default": 450,
+      "unit": "mm",
+      "desc": "Max unsupported seat span between supports (ASSUMPTION)"
+    },
+    "DOOR_GAP": {
+      "default": 3,
+      "unit": "mm",
+      "desc": "Gap between doors / door to top"
+    },
+    "MATERIAL": {
+      "default": "BWP_PLY",
+      "options": [
+        "BWP_PLY",
+        "HDHMR"
+      ],
+      "desc": "Carcass/door substrate"
+    },
+    "FINISH": {
+      "default": "WALNUT",
+      "options": [
+        "WALNUT",
+        "NATURAL_OAK",
+        "ASH",
+        "WARM_BEIGE",
+        "MATTE_WHITE",
+        "CHARCOAL"
+      ],
+      "desc": "Exterior laminate/veneer"
+    },
+    "EDGE_BANDING_THICKNESS": {
+      "default": 2.0,
+      "unit": "mm",
+      "desc": "Exposed edge band"
+    },
+    "EDGE_BANDING_INTERNAL": {
+      "default": 0.8,
+      "unit": "mm",
+      "desc": "Semi-exposed (internal) edge band"
+    }
+  }
+}

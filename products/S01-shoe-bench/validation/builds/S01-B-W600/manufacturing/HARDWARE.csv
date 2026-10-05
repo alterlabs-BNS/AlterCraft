@@ -1,0 +1,12 @@
+hw_id,category,description,quantity,used_for,status,notes
+H01,Connector,"Cam-lock (minifix-type) connector set, 15 mm cam, for 18 mm board",20,Carcass joints (top/bottom/rails to sides and partitions),GENERIC - model not selected,10 joints x 2. Bore pattern depends on selected brand - NOT final
+H02,Dowel,Fluted beech dowel 8 x 35 mm,20,Location at every cam-lock joint,GENERIC - model not selected,
+H03,Screw,Chipboard screw 4 x 30 mm,10,"Bottom panel to plinth rails (from above, under shelves)",GENERIC - model not selected,
+H04,Screw,Panhead screw 3.5 x 16 mm,21,Back panel fixing @ <=150 mm pitch,GENERIC - model not selected,
+H05,Shelf support,"Shelf pin 5 mm, metal",8,Adjustable shelves,GENERIC - model not selected,System-32 line holes assumed - confirm with machine
+H06,Floor contact,Adhesive felt/PVC floor protector pads,6,Under sides and plinth rails,GENERIC - model not selected,
+H07,Anti-tip,Wall anti-tip bracket + 6 mm wall plug and screw,1,Rear plinth rail to wall,GENERIC - model not selected,Recommended for seat furniture; installer to fit
+H08,Hinge,"35 mm cup concealed hinge, full overlay, 110 deg, non-spring (for push-to-open), with mounting plate",4,"Doors (2 per door, door height < 900 mm)",GENERIC - model not selected,Cup boring position from selected hinge datasheet - NOT final
+H09,Push latch,Push-to-open magnetic latch / tip-on unit,2,Doors,GENERIC - model not selected,
+H10,Bumper,Self-adhesive silicone door bumper 8 mm,4,Doors,GENERIC - model not selected,
+H14,Ventilation,Vent grommet / slot pattern in back panel,0,Odour ventilation,OPEN - founder decision,Not modelled in v1

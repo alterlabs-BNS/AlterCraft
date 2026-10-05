@@ -1,0 +1,8 @@
+input,key,value
+board_area_m2,BWP ply 18 mm,1.151
+board_area_m2,HDHMR back 6 mm,0.23
+board_area_m2,BWP ply 9 mm 9 mm,0.191
+edge_band_m,0.8 mm band,2.16
+edge_band_m,2 mm band,3.71
+panel_count,board parts,13
+hardware_lines,items,14

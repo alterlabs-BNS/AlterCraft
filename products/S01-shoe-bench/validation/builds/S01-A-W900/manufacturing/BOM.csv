@@ -1,0 +1,17 @@
+item_id,component_name,quantity,material,thickness,length,width,finish,notes
+S01-B01,Side panel (x2),2,BWP ply,18,425,334,Walnut laminate (exterior) outer / interior inner,S01-P01; S01-P02 | Front edge visible at door reveal; exposed if bay open
+S01-B02,Bottom panel,1,BWP ply,18,864,334,Off-white laminate (interior),S01-P03
+S01-B03,Kick rail (front plinth),1,BWP ply,18,864,75,Charcoal laminate,S01-P04 | Recessed toe-kick; bears on floor
+S01-B04,Rear plinth rail,1,BWP ply,18,864,75,Unfinished / balancing laminate,S01-P05 | Bears on floor; anti-tip bracket fixing zone
+S01-B05,Partition 1,1,BWP ply,18.0,332,334,Off-white laminate (interior),S01-P06 | Seat intermediate support; carries load to bottom panel + plinth rails
+S01-B06,Shelf (x2),2,BWP ply,18.0,421.0,319,Off-white laminate (interior),S01-P07; S01-P08 | Loose shelf on 4 x 5 mm pins
+S01-B07,Back panel,1,HDHMR back,6,900,425,Interior laminate inner face,S01-P09 | Screwed to sides/bottom/partitions/rails. Ventilation slots: see validation (open item)
+S01-B08,Seat top,1,BWP ply 25 mm,25,900,350,Walnut laminate (exterior),S01-P10 | Seating surface. Overhangs door face by 10 mm
+S01-H01,"Cam-lock (minifix-type) connector set, 15 mm cam, for 18 mm board",20,Connector,,,,,Carcass joints (top/bottom/rails to sides and partitions) | GENERIC - model not selected | 10 joints x 2. Bore pattern depends on selected brand - NOT final
+S01-H02,Fluted beech dowel 8 x 35 mm,20,Dowel,,,,,Location at every cam-lock joint | GENERIC - model not selected
+S01-H03,Chipboard screw 4 x 30 mm,10,Screw,,,,,"Bottom panel to plinth rails (from above, under shelves) | GENERIC - model not selected"
+S01-H04,Panhead screw 3.5 x 16 mm,27,Screw,,,,,Back panel fixing @ <=150 mm pitch | GENERIC - model not selected
+S01-H05,"Shelf pin 5 mm, metal",8,Shelf support,,,,,Adjustable shelves | GENERIC - model not selected | System-32 line holes assumed - confirm with machine
+S01-H06,Adhesive felt/PVC floor protector pads,6,Floor contact,,,,,Under sides and plinth rails | GENERIC - model not selected
+S01-H07,Wall anti-tip bracket + 6 mm wall plug and screw,1,Anti-tip,,,,,Rear plinth rail to wall | GENERIC - model not selected | Recommended for seat furniture; installer to fit
+S01-H14,Vent grommet / slot pattern in back panel,0,Ventilation,,,,,Odour ventilation | OPEN - founder decision | Not modelled in v1
