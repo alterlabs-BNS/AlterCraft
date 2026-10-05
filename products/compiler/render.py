@@ -61,7 +61,7 @@ class Camera:
 
 
 def render(m: ProductModel, path, view="hero", state="closed", explode=0.0, show_proxies=False,
-           size=(1600, 1200), labels=False, title=None, highlight=None, ss=2):
+           size=(1600, 1200), labels=False, title=None, highlight=None, ss=2, bg=None, cam_override=None):
     """view: hero | front | side | top | detail | iso"""
     parts = [p for p in m.parts if not (highlight is not None and p.assembly_step > highlight)]
     items = []
@@ -79,7 +79,9 @@ def render(m: ProductModel, path, view="hero", state="closed", explode=0.0, show
     W, H = size[0] * ss, size[1] * ss
     views = {"hero": dict(az=-38, el=20), "front": dict(az=0, el=0), "side": dict(az=90, el=0),
              "top": dict(az=0, el=89.9), "detail": dict(az=-50, el=28), "iso": dict(az=-40, el=28)}
-    vv = views[view]
+    vv = dict(views.get(view, views["hero"]))
+    if cam_override:
+        vv.update(cam_override)
     ortho = None
     if view in ("front", "side", "top"):
         dims = hi - lo
@@ -93,7 +95,8 @@ def render(m: ProductModel, path, view="hero", state="closed", explode=0.0, show
         cam = Camera(ctr, dist=ext * 2.15, fov=26, w=W, h=H, ortho=ortho, **vv)
 
     zbuf = np.full((H, W), np.inf)
-    col = np.tile(BG, (H, W, 1))
+    bgc = np.array(bg) if bg is not None else BG
+    col = np.tile(bgc, (H, W, 1))
     fid = np.full((H, W), -1, int)
     light = np.array([-0.45, -0.7, 0.85]); light /= np.linalg.norm(light)
 
@@ -102,7 +105,7 @@ def render(m: ProductModel, path, view="hero", state="closed", explode=0.0, show
         fp = 4 * ext
         floor = np.array([[ctr[0] - fp, ctr[1] - fp, 0], [ctr[0] + fp, ctr[1] - fp, 0],
                           [ctr[0] + fp, ctr[1] + fp, 0], [ctr[0] - fp, ctr[1] + fp, 0]])
-        _raster(cam, floor, np.array([0, 0, 1.0]), None, -2, zbuf, col, fid, light, floor=(lo, hi))
+        _raster(cam, floor, np.array([0, 0, 1.0]), None, -2, zbuf, col, fid, light, floor=(lo, hi), floor_rgb=bgc if bg is not None else FLOOR, tight=bg is not None)
 
     for k, (p, b) in enumerate(items):
         base = _hex(p.color)
@@ -117,6 +120,7 @@ def render(m: ProductModel, path, view="hero", state="closed", explode=0.0, show
     floor_px = fid == -2
     e &= ~(floor_px & np.roll(floor_px, 1, 0) & np.roll(floor_px, 1, 1))
     e &= ~((fid == -1) & np.roll(fid == -1, 1, 1))
+    e &= ~(((fid == -1) | floor_px) & (np.roll((fid == -1) | floor_px, 1, 0) & np.roll((fid == -1) | floor_px, 1, 1)))
     em = Image.fromarray((e * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(3 if ss >= 2 else 1))
     ea = np.asarray(em)[..., None] / 255.0 * 0.55
     img = (img * (1 - ea) + np.array([40, 34, 28]) * ea).astype(np.uint8)
@@ -150,7 +154,7 @@ def render(m: ProductModel, path, view="hero", state="closed", explode=0.0, show
     return cam, items
 
 
-def _raster(cam, quad, n, mat, face_id, zbuf, col, fid, light, floor=None):
+def _raster(cam, quad, n, mat, face_id, zbuf, col, fid, light, floor=None, floor_rgb=FLOOR, tight=False):
     xy, depth, w = cam.project(quad)
     if not floor:
         # back-face cull
@@ -195,8 +199,8 @@ def _raster(cam, quad, n, mat, face_id, zbuf, col, fid, light, floor=None):
             dx = np.maximum(np.maximum(lo[0] - wp[0], wp[0] - hi[0]), 0)
             dy = np.maximum(np.maximum(lo[1] - wp[1], wp[1] - hi[1]), 0)
             dist = np.hypot(dx, dy)
-            sh = 1 - 0.42 * np.exp(-dist / 45) - 0.14 * np.exp(-dist / 220)
-            rgb = FLOOR[None, None, :] * sh[..., None]
+            sh = (1 - 0.30 * np.exp(-dist / 18)) if tight else (1 - 0.42 * np.exp(-dist / 45) - 0.14 * np.exp(-dist / 220))
+            rgb = np.asarray(floor_rgb)[None, None, :] * sh[..., None]
         else:
             base, part = mat
             lam = max(0.0, float(np.dot(n, light)))
