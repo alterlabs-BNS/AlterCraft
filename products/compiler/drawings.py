@@ -78,7 +78,7 @@ def _sheet(title, m: ProductModel, sheet_no, note=""):
     tb.text(0.01, 0.40, f"Variant {m.variant}  |  W {p['WIDTH']:g} x D {p['DEPTH']:g} x H {p['TOTAL_HEIGHT']:g} mm  |  "
                         f"board {p['BOARD_THICKNESS']:g} mm {p['MATERIAL']}  |  back {p['BACK_PANEL_THICKNESS']:g} mm  |  "
                         f"finish {p['FINISH']}  |  units mm  |  scale: fit to sheet (do not scale)", fontsize=8)
-    tb.text(0.01, 0.12, "DIGITAL MASTER v1 - NOT RELEASED FOR PRODUCTION. Structure, fasteners, tolerances and hardware "
+    tb.text(0.01, 0.12, "DIGITAL MASTER v1.1 - NOT RELEASED FOR PRODUCTION. Structure, fasteners, tolerances and hardware "
                         "boring require fabrication validation. " + note, fontsize=8, color=DIM)
     tb.text(0.90, 0.40, f"{m.tag}\nsheet {sheet_no}", fontsize=8, ha="left")
     return fig, ax

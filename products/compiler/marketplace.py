@@ -80,6 +80,13 @@ def build_set(m, folder):
         dst = os.path.join(folder, f"{m.tag}_{name}.png")
         _fit_square(tmp, dst)
         out.append(dst)
+    if any(p.kind == "light" for p in m.parts):
+        for name, kw in (("13_led_plinth_night", dict(view="hero", night=True, cam_override=dict(az=-30, el=14))),
+                         ("14_led_interior_night", dict(view="hero", state="open", night=True))):
+            render.render(m, tmp, size=(1800, 1800), **kw)
+            dst = os.path.join(folder, f"{m.tag}_{name}.png")
+            Image.open(tmp).resize((SIDE, SIDE), Image.LANCZOS).save(dst, optimize=True)
+            out.append(dst)
     dst = os.path.join(folder, f"{m.tag}_11_dimensions.png")
     _dimension_image(m, dst, tmp)
     out.append(dst)

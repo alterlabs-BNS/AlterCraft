@@ -86,6 +86,9 @@ def main(folder="S01-shoe-bench"):
       title="Open / storage - blue blocks = reference shoe-pair envelopes (not product parts)")
     R("05_detail.png", view="detail")
     R("07_exploded.png", view="iso", explode=1.0, labels=True, title="Exploded assembly")
+    if any(p.kind == "light" for p in m.parts):
+        R("08_night_plinth_light.png", view="hero", night=True, cam_override=dict(az=-30, el=14))
+        R("09_night_open_interior_light.png", view="hero", state="open", night=True)
     # variant renders (same source, other parameters)
     for v in mod.VARIANTS:
         mv = mod.build(v)
@@ -122,6 +125,8 @@ def main(folder="S01-shoe-bench"):
         pv = export_set(mv, os.path.join(out, "validation", "builds", mv.tag))
         sweep[mv.tag] = (mv, pv["validation"])
     write_report(mod, m, paths["validation"], sweep, os.path.join(out, "validation", "validation_report.md"))
+    from . import marketplace
+    marketplace.build_set(m, os.path.join(rd, "marketplace"))
     print("done")
 
 
@@ -129,7 +134,7 @@ def write_report(mod, m, master_val, sweep, path):
     L = [f"# {mod.PRODUCT_ID} {mod.PRODUCT_NAME} - Validation Report", "",
          f"Generated {datetime.datetime.utcnow():%Y-%m-%d %H:%M} UTC by `products/compiler` (CadQuery/OpenCascade). "
          "Every check re-reads the exported file (STEP re-imported through OCC, DXF re-read with ezdxf, CSV re-parsed).", "",
-         "Status: **DIGITAL MASTER v1 - geometry & data consistency validated. NOT structurally validated. "
+         f"Version {mod.VERSION}. Status: **DIGITAL MASTER - geometry & data consistency validated. NOT structurally validated. "
          "NOT released for CNC.**", "",
          f"## Master ({m.tag})", "", "| Check | Result | Detail |", "|---|---|---|"]
     L += [f"| {c['check']} | {c['result']} | {c['detail']} |" for c in master_val]
@@ -154,7 +159,12 @@ def write_report(mod, m, master_val, sweep, path):
           "- Tolerances, pre-milling allowance for edge banding, saw kerf, nesting: not applied.",
           "- CNC toolpaths: none generated. DXFs are outlines for CAM preparation only.",
           "- Back-panel ventilation for shoe odour: not modelled (open decision).",
-          "- Shoe capacity uses an assumed pair envelope; confirm with a physical mock-up."]
+          "- Shoe capacity uses an assumed pair envelope; confirm with a physical mock-up.",
+          "- Particle board: seat-top creep/sag under repeated sitting, screw-holding in PB edges, and hinge-plate "
+          "fixing (euro screws / dowel plates) must be proven on the prototype.",
+          f"- Curved banding: MIN_BAND_RADIUS = {m.params.get('MIN_BAND_RADIUS')} mm is an assumption - confirm on the edge bander.",
+          "- LED lighting: 24 V SELV only; driver, sensor and cable selection, heat and wiring route need electrical review. "
+          "Back-panel grommet hole not yet modelled."]
     open(path, "w").write("\n".join(L) + "\n")
 
 

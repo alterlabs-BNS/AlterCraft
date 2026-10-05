@@ -1,4 +1,4 @@
-# S01 Shoe Bench: DIGITAL MASTER v1
+# S01 Shoe Bench: DIGITAL MASTER v1.1
 
 **SIT. STORE. ARRIVE.** Compact entryway bench with closed shoe storage.
 
@@ -8,7 +8,7 @@ See `validation/validation_report.md`.
 | Folder | Contents |
 |---|---|
 | `source/s01_parametric.py` | Canonical parametric definition: parameters, variants A–D, construction, design rules, hardware |
-| `master/` | `S01-B-W900.step` (master assembly, 12 named solids), `.glb`, `.stl` |
+| `master/` | `S01-B-W900.step` (master assembly, 15 named solids incl. LED profiles), `.glb`, `.stl` |
 | `cnc/` | 12 DXFs: finished panel outlines, layer `OUTLINE`, no boring |
 | `manufacturing/` | BOM, CUTLIST (finished and cut sizes), EDGE_BANDING, HARDWARE, PRICING_INPUTS |
 | `drawings/` | General dimensions + section (PDF/SVG), exploded (PDF), assembly sequence (PDF) |
@@ -16,5 +16,5 @@ See `validation/validation_report.md`.
 | `config/` | `product.json`, `parameters.json` |
 | `validation/` | Report; `builds/` holds the full re-export for 600/750/900 × A–D, plus custom 1100 |
 
-The master is **S01-B** (closed storage, wooden seat), W 900 × D 350 × H 450 mm, 18 mm BWP ply, walnut laminate.
+The master is **S01-B** (closed storage, wooden seat), W 900 × D 350 × H 450 mm, 18 mm pre-laminated particle board, walnut frame + warm-beige doors, R30 seat corners, LED plinth + interior profiles (v1.1).
 Regenerate with `cd products && python3 -m compiler.compile S01-shoe-bench`. Do not hand-edit outputs.

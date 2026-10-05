@@ -1,16 +1,16 @@
-part_id,part_name,quantity,length_mm,width_mm,thickness_mm,material,grain_direction,edge_band_top,edge_band_bottom,edge_band_left,edge_band_right,cut_length_mm,cut_width_mm,notes
-S01-P01,Side panel L,1,425,316,18,BWP ply,along length,CONCEALED:0,SEMI:0.8,FLOOR:0,CONCEALED:0,425.0,315.2,length=Z-axis; Front edge visible at door reveal; exposed if bay open
-S01-P02,Side panel R,1,425,316,18,BWP ply,along length,CONCEALED:0,SEMI:0.8,FLOOR:0,CONCEALED:0,425.0,315.2,length=Z-axis; Front edge visible at door reveal; exposed if bay open
-S01-P03,Bottom panel,1,1064,316,18,BWP ply,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,1064.0,315.2,length=X-axis; 
-S01-P04,Kick rail (front plinth),1,1064,75,18,BWP ply,along length,CONCEALED:0,FLOOR:0,CONCEALED:0,CONCEALED:0,1064.0,75.0,length=X-axis; Recessed toe-kick; bears on floor
-S01-P05,Rear plinth rail,1,1064,75,18,BWP ply,along length,CONCEALED:0,FLOOR:0,CONCEALED:0,CONCEALED:0,1064.0,75.0,length=X-axis; Bears on floor; anti-tip bracket fixing zone
-S01-P06,Partition 1,1,332,316,18.0,BWP ply,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,332.0,315.2,length=Z-axis; Seat intermediate support; carries load to bottom panel + plinth rails
-S01-P07,Partition 2,1,332,316,18.0,BWP ply,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,332.0,315.2,length=Z-axis; Seat intermediate support; carries load to bottom panel + plinth rails
-S01-P08,Shelf bay1-1,1,340.667,301,18.0,BWP ply,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,340.7,300.2,length=X-axis; Loose shelf on 4 x 5 mm pins
-S01-P09,Shelf bay2-1,1,340.666,301,18.0,BWP ply,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,340.7,300.2,length=X-axis; Loose shelf on 4 x 5 mm pins
-S01-P10,Shelf bay3-1,1,340.667,301,18.0,BWP ply,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,340.7,300.2,length=X-axis; Loose shelf on 4 x 5 mm pins
-S01-P11,Back panel,1,1100,425,6,HDHMR back,none,CONCEALED:0,FLOOR:0,WALL:0,WALL:0,1100.0,425.0,length=X-axis; Screwed to sides/bottom/partitions/rails. Ventilation slots: see validation (open item)
-S01-P12,Seat top,1,1100,350,25,BWP ply 25 mm,along length,WALL:0,EXPOSED:2,EXPOSED:2,EXPOSED:2,1096.0,348.0,length=X-axis; Seating surface. Overhangs door face by 10 mm
-S01-P13,Door bay1,1,347,366.667,18,BWP ply,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,343.0,362.7,"length=Z-axis; Full overlay, push-to-open, hinged left. Vertical grain"
-S01-P14,Door bay2,1,347,357.666,18,BWP ply,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,343.0,353.7,"length=Z-axis; Full overlay, push-to-open, hinged left. Vertical grain"
-S01-P15,Door bay3,1,347,366.667,18,BWP ply,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,343.0,362.7,"length=Z-axis; Full overlay, push-to-open, hinged right. Vertical grain"
+part_id,part_name,quantity,length_mm,width_mm,thickness_mm,material,grain_direction,edge_band_top,edge_band_bottom,edge_band_left,edge_band_right,cut_length_mm,cut_width_mm,laminate,corner_radii,notes
+S01-P01,Side panel L,1,425,316,18,PLPB,along length,CONCEALED:0,SEMI:0.8,FLOOR:0.8,CONCEALED:0,424.2,315.2,WALNUT,-,length=Z-axis; Front edge visible at door reveal; exposed if bay open
+S01-P02,Side panel R,1,425,316,18,PLPB,along length,CONCEALED:0,SEMI:0.8,FLOOR:0.8,CONCEALED:0,424.2,315.2,WALNUT,-,length=Z-axis; Front edge visible at door reveal; exposed if bay open
+S01-P03,Bottom panel,1,1044,316,18,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,1044.0,315.2,FROSTY_WHITE,-,length=X-axis; 
+S01-P04,Kick rail (front plinth),1,1044,75,18,PLPB,along length,CONCEALED:0,FLOOR:0.8,CONCEALED:0,CONCEALED:0,1044.0,74.2,CHARCOAL,-,length=X-axis; Recessed toe-kick; bears on floor
+S01-P05,Rear plinth rail,1,1044,75,18,PLPB,along length,CONCEALED:0,FLOOR:0.8,CONCEALED:0,CONCEALED:0,1044.0,74.2,FROSTY_WHITE,-,length=X-axis; Bears on floor; anti-tip bracket fixing zone
+S01-P06,Partition 1,1,332,316,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,332.0,315.2,FROSTY_WHITE,-,length=Z-axis; Seat intermediate support; carries load to bottom panel + plinth rails
+S01-P07,Partition 2,1,332,316,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,332.0,315.2,FROSTY_WHITE,-,length=Z-axis; Seat intermediate support; carries load to bottom panel + plinth rails
+S01-P08,Shelf bay1-1,1,334.0,301,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,334.0,300.2,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P09,Shelf bay2-1,1,334.0,301,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,334.0,300.2,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P10,Shelf bay3-1,1,334.0,301,18.0,PLPB,along length,CONCEALED:0,SEMI:0.8,CONCEALED:0,CONCEALED:0,334.0,300.2,FROSTY_WHITE,-,length=X-axis; Loose shelf on 4 x 5 mm pins
+S01-P11,Back panel,1,1080,425,6,HDF,none,CONCEALED:0,FLOOR:0.8,WALL:0,WALL:0,1080.0,424.2,FROSTY_WHITE,-,length=X-axis; Screwed to sides/bottom/partitions/rails. Ventilation slots: see validation (open item)
+S01-P12,Seat top,1,1100,350,25,PLPB 25 mm,along length,WALL:0,EXPOSED:2,EXPOSED:2,EXPOSED:2,1096.0,348.0,WALNUT,bl:R30;br:R30,length=X-axis; Seating surface. Overhangs door face by 10 mm
+S01-P13,Door bay1,1,347,360.0,18,PLPB,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,343.0,356.0,WARM_BEIGE,-,"length=Z-axis; Full overlay, push-to-open, hinged left. Vertical grain"
+S01-P14,Door bay2,1,347,351.0,18,PLPB,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,343.0,347.0,WARM_BEIGE,-,"length=Z-axis; Full overlay, push-to-open, hinged left. Vertical grain"
+S01-P15,Door bay3,1,347,360.0,18,PLPB,along length,EXPOSED:2,EXPOSED:2,EXPOSED:2,EXPOSED:2,343.0,356.0,WARM_BEIGE,-,"length=Z-axis; Full overlay, push-to-open, hinged right. Vertical grain"

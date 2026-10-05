@@ -2,7 +2,7 @@
   "product_id": "S01",
   "name": "Shoe Bench",
   "category": "Shoe Storage / Entryway Furniture",
-  "version": "1.0.0-dm1",
+  "version": "1.1.0-dm1.1",
   "status": "DIGITAL_MASTER_v1 (not released for production)",
   "default_variant": "B",
   "dimensions": {
@@ -77,6 +77,11 @@
       ],
       "unit": "mm"
     },
+    "SEAT_SIDE_OVERHANG": {
+      "min": 0,
+      "max": 25,
+      "unit": "mm"
+    },
     "SEAT_OVERHANG": {
       "min": 0,
       "max": 25,
@@ -92,18 +97,30 @@
     },
     "MATERIAL": {
       "options": [
-        "BWP_PLY",
+        "PLPB",
+        "MDF_PRELAM",
         "HDHMR"
       ]
     },
     "FINISH": {
       "options": [
-        "WALNUT",
-        "NATURAL_OAK",
-        "ASH",
-        "WARM_BEIGE",
-        "MATTE_WHITE",
-        "CHARCOAL"
+        "WALNUT_BEIGE",
+        "OAK_WHITE",
+        "CHARCOAL_OAK",
+        "MONO_WALNUT"
+      ]
+    },
+    "SEAT_CORNER_RADIUS": {
+      "min": 0,
+      "max": 60,
+      "unit": "mm"
+    },
+    "LIGHT_MODE": {
+      "options": [
+        "none",
+        "plinth",
+        "interior",
+        "both"
       ]
     }
   },
@@ -122,21 +139,29 @@
     }
   },
   "materials": {
-    "BWP_PLY": {
-      "name": "BWP plywood IS:710, 18 mm, pre-laminated or site-laminated",
-      "board": "BWP ply"
+    "PLPB": {
+      "name": "Pre-laminated particle board (both faces), 18 / 25 mm",
+      "board": "PLPB"
+    },
+    "MDF_PRELAM": {
+      "name": "Pre-laminated MDF, 18 / 25 mm",
+      "board": "Prelam MDF"
     },
     "HDHMR": {
-      "name": "HDHMR board, 18 mm, pre-laminated",
+      "name": "Pre-laminated HDHMR, 18 / 25 mm (moisture-prone areas)",
       "board": "HDHMR"
     },
     "BACK": {
-      "name": "HDHMR / ply back panel, laminate inner face",
-      "board": "HDHMR back"
+      "name": "HDF back panel 6 mm, laminated one face",
+      "board": "HDF"
     },
     "FOAM": {
       "name": "PU foam, 40 density (ASSUMPTION)",
       "board": "foam"
+    },
+    "LED": {
+      "name": "Aluminium LED profile 17 x 9 mm, opal diffuser, 24 V COB strip 3000 K",
+      "board": "aluminium"
     }
   },
   "finishes": {
@@ -153,7 +178,7 @@
       "label": "Ash"
     },
     "WARM_BEIGE": {
-      "hex": "#d9c7ae",
+      "hex": "#d6c3a6",
       "label": "Warm beige"
     },
     "MATTE_WHITE": {
@@ -163,6 +188,10 @@
     "CHARCOAL": {
       "hex": "#3b3b3d",
       "label": "Charcoal"
+    },
+    "FROSTY_WHITE": {
+      "hex": "#e9e3d8",
+      "label": "Frosty white (interior)"
     }
   },
   "components": [
@@ -170,7 +199,7 @@
       "part_id": "S01-P01",
       "name": "Side panel L",
       "role": "side",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
         425,
         316,
@@ -181,7 +210,7 @@
       "part_id": "S01-P02",
       "name": "Side panel R",
       "role": "side",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
         425,
         316,
@@ -192,9 +221,9 @@
       "part_id": "S01-P03",
       "name": "Bottom panel",
       "role": "bottom",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
-        864,
+        844,
         316,
         18
       ]
@@ -203,9 +232,9 @@
       "part_id": "S01-P04",
       "name": "Kick rail (front plinth)",
       "role": "kick",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
-        864,
+        844,
         75,
         18
       ]
@@ -214,9 +243,9 @@
       "part_id": "S01-P05",
       "name": "Rear plinth rail",
       "role": "plinth_rear",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
-        864,
+        844,
         75,
         18
       ]
@@ -225,7 +254,7 @@
       "part_id": "S01-P06",
       "name": "Partition 1",
       "role": "partition",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
         332,
         316,
@@ -236,9 +265,9 @@
       "part_id": "S01-P07",
       "name": "Shelf bay1-1",
       "role": "shelf",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
-        421.0,
+        411.0,
         301,
         18.0
       ]
@@ -247,9 +276,9 @@
       "part_id": "S01-P08",
       "name": "Shelf bay2-1",
       "role": "shelf",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
-        421.0,
+        411.0,
         301,
         18.0
       ]
@@ -258,9 +287,9 @@
       "part_id": "S01-P09",
       "name": "Back panel",
       "role": "back",
-      "material": "HDHMR back",
+      "material": "HDF",
       "size_mm": [
-        900,
+        880,
         425,
         6
       ]
@@ -269,7 +298,7 @@
       "part_id": "S01-P10",
       "name": "Seat top",
       "role": "top",
-      "material": "BWP ply 25 mm",
+      "material": "PLPB 25 mm",
       "size_mm": [
         900,
         350,
@@ -280,10 +309,10 @@
       "part_id": "S01-P11",
       "name": "Door bay1",
       "role": "door",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
         347,
-        447.0,
+        437.0,
         18
       ]
     },
@@ -291,11 +320,44 @@
       "part_id": "S01-P12",
       "name": "Door bay2",
       "role": "door",
-      "material": "BWP ply",
+      "material": "PLPB",
       "size_mm": [
         347,
-        447.0,
+        437.0,
         18
+      ]
+    },
+    {
+      "part_id": "S01-P13",
+      "name": "LED profile - plinth (floor wash)",
+      "role": "light_plinth",
+      "material": "Aluminium LED profile 17 x 9 mm, opal diffuser, 24 V COB strip 3000 K",
+      "size_mm": [
+        814,
+        9,
+        17
+      ]
+    },
+    {
+      "part_id": "S01-P14",
+      "name": "LED profile - interior bay1",
+      "role": "light_interior",
+      "material": "Aluminium LED profile 17 x 9 mm, opal diffuser, 24 V COB strip 3000 K",
+      "size_mm": [
+        389.0,
+        9,
+        17
+      ]
+    },
+    {
+      "part_id": "S01-P15",
+      "name": "LED profile - interior bay2",
+      "role": "light_interior",
+      "material": "Aluminium LED profile 17 x 9 mm, opal diffuser, 24 V COB strip 3000 K",
+      "size_mm": [
+        389.0,
+        9,
+        17
       ]
     }
   ],
@@ -325,7 +387,7 @@
     "BODY_HEIGHT": 425,
     "bays": 2,
     "partitions": 1,
-    "bay_inner_width": 423.0,
+    "bay_inner_width": 413.0,
     "carcass_depth": 316,
     "shelf_depth": 301,
     "shelf_z": [
@@ -335,20 +397,22 @@
       157.0,
       157.0
     ],
-    "seat_max_span": 423.0,
+    "seat_max_span": 413.0,
     "shoe_pairs_per_tier_per_bay": 2,
     "estimated_capacity_pairs": 8,
     "capacity_basis": "pair envelope 200W x 300L x 120H mm; tiers >= 125 mm clear",
     "door_widths": [
-      447.0,
-      447.0
+      437.0,
+      437.0
     ]
   },
   "manufacturing_method": {
-    "construction": "Flat-pack-capable panel carcass, plinth base, cam-lock + dowel joints",
+    "construction": "Pre-laminated particle board panel carcass, plinth base, cam-lock + dowel joints",
     "processes": [
       "panel sizing (beam/panel saw or CNC nesting)",
-      "edge banding",
+      "CNC corner radius routing (seat top)",
+      "edge banding incl. curved corners",
+      "LED profile fitting + low-voltage wiring",
       "line boring for shelf pins (System 32 assumed)",
       "connector boring (per selected hardware)",
       "hinge cup boring 35 mm (per selected hinge)",
@@ -370,7 +434,7 @@
   "website": {
     "slug": "/shoe-bench",
     "title": "Shoe Bench - Made-to-Measure Entryway Seating with Shoe Storage | AlterCraft",
-    "short_description": "A compact entryway bench: sit to put on shoes, store them below. Built to your width (600-900 mm presets or custom) in ply or HDHMR with laminate finishes.",
+    "short_description": "A compact entryway bench: sit to put on shoes, store them below. Built to your width (600-900 mm presets or custom) in pre-laminated engineered wood, two-tone finishes, rounded seat corners and optional LED lighting.",
     "tagline": "SIT. STORE. ARRIVE.",
     "target_queries": [
       "shoe bench",

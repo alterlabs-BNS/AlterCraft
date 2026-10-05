@@ -14,13 +14,17 @@
     "DOOR_MODE": "closed",
     "SEAT_MODE": "wood",
     "SEAT_THICKNESS": 25,
+    "SEAT_SIDE_OVERHANG": 10,
     "SEAT_OVERHANG": 10,
     "CUSHION_THICKNESS": 40,
     "CUSHION_BASE_THICKNESS": 9,
     "MAX_SEAT_SPAN": 450,
     "DOOR_GAP": 3,
-    "MATERIAL": "BWP_PLY",
-    "FINISH": "WALNUT",
+    "MATERIAL": "PLPB",
+    "FINISH": "WALNUT_BEIGE",
+    "SEAT_CORNER_RADIUS": 30,
+    "MIN_BAND_RADIUS": 20,
+    "LIGHT_MODE": "both",
     "EDGE_BANDING_THICKNESS": 2.0,
     "EDGE_BANDING_INTERNAL": 0.8,
     "PRODUCT_ID": "S01"
@@ -127,6 +131,13 @@
       "unit": "mm",
       "desc": "Seat top board (wood mode). Upholstered uses 18 substrate"
     },
+    "SEAT_SIDE_OVERHANG": {
+      "default": 10,
+      "min": 0,
+      "max": 25,
+      "unit": "mm",
+      "desc": "Seat top projection beyond carcass sides (floating-top look; clears radiused corners)"
+    },
     "SEAT_OVERHANG": {
       "default": 10,
       "min": 0,
@@ -160,24 +171,45 @@
       "desc": "Gap between doors / door to top"
     },
     "MATERIAL": {
-      "default": "BWP_PLY",
+      "default": "PLPB",
       "options": [
-        "BWP_PLY",
+        "PLPB",
+        "MDF_PRELAM",
         "HDHMR"
       ],
-      "desc": "Carcass/door substrate"
+      "desc": "Board substrate (engineered wood)"
     },
     "FINISH": {
-      "default": "WALNUT",
+      "default": "WALNUT_BEIGE",
       "options": [
-        "WALNUT",
-        "NATURAL_OAK",
-        "ASH",
-        "WARM_BEIGE",
-        "MATTE_WHITE",
-        "CHARCOAL"
+        "WALNUT_BEIGE",
+        "OAK_WHITE",
+        "CHARCOAL_OAK",
+        "MONO_WALNUT"
       ],
-      "desc": "Exterior laminate/veneer"
+      "desc": "Tone scheme: one laminate per piece"
+    },
+    "SEAT_CORNER_RADIUS": {
+      "default": 30,
+      "min": 0,
+      "max": 60,
+      "unit": "mm",
+      "desc": "Plan radius on seat-top front corners (0 = square)"
+    },
+    "MIN_BAND_RADIUS": {
+      "default": 20,
+      "unit": "mm",
+      "desc": "Min radius the edge bander can follow (ASSUMPTION - confirm with machine)"
+    },
+    "LIGHT_MODE": {
+      "default": "both",
+      "options": [
+        "none",
+        "plinth",
+        "interior",
+        "both"
+      ],
+      "desc": "LED aluminium profile lighting"
     },
     "EDGE_BANDING_THICKNESS": {
       "default": 2.0,

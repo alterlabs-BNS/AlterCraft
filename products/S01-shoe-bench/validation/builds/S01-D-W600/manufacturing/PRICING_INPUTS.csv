@@ -1,8 +1,15 @@
 input,key,value
-board_area_m2,BWP ply 18 mm,0.903
-board_area_m2,HDHMR back 6 mm,0.255
-board_area_m2,BWP ply 25 mm 25 mm,0.21
-edge_band_m,2 mm band,4.18
-edge_band_m,0.8 mm band,0.7
+board_area_m2,PLPB 18 mm WALNUT,0.269
+board_area_m2,PLPB 18 mm FROSTY_WHITE,0.475
+board_area_m2,PLPB 18 mm CHARCOAL,0.041
+board_area_m2,HDF 6 mm FROSTY_WHITE,0.246
+board_area_m2,PLPB 25 mm 25 mm WALNUT,0.21
+board_area_m2,PLPB 18 mm WARM_BEIGE,0.1
+edge_band_m,0.8 mm band WALNUT,1.06
+edge_band_m,2 mm band WALNUT,1.7
+edge_band_m,2 mm band FROSTY_WHITE,1.14
+edge_band_m,0.8 mm band CHARCOAL,0.54
+edge_band_m,0.8 mm band FROSTY_WHITE,1.39
+edge_band_m,2 mm band WARM_BEIGE,1.27
 panel_count,board parts,11
-hardware_lines,items,11
+hardware_lines,items,17

@@ -1,41 +1,43 @@
-part_id,part_name,edge_2d,physical_edge,edge_class,band_thickness_mm,edge_length_mm,rule
-S01-P01,Side panel L,left,lower,FLOOR,0.0,334,"On floor: no band, seal edge"
-S01-P01,Side panel L,right,upper,CONCEALED,0.0,334,Hidden by adjoining panel: no band
-S01-P01,Side panel L,bottom,front,EXPOSED,2.0,425,Customer-visible: matching finish band
-S01-P01,Side panel L,top,rear,CONCEALED,0.0,425,Hidden by adjoining panel: no band
-S01-P02,Side panel R,left,lower,FLOOR,0.0,334,"On floor: no band, seal edge"
-S01-P02,Side panel R,right,upper,CONCEALED,0.0,334,Hidden by adjoining panel: no band
-S01-P02,Side panel R,bottom,front,EXPOSED,2.0,425,Customer-visible: matching finish band
-S01-P02,Side panel R,top,rear,CONCEALED,0.0,425,Hidden by adjoining panel: no band
-S01-P03,Bottom panel,left,left,CONCEALED,0.0,334,Hidden by adjoining panel: no band
-S01-P03,Bottom panel,right,right,CONCEALED,0.0,334,Hidden by adjoining panel: no band
-S01-P03,Bottom panel,bottom,front,EXPOSED,2.0,864,Customer-visible: matching finish band
-S01-P03,Bottom panel,top,rear,CONCEALED,0.0,864,Hidden by adjoining panel: no band
-S01-P04,Kick rail (front plinth),left,left,CONCEALED,0.0,75,Hidden by adjoining panel: no band
-S01-P04,Kick rail (front plinth),right,right,CONCEALED,0.0,75,Hidden by adjoining panel: no band
-S01-P04,Kick rail (front plinth),bottom,lower,FLOOR,0.0,864,"On floor: no band, seal edge"
-S01-P04,Kick rail (front plinth),top,upper,CONCEALED,0.0,864,Hidden by adjoining panel: no band
-S01-P05,Rear plinth rail,left,left,CONCEALED,0.0,75,Hidden by adjoining panel: no band
-S01-P05,Rear plinth rail,right,right,CONCEALED,0.0,75,Hidden by adjoining panel: no band
-S01-P05,Rear plinth rail,bottom,lower,FLOOR,0.0,864,"On floor: no band, seal edge"
-S01-P05,Rear plinth rail,top,upper,CONCEALED,0.0,864,Hidden by adjoining panel: no band
-S01-P06,Partition 1,left,lower,CONCEALED,0.0,334,Hidden by adjoining panel: no band
-S01-P06,Partition 1,right,upper,CONCEALED,0.0,334,Hidden by adjoining panel: no band
-S01-P06,Partition 1,bottom,front,EXPOSED,2.0,332,Customer-visible: matching finish band
-S01-P06,Partition 1,top,rear,CONCEALED,0.0,332,Hidden by adjoining panel: no band
-S01-P07,Shelf bay1-1,left,left,CONCEALED,0.0,319,Hidden by adjoining panel: no band
-S01-P07,Shelf bay1-1,right,right,CONCEALED,0.0,319,Hidden by adjoining panel: no band
-S01-P07,Shelf bay1-1,bottom,front,EXPOSED,2.0,421.0,Customer-visible: matching finish band
-S01-P07,Shelf bay1-1,top,rear,CONCEALED,0.0,421.0,Hidden by adjoining panel: no band
-S01-P08,Shelf bay2-1,left,left,CONCEALED,0.0,319,Hidden by adjoining panel: no band
-S01-P08,Shelf bay2-1,right,right,CONCEALED,0.0,319,Hidden by adjoining panel: no band
-S01-P08,Shelf bay2-1,bottom,front,EXPOSED,2.0,421.0,Customer-visible: matching finish band
-S01-P08,Shelf bay2-1,top,rear,CONCEALED,0.0,421.0,Hidden by adjoining panel: no band
-S01-P09,Back panel,left,left,WALL,0.0,425,Against wall: no band
-S01-P09,Back panel,right,right,WALL,0.0,425,Against wall: no band
-S01-P09,Back panel,bottom,lower,FLOOR,0.0,900,"On floor: no band, seal edge"
-S01-P09,Back panel,top,upper,CONCEALED,0.0,900,Hidden by adjoining panel: no band
-S01-P10,Seat top,left,left,EXPOSED,2.0,350,Customer-visible: matching finish band
-S01-P10,Seat top,right,right,EXPOSED,2.0,350,Customer-visible: matching finish band
-S01-P10,Seat top,bottom,front,EXPOSED,2.0,900,Customer-visible: matching finish band
-S01-P10,Seat top,top,rear,WALL,0.0,900,Against wall: no band
+part_id,part_name,edge_2d,physical_edge,edge_class,band_thickness_mm,edge_length_mm,band_colour_laminate,rule
+S01-P01,Side panel L,left,lower,FLOOR,0.8,334,WALNUT,On floor: thin band to seal particle-board core against mopping water
+S01-P01,Side panel L,right,upper,CONCEALED,0.0,334,WALNUT,Hidden by adjoining panel: no band
+S01-P01,Side panel L,bottom,front,EXPOSED,2.0,425,WALNUT,Customer-visible: matching finish band
+S01-P01,Side panel L,top,rear,CONCEALED,0.0,425,WALNUT,Hidden by adjoining panel: no band
+S01-P02,Side panel R,left,lower,FLOOR,0.8,334,WALNUT,On floor: thin band to seal particle-board core against mopping water
+S01-P02,Side panel R,right,upper,CONCEALED,0.0,334,WALNUT,Hidden by adjoining panel: no band
+S01-P02,Side panel R,bottom,front,EXPOSED,2.0,425,WALNUT,Customer-visible: matching finish band
+S01-P02,Side panel R,top,rear,CONCEALED,0.0,425,WALNUT,Hidden by adjoining panel: no band
+S01-P03,Bottom panel,left,left,CONCEALED,0.0,334,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P03,Bottom panel,right,right,CONCEALED,0.0,334,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P03,Bottom panel,bottom,front,EXPOSED,2.0,844,FROSTY_WHITE,Customer-visible: matching finish band
+S01-P03,Bottom panel,top,rear,CONCEALED,0.0,844,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P04,Kick rail (front plinth),left,left,CONCEALED,0.0,75,CHARCOAL,Hidden by adjoining panel: no band
+S01-P04,Kick rail (front plinth),right,right,CONCEALED,0.0,75,CHARCOAL,Hidden by adjoining panel: no band
+S01-P04,Kick rail (front plinth),bottom,lower,FLOOR,0.8,844,CHARCOAL,On floor: thin band to seal particle-board core against mopping water
+S01-P04,Kick rail (front plinth),top,upper,CONCEALED,0.0,844,CHARCOAL,Hidden by adjoining panel: no band
+S01-P05,Rear plinth rail,left,left,CONCEALED,0.0,75,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P05,Rear plinth rail,right,right,CONCEALED,0.0,75,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P05,Rear plinth rail,bottom,lower,FLOOR,0.8,844,FROSTY_WHITE,On floor: thin band to seal particle-board core against mopping water
+S01-P05,Rear plinth rail,top,upper,CONCEALED,0.0,844,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P06,Partition 1,left,lower,CONCEALED,0.0,334,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P06,Partition 1,right,upper,CONCEALED,0.0,334,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P06,Partition 1,bottom,front,EXPOSED,2.0,332,FROSTY_WHITE,Customer-visible: matching finish band
+S01-P06,Partition 1,top,rear,CONCEALED,0.0,332,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P07,Shelf bay1-1,left,left,CONCEALED,0.0,319,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P07,Shelf bay1-1,right,right,CONCEALED,0.0,319,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P07,Shelf bay1-1,bottom,front,EXPOSED,2.0,411.0,FROSTY_WHITE,Customer-visible: matching finish band
+S01-P07,Shelf bay1-1,top,rear,CONCEALED,0.0,411.0,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P08,Shelf bay2-1,left,left,CONCEALED,0.0,319,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P08,Shelf bay2-1,right,right,CONCEALED,0.0,319,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P08,Shelf bay2-1,bottom,front,EXPOSED,2.0,411.0,FROSTY_WHITE,Customer-visible: matching finish band
+S01-P08,Shelf bay2-1,top,rear,CONCEALED,0.0,411.0,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P09,Back panel,left,left,WALL,0.0,425,FROSTY_WHITE,Against wall: no band
+S01-P09,Back panel,right,right,WALL,0.0,425,FROSTY_WHITE,Against wall: no band
+S01-P09,Back panel,bottom,lower,FLOOR,0.8,880,FROSTY_WHITE,On floor: thin band to seal particle-board core against mopping water
+S01-P09,Back panel,top,upper,CONCEALED,0.0,880,FROSTY_WHITE,Hidden by adjoining panel: no band
+S01-P10,Seat top,left,left,EXPOSED,2.0,320,WALNUT,Customer-visible: matching finish band
+S01-P10,Seat top,right,right,EXPOSED,2.0,320,WALNUT,Customer-visible: matching finish band
+S01-P10,Seat top,bottom,front,EXPOSED,2.0,840,WALNUT,Customer-visible: matching finish band
+S01-P10,Seat top,top,rear,WALL,0.0,900,WALNUT,Against wall: no band
+S01-P10,Seat top,corner bl R30,curved,EXPOSED,2.0,47.1,WALNUT,Curved edge: continuous band around radius (no joint at the corner)
+S01-P10,Seat top,corner br R30,curved,EXPOSED,2.0,47.1,WALNUT,Curved edge: continuous band around radius (no joint at the corner)

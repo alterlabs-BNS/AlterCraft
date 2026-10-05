@@ -38,8 +38,8 @@ def validate(m: ProductModel, step_path, cut_csv, bom_csv, dxf_dir) -> list[dict
     bb_ok = all(abs(a - b) < 0.05 for a, b in zip(info["bbox"], ov))
     r("2 STEP re-imports (OCC) with all solids", info["solids"] == len(m.parts) and bb_ok,
       f"{info['solids']} solids (model {len(m.parts)}); bbox {info['bbox']}")
-    vol = sum((q.box[3] - q.box[0]) * (q.box[4] - q.box[1]) * (q.box[5] - q.box[2]) for q in m.parts)
-    r("2b STEP volume equals model volume", abs(info["volume"] - vol) / vol < 1e-6,
+    vol = sum(q.volume for q in m.parts)
+    r("2b STEP volume equals model volume (incl. radiused corners)", abs(info["volume"] - vol) / vol < 1e-5,
       f"STEP {info['volume'] / 1e6:.4f} dm3 vs model {vol / 1e6:.4f} dm3")
     # 3 dimensions
     dims = (ov[3] - ov[0], ov[4] - ov[1], ov[5] - ov[2])
@@ -76,17 +76,21 @@ def validate(m: ProductModel, step_path, cut_csv, bom_csv, dxf_dir) -> list[dict
     dbad = []
     for f in files:
         pid = os.path.basename(f).split("_")[0]
-        L, Wd, layers = read_dxf_extents(f)
+        L, Wd, layers, arcs = read_dxf_extents(f)
         pp = panels.get(pid)
-        if not pp or abs(L - pp.length) > TOL or abs(Wd - pp.width) > TOL or layers != {"OUTLINE"}:
+        if not pp or abs(L - pp.length) > TOL or abs(Wd - pp.width) > TOL or layers != {"OUTLINE"} \
+                or arcs != len(pp.corner_radii):
             dbad.append(os.path.basename(f))
-    r("7 DXF outlines match parts (layer OUTLINE only)", not dbad and len(files) == len(panels),
+    r("7 DXF outlines match parts incl. corner arcs (layer OUTLINE only)", not dbad and len(files) == len(panels),
       f"{len(files)} DXF / {len(panels)} panels; bad {dbad}")
     # 8 IDs
     pids = [x.id for x in m.parts]
     ok = len(set(pids)) == len(pids) and all(x.startswith(m.product_id + "-") for x in pids) \
         and m.product_id in os.path.basename(step_path)
     r("8 IDs unique & consistent with product", ok, f"{len(pids)} part ids, prefix {m.product_id}-")
+    # one laminate per piece; banding colour follows the piece
+    multi = [x.id for x in m.parts if x.kind == "panel" and (not x.laminate or "/" in x.laminate or "+" in x.laminate)]
+    r("9 One laminate per piece (no collage)", not multi, f"parts without single laminate: {multi}")
     # product design-rule checks
     for c in m.checks:
         R.append({"check": "DR " + c["check"], "result": c["result"], "detail": c["detail"]})

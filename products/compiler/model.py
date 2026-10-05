@@ -4,9 +4,10 @@ Coordinate system (mm), right-handed:
   X = width  (left -> right, viewed from the front)
   Y = depth  (front -> rear / wall)
   Z = height (floor -> up)
-Every part is an axis-aligned rectangular solid. That is deliberate for v1:
-panel furniture is made of rectangular boards, and keeping parts as boxes
-lets BOM / cut list / DXF be derived exactly from the CAD geometry.
+Every part is an axis-aligned board, optionally with radiused corners in its
+own plane (CNC-routed). Boards stay flat rectangles-with-radii on purpose:
+that is what a panel saw / CNC router + edge bander can make from
+pre-laminated particle board, and it keeps BOM / cut list / DXF exact.
 """
 from __future__ import annotations
 
@@ -20,8 +21,8 @@ EXPOSED = "EXPOSED"      # visible to the customer, full-thickness band
 SEMI = "SEMI"            # visible only when a door is open / inside a bay
 CONCEALED = "CONCEALED"  # hidden by another panel, no band
 WALL = "WALL"            # faces the wall, no band
-FLOOR = "FLOOR"          # sits on the floor, no band (sealed)
-NO_BAND = {CONCEALED, WALL, FLOOR}
+FLOOR = "FLOOR"          # sits on the floor: thin band to SEAL the particle board core (wet mopping)
+NO_BAND = {CONCEALED, WALL}
 
 # Physical face names by axis direction.
 FACE_NAMES = {("x", 0): "left", ("x", 1): "right",
@@ -43,7 +44,10 @@ class Part:
     finish: str
     grain: str = "length"         # length | width | none
     edges: Dict[str, str] = field(default_factory=dict)  # physical face -> edge class
-    kind: str = "panel"           # panel (board, goes to cut list) | soft (foam etc.)
+    kind: str = "panel"           # panel (board -> cut list/DXF) | soft (foam) | light (LED profile) | proxy
+    laminate: str = ""            # ONE laminate code per part (no collage within a piece)
+    corner_radii: Dict[str, float] = field(default_factory=dict)  # 2D corners bl/br/tl/tr -> radius mm
+    light_dir: str = ""           # for kind=light: "down" (emits towards -Z)
     color: str = "#b08a62"
     explode: Tuple[float, float, float] = (0.0, 0.0, 0.0)
     open_box: Optional[Box] = None   # pose in the "open" state (doors)
@@ -70,6 +74,12 @@ class Part:
     @property
     def thickness(self) -> float:
         return self.size(self.thickness_axis)
+
+    @property
+    def volume(self) -> float:
+        import math
+        cut = sum((1 - math.pi / 4) * r * r for r in self.corner_radii.values())
+        return (self.length * self.width - cut) * self.thickness
 
     def edge_2d(self) -> Dict[str, Tuple[str, str]]:
         """Map the four board edges onto the 2D cut-list / DXF frame.
